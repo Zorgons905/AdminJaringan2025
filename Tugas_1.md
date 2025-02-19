@@ -101,9 +101,9 @@ Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
 Dikerjakan Oleh : <br>
 </p>
 <p>
-&emsp;&emsp;&emsp;Nama&emsp;: Nanda Ahmad Zidan <br>
-&emsp;&emsp;&emsp;NRP&emsp;&emsp;: 3123600013 <br>
-&emsp;&emsp;&emsp;Kelas&emsp;: 2 D4 IT A <br>
+&emsp;&emsp;&emsp;&emsp;Nama&emsp; : Nanda Ahmad Zidan <br>
+&emsp;&emsp;&emsp;&emsp;NRP&emsp;&emsp;: 3123600013 <br>
+&emsp;&emsp;&emsp;&emsp;Kelas&emsp;&emsp;: 2 D4 IT A <br>
 <br>
 </p>
 <p align="center">
