@@ -24,6 +24,7 @@ Underlined, center dll kita pakai format HTML
 <center>Centered Text</center> <br>
 
 Dibawah ini ada hidden comment <br>
+
 [hidden comment]: #
 <br> if its works why not? jadi di atas itu fitur yang ditemuin orang, intinya dia mengubah syntax link dicampur dengan definisi dan syntax heading untuk menyembunyikan linknya.
 
