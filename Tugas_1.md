@@ -6,5 +6,5 @@
 
 ini paragraph biasa
 
-> :Warning: **Warning** Do not push the big red button
+> :warning: **Warning** Do not push the big red button
 
