@@ -4,7 +4,7 @@
 ... sampai
 ###### Heading 6
 
-### Heading ini ada id nya{#8}
+### Heading ini ada id nya {#custom_id}
 
 ini paragraph biasa
 
@@ -12,7 +12,7 @@ dibawah pembatas
 ---
 
 
-:warning: Emoji diapit :..:
+:warning: Emoji diapit :
 
 *ini italic*
 ***BOLD and italic***
