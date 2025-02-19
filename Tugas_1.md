@@ -76,3 +76,26 @@ ini kalimat footnote. [^1]
 [^1]: footnotenya
 
 
+
+
+
+
+
+<br>
+
+<p align="right">`SURABAYA` <br> `04 DESEMBER 2024`</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
