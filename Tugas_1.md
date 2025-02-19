@@ -85,7 +85,7 @@ ini kalimat footnote. [^1]
 
 <p align="right" color="grey">SURABAYA <br> 04 DESEMBER 2024 </p>
 <p align="center">
-    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/PENS.png" width="340" height="302">    
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/PENS.png" width="300" height="300">    
 </p>
 
 
