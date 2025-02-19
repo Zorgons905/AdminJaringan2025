@@ -24,9 +24,9 @@ dibawah ini ada pembatasnya
 Underlined, center dll kita pakai format HTML
 <ins>underlined</ins> <br>
 <p align="center">Centered Text</p> <br>
-<p align: left;">Left Text</p> <br>
-<p align: right;">Right Text</p> <br>
-<p align: justify;">Justified Text</p>
+<p align="left">Left Text</p> <br>
+<p align="right">Right Text</p> <br>
+<p align="justify">Justified Text</p>
 
 Dibawah ini ada hidden comment <br>
 
