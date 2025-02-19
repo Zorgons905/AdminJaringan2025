@@ -12,7 +12,7 @@ ini paragraph biasa
 dibawah ini ada pembatasnya
 
 ---
-<br> untuk enter
+<br> untuk enter gunakan `<br>`
 
 :warning: Emoji diapit :
 
