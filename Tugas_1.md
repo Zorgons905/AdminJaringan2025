@@ -74,3 +74,5 @@ Tabel biasa
 
 ini kalimat footnote. [^1]
 [^1]: footnotenya
+
+
