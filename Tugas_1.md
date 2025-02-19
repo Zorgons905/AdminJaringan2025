@@ -85,7 +85,7 @@ ini kalimat footnote. [^1]
 
 ---
 
-<p align="right" color="grey">
+<p align="right">
     SURABAYA <br> 04 DESEMBER 2024
 </p> <br>
 
@@ -99,10 +99,14 @@ Nama Dosen Pengampu : <br>
 Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
 <br>
 Dikerjakan Oleh : <br>
-Nama<&emsp>: Nanda Ahmad Zidan <br>
-NRP<&emsp>: 3123600013 <br>
-Kelas<&emsp>: 2 D4 IT A <br>
+</p>
+<p>
+&emsp; Nama&emsp;: Nanda Ahmad Zidan <br>
+&emsp; NRP&emsp;: 3123600013 <br>
+&emsp; Kelas&emsp;: 2 D4 IT A <br>
 <br>
+</p>
+<p align="center">
 Tahun Pelajaran 2024/2025 <br>
 <strong>POLITEKNIK ELEKTRONIKA NEGERI SURABAYA</strong>
 </p>
