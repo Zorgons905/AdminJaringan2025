@@ -10,23 +10,23 @@ ini paragraph biasa
 
 dibawah pembatas
 ---
-
+<br> untuk enter
 
 :warning: Emoji diapit :
 
-*ini italic*
-***BOLD and italic***
-==Highlight==
-~~Strikethrough~~
+*ini italic* <br>
+***BOLD and italic*** <br>
+==Highlight== <br>
+~~Strikethrough~~ <br>
 
 Underlined, center dll kita pakai format HTML
-<ins>underlined</ins>
+<ins>underlined</ins> <br>
 <center>Centered Text</center>
 
 [hidden comment]: #
 if its works why not? jadi di atas itu fitur yang ditemuin orang, intinya dia mengubah syntax link dicampur dengan definisi dan syntax heading untuk menyembunyikan linknya.
 
-Subscript formatnya H~2~0 diapit ~
+Subscript formatnya H~2~0 diapit ~ <br>
 Superscript formatnya X^2^ diapit ^
 
 > blockquotes
