@@ -9,7 +9,6 @@
 
 ini paragraph biasa
 
-dibawah pembatas
 ---
 <br> untuk enter
 
