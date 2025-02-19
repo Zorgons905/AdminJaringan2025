@@ -31,6 +31,7 @@ Dibawah ini ada hidden comment <br>
 
 Subscript formatnya H~2~0 diapit ~ <br>
 Superscript formatnya X^2^ diapit ^ <br>
+kalau tidak bisa pakai html H<sub>2</sub>O & X<sup>2</sup> 
 
 > blockquotes
 >> Nested blockquotes
