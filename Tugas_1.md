@@ -4,7 +4,7 @@
 ... sampai
 ###### Heading 6
 
-###(#custom_id) Heading ini ada id nya
+### Heading ini ada id nya
 [Ini link menuju heading dengan custom id](#custom_id)
 
 ini paragraph biasa
@@ -22,7 +22,9 @@ dibawah pembatas
 
 Underlined, center dll kita pakai format HTML
 <ins>underlined</ins> <br>
-<center>Centered Text</center> <br>
+<p style="text-align:center">Centered Text</p> <br>
+<p style="text-align:left">Centered Text</p> <br>
+<p style="text-align:right">Centered Text</p> <br>
 
 Dibawah ini ada hidden comment <br>
 
