@@ -4,7 +4,7 @@
 ... sampai
 ###### Heading 6
 
-### Heading ini ada id nya {#custom_id}
+###(#custom_id) Heading ini ada id nya
 [Ini link menuju heading dengan custom id](#custom_id)
 
 ini paragraph biasa
