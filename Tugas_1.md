@@ -56,7 +56,7 @@ AyamGoreng = 2
 
 <br> [ini format Link](https://www.google.co.id/) tapi link ini membuka di page yang sama.
 <br> jika ingin di page baru maka pakai html.
-<a href="https://www.google.co.id" target="_blank">Link google</a>
+<a target="_blank" href="https://www.google.co.id">Link google</a>
 
 <br> ![ini gambar ayam](https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain)
 
