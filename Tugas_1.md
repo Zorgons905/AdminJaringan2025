@@ -83,7 +83,7 @@ ini kalimat footnote. [^1]
 
 <br>
 
-<p align="right">`SURABAYA` <br> `04 DESEMBER 2024`</p>
+<p align="right" color="grey">SURABAYA <br> 04 DESEMBER 2024 </p>
 
 
 
