@@ -50,13 +50,12 @@ Katanya
 `ini font code biasa`
 
 ```python
-# ini codeblocks
-AyamGoreng = 2
+print("Hello, world!")
+for i in range(10):
+    print(i)
 ```
 
 <br> [ini format Link](https://www.google.co.id/) tapi link ini membuka di page yang sama.
-<br> jika ingin di page baru maka pakai html.
-<a target="_blank" href="https://www.google.co.id">Link google</a>
 
 <br> ![ini gambar ayam](https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain)
 
