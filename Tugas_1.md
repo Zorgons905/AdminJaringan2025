@@ -23,10 +23,10 @@ dibawah ini ada pembatasnya
 
 Underlined, center dll kita pakai format HTML
 <ins>underlined</ins> <br>
-<p style="text-align: center;">Centered Text</p> <br>
-<p style="text-align: left;">Left Text</p> <br>
-<p style="text-align: right;">Right Text</p> <br>
-<p style="text-align: justify;">Justified Text</p>
+<p align="center">Centered Text</p> <br>
+<p align: left;">Left Text</p> <br>
+<p align: right;">Right Text</p> <br>
+<p align: justify;">Justified Text</p>
 
 Dibawah ini ada hidden comment <br>
 
