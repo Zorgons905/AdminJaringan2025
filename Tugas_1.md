@@ -5,6 +5,7 @@
 ###### Heading 6
 
 ### Heading ini ada id nya {#custom_id}
+[Ini link menuju heading dengan custom id](#custom_id)
 
 ini paragraph biasa
 
@@ -48,16 +49,17 @@ Katanya
 AyamGoreng = 2
 ```
 
-[ini format Link](https://www.google.co.id/) tapi link ini membuka di page yang sama.
-jika ingin di page baru maka pakai html.
-<a href="https://www.google.co.id/" target="_blank">Link google</a>
+<br> [ini format Link](https://www.google.co.id/) tapi link ini membuka di page yang sama.
+<br> jika ingin di page baru maka pakai html.
+<a href="https://www.google.co.id" target="_blank">Link google</a>
 
-![ini gambar ayam](https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain)
+<br> ![ini gambar ayam](https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain)
 
-jika ingin membenahi width dan heightnya kita pakai html
-<img src="https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain" width="200" height="100">
+<br> jika ingin membenahi width dan heightnya kita pakai html
+<br> <img src="https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain" width="200" height="100">
 
-
+<br> ini cara menambahkan video
+<br> [![Less Than Jake — Scott Farcas Takes It On The Chin](https://img.youtube.com/vi/PYCxct2e0zI/0.jpg)](https://www.youtube.com/watch?v=PYCxct2e0zI)
 
 
 Tabel biasa
