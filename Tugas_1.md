@@ -57,7 +57,7 @@ for i in range(10):
 
 <br> [ini format Link](https://www.google.co.id/) tapi link ini membuka di page yang sama.
 
-<br> ![ini gambar ayam](https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain)
+<br> ![ini gambar ayam](https://github.com/Zorgons905/AdminJaringan2025/blob/main/PENS.png)
 
 <br> jika ingin membenahi width dan heightnya kita pakai html
 <br> <img src="https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain" width="200" height="100">
