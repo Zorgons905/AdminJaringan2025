@@ -21,13 +21,14 @@ dibawah pembatas
 
 Underlined, center dll kita pakai format HTML
 <ins>underlined</ins> <br>
-<center>Centered Text</center>
+<center>Centered Text</center> <br>
 
+Dibawah ini ada hidden comment <br>
 [hidden comment]: #
-if its works why not? jadi di atas itu fitur yang ditemuin orang, intinya dia mengubah syntax link dicampur dengan definisi dan syntax heading untuk menyembunyikan linknya.
+<br> if its works why not? jadi di atas itu fitur yang ditemuin orang, intinya dia mengubah syntax link dicampur dengan definisi dan syntax heading untuk menyembunyikan linknya.
 
 Subscript formatnya H~2~0 diapit ~ <br>
-Superscript formatnya X^2^ diapit ^
+Superscript formatnya X^2^ diapit ^ <br>
 
 > blockquotes
 >> Nested blockquotes
