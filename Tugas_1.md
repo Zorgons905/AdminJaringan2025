@@ -83,6 +83,7 @@ ini kalimat footnote. [^1]
 
 <br>
 
+---
 
 <p align="right" color="grey">
     SURABAYA <br> 04 DESEMBER 2024
@@ -102,9 +103,11 @@ Nama<&emsp>: Nanda Ahmad Zidan <br>
 NRP<&emsp>: 3123600013 <br>
 Kelas<&emsp>: 2 D4 IT A <br>
 <br>
-Tahun Pelajaran 2024/2025
+Tahun Pelajaran 2024/2025 <br>
 <strong>POLITEKNIK ELEKTRONIKA NEGERI SURABAYA</strong>
 </p>
+
+---
 
 
 
