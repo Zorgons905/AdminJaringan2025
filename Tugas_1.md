@@ -48,9 +48,9 @@ Katanya
 AyamGoreng = 2
 ```
 
-[ini format Link](www.google.com) tapi link ini membuka di page yang sama.
+[ini format Link](https://www.google.co.id/) tapi link ini membuka di page yang sama.
 jika ingin di page baru maka pakai html.
-<a href="www.google.com" target="_blank">Link google</a>
+<a href="https://www.google.co.id/" target="_blank">Link google</a>
 
 ![ini gambar ayam](https://th.bing.com/th/id/OIP.fJSlWKWeuR56aS3pdyG3LgHaEO?rs=1&pid=ImgDetMain)
 
