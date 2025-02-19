@@ -83,7 +83,13 @@ ini kalimat footnote. [^1]
 
 <br>
 
-<p align="right" color="grey">SURABAYA <br> 04 DESEMBER 2024 </p>
+
+<p align="right" color="grey">
+    SURABAYA <br> 04 DESEMBER 2024
+</p> <br>
+
+<h1 align="center"><ins>LAPORAN RESMI</ins></h1>
+
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/PENS.png" width="300" height="300">    
 </p>
