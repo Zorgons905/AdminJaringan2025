@@ -116,6 +116,7 @@ Tahun Pelajaran 2024/2025 <br>
 
 ---
 <br>
+
 <h2 align="center">DAFTAR ISI</h2>
 <br>
 
@@ -126,24 +127,52 @@ B. [DASAR TEORI.............................1](#b-dasar-teori)<br>
 2. [Mengenal Layer OSI....................2](#2-mengenal-layer-osi)<br>
 
 C. [PERCOBAAN..............................i](#c-percobaan)<br>
-1. [Persoalan............................1](#1-persoalan)<br>
+1. [Pertanyaan............................1](#1-pertanyaan)<br>
 2. [Jawaban..............................1](#2-jawaban)<br>
 
 D. [DAFTAR PUSTAKA..............................i](#d-daftar-pustaka)<br>
 
 
 <p align="center">i</p>
+
 ---
 
 ## A. TUJUAN PEMBELAJARAN
-
+1. Memahami bagaimana cara menjalankan wireshark
+2. Memahami bagian-bagian dari datagram yang ada pada wireshark
+3. Memahami layer OSI dalam internet secara mendalam
+4. Memahami apa itu HTTP
+5. Memahami apa itu three-way handshake
+6. Memahami 
 ---
 
 ## B. DASAR TEORI
+1. Mengenal Wireshark
+<p>
+Wireshark adalah aplikasi untuk menampilkan hasil jejak rute / tracing route packet data dari router terdekat yang lalu ditangkap oleh komputer kita. Hasilnya lalu ditampilkan dalam rupa tabel berisi keterangan tertentu seperti no.packet, time / waktu respon packet, alamat source / sumber dan destination / destinasi packet, protocol yang digunakan, length / panjang data yang diterima maupun dikirim, dan info notifikasi dari program jaringan yang sedang kita jalankan maupun balasan dari destinasinya.
+<br>
+Pada Wireshark terdapat beberapa tampilan dan istilah yang perlu diketahui :
+</p>
+
+2. Mengenal Layer OSI
 
 ---
 
 ## C. PERCOBAAN
+### 1. Pertanyaan
+1. Analisa file http.cap dengan wireshark :
+   - Versi HTTP yang digunakan,
+   - IP address dari client maupun server,
+   - Waktu dari client mengirimkan HTTP request,
+   - Waktu dari server mengirinmkan server dan berapa durasinya
+2. Deskripsi gambar pada slide
+
+3. Rangkuman tahapan komunikasi menggunakan TCP
+
+
+### 2. Jawaban
+1. 
+
 
 ---
 
