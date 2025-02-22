@@ -131,8 +131,8 @@ C. [PERCOBAAN..............................i](#c-percobaan)<br>
 
 D. [DAFTAR PUSTAKA..............................i](#d-daftar-pustaka)<br>
 
-`                                        i                                       `
 
+<p align="center">i</p>
 ---
 
 ## A. TUJUAN PEMBELAJARAN
