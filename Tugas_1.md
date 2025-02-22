@@ -168,17 +168,19 @@ Contoh : 84-07-fb-2d-09-e8
 <br><br>
 Layer 3 : Network layer<br>
 &emsp;Adalah layer yang berfungsi untuk menangani alamat logis dan pengiriman paket data antar jaringan (ibarat seperti no.seri/user yang diberikan oleh olshop untuk membedakan mana penjual dan pembeli). Yang paling terkenal dari Network layer adalah IP(versinya ada 2 yakni IPv4 dan IPv6) atau internet protocol ada juga protocol lain, seperti ICMP (ping request), RIP, IPsec, dll.<br>
-IPv4 sendiri IP yang berbentuk desimal yang diberikan router pada device yang tersambung. Panjangnya 4 byte/32bit. Size header / tambahan file yang diberikan pada file masuk maupun keluar adalah 20-60 bytes. Jenis ip ini sering digunakan, sedangkan untuk IPv6 masih belum masif penggunaannya.
-Contoh&emsp;: 192.168.1.1&emsp;&emsp;IPv4
+IPv4 sendiri IP yang berbentuk desimal yang diberikan router pada device yang tersambung. Panjangnya 4 byte/32bit. Size header / tambahan file yang diberikan pada file masuk maupun keluar adalah 20-60 bytes. Jenis ip ini sering digunakan, sedangkan untuk IPv6 masih belum masif penggunaannya.<br>
+Contoh&emsp;: 192.168.1.1&emsp;&emsp;IPv4<br>
 &emsp;&emsp;&emsp; 2001:0db8:85a3::7334&emsp;&emsp;IPv6
 <br><br>
 Layer 4 : Transport layer<br>
 &emsp;Adalah layer yang menampilkan informasi mengenai bagaimana data ditransfer di aplikasi seperti no.port dan status koneksi dalam bentuk pemecahan data menjadi beberapa segmen dan nantinya di reassembly (ibarat kurir yang membawa paket bisa dalam bentuk paket terpisah maupun satu paket besar). Contoh protocolnya adalah TCP, dan UDP.<br>
 Misalnya untuk TCP, hardware akan mengirimkan handshake / perkenalan kepada perangkat tertaut. Misal untuk wifi ke laptop. Maka akan terjadi 3 handshake berupa :
 </p>
-•	Laptop mengirim handshake [SYN] kepada wifi untuk mennyinkronisasi dengan wifi,
-•	Lalu wifi mengirim handshake [SYN,ACK] untuk menyetujui laptop, 
-•	Laptop lalu memberitahu ke wifi bahwa persetujuan diterima dengan handshake [ACK].
+
+- Laptop mengirim handshake `[SYN]` kepada wifi untuk mennyinkronisasi dengan wifi,
+- Lalu wifi mengirim handshake `[SYN,ACK]` untuk menyetujui laptop, 
+- Laptop lalu memberitahu ke wifi bahwa persetujuan diterima dengan handshake `[ACK]`.
+
 <p>
 Sedangkan untuk UDP digunakan untuk broadcasting, biasanya dalam penampilan video online UDP digunakan tanpa kita harus mendownload semua data dan menyimpannya ke dalam device kita. UDP bekerja tanpa adanya handshake dan semua device bisa mengakses data tersebut asalkan sudah mendapat izin dari layer sebelumnya.
 <br><br>
