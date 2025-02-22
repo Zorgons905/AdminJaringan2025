@@ -115,7 +115,7 @@ Tahun Pelajaran 2024/2025 <br>
 
 <h2 align="center">DAFTAR ISI</h2>
 
-[DAFTAR ISI.............................i](#DAFTAR-ISI)
+[DAFTAR ISI.............................i](#daftar-isi)
 
 
 
