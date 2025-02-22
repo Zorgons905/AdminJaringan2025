@@ -102,7 +102,8 @@ Dikerjakan Oleh : <br>
 </p>
 
 <p>
-&emsp;&emsp;&emsp;&emsp;Nama&emsp; : Nanda Ahmad Zidan <br>
+&ems
+    p;&emsp;&emsp;&emsp;Nama&emsp; : Nanda Ahmad Zidan <br>
 &emsp;&emsp;&emsp;&emsp;NRP&emsp;&emsp;: 3123600013 <br>
 &emsp;&emsp;&emsp;&emsp;Kelas&emsp; : 2 D4 IT A <br>
 <br>
@@ -119,13 +120,13 @@ Tahun Pelajaran 2024/2025 <br>
 <br>
 
 [DAFTAR ISI...............................i](#daftar-isi)<br>
-[A.TUJUAN PEMBELAJARAN....................1](#tujuan-pembelajaran)<br>
-[B.DASAR TEORI............................1](#dasar-teori)<br>
-[  1.Mengenal Wireshark...................1](#mengenal-wireshark)<br>
-[  2.Mengenal Layer OSI...................2](#mengenal-layer-osi)<br>
-[C.PERCOBAAN..............................i](#daftar-isi)<br>
-[  1.Persoalan............................1](#mengenal-wireshark)<br>
-[  2.Jawaban..............................1](#mengenal-layer-osi)<br>
+A. [TUJUAN PEMBELAJARAN....................1](#tujuan-pembelajaran)<br>
+B. [DASAR TEORI............................1](#dasar-teori)<br>
+1. [Mengenal Wireshark...................1](#mengenal-wireshark)<br>
+2. [Mengenal Layer OSI...................2](#mengenal-layer-osi)<br>
+C. [PERCOBAAN..............................i](#daftar-isi)<br>
+1. [Persoalan............................1](#mengenal-wireshark)<br>
+2. [Jawaban..............................1](#mengenal-layer-osi)<br>
 
 
 
