@@ -94,14 +94,14 @@ ini kalimat footnote. [^1]
 <h3 align="center">Mata Kuliah Workshop Administrasi Jaringan</h3>
 <p align="center">
 <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/PENS.png" width="300" height="300"><br>
+</p>
 
+<p align="center">
 Nama Dosen Pengampu : <br> 
 Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
 <br>
 Dikerjakan Oleh : <br>
-</p>
 
-<p>
 &emsp;&emsp;&emsp;&emsp;Nama&emsp; : Nanda Ahmad Zidan <br>
 &emsp;&emsp;&emsp;&emsp;NRP&emsp;&emsp;: 3123600013 <br>
 &emsp;&emsp;&emsp;&emsp;Kelas&emsp; : 2 D4 IT A <br>
