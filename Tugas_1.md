@@ -101,7 +101,8 @@ Nama Dosen Pengampu : <br>
 Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
 <br>
 Dikerjakan Oleh : <br>
-
+</p>
+<p>
 &emsp;&emsp;&emsp;&emsp;Nama&emsp; : Nanda Ahmad Zidan <br>
 &emsp;&emsp;&emsp;&emsp;NRP&emsp;&emsp;: 3123600013 <br>
 &emsp;&emsp;&emsp;&emsp;Kelas&emsp; : 2 D4 IT A <br>
