@@ -148,8 +148,8 @@ D. [DAFTAR PUSTAKA..............................i](#d-daftar-pustaka)<br>
 ---
 
 ## B. DASAR TEORI
-1. Mengenal Wireshark
-<p>
+> 1. Mengenal Wireshark
+>> <p>
 &emsp;Wireshark adalah aplikasi untuk menampilkan hasil jejak rute / tracing route packet data dari router terdekat yang lalu ditangkap oleh komputer kita. Hasilnya lalu ditampilkan dalam rupa tabel berisi keterangan tertentu seperti no.packet, time / waktu respon packet, alamat source / sumber dan destination / destinasi packet, protocol yang digunakan, length / panjang data yang diterima maupun dikirim, dan info notifikasi dari program jaringan yang sedang kita jalankan maupun balasan dari destinasinya.<br>
 <br>
 Pada Wireshark terdapat beberapa tampilan dan istilah yang perlu diketahui :
