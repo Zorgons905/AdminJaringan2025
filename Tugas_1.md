@@ -145,14 +145,15 @@ D. [DAFTAR PUSTAKA..............................i](#d-daftar-pustaka)<br>
 5. Memahami apa itu tipe pengiriman data
 6. Memahami apa itu three-way handshake
 
----
-
 ## B. DASAR TEORI
 1. Mengenal Wireshark
 <p>
 &emsp;Wireshark adalah aplikasi untuk menampilkan hasil jejak rute / tracing route packet data dari router terdekat yang lalu ditangkap oleh komputer kita. Hasilnya lalu ditampilkan dalam rupa tabel berisi keterangan tertentu seperti no.packet, time / waktu respon packet, alamat source / sumber dan destination / destinasi packet, protocol yang digunakan, length / panjang data yang diterima maupun dikirim, dan info notifikasi dari program jaringan yang sedang kita jalankan maupun balasan dari destinasinya.<br>
 <br>
 Pada Wireshark terdapat beberapa tampilan dan istilah yang perlu diketahui :
+</p>
+<p align="center">
+    <img src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/KenalWireshark.png"><br>
 </p>
 
 2. Mengenal Layer OSI
@@ -162,6 +163,9 @@ Pada Wireshark terdapat beberapa tampilan dan istilah yang perlu diketahui :
 Layer 1 : Physical layer<br>
 &emsp;Adalah layer yang mengatur bagaimana data akan tersampaikan. Data elektronik dapat pertama-tama diubah menjadi bit data di dalam memori lalu disalurkan melalui bisa saja ethernet card maupun wifi, bila melalui ethernet maka data akan diubah menjadi sinyal listrik (gelombang sin) dan bila melalui wifi akan diubah menjadi gelombang elektromagnetik (gelombang radio) sedangkan bila kita mengirim data ke internet dengan kabel optik maka ia akan diubah menjadi sinyal cahaya.
 <br><br>
+
+---
+
 Layer 2 : Datalink layer<br>
 &emsp;Adalah layer yang berfungsi untuk transmisi data antar perangkat, berisi alamat mac dari komputer maupun router (ibarat seperti alamat rumah sumber dan tujuan pembeli dan penjual olshop). Sehingga mampu menghubungkan device ke server maupun ke device lain, karena mempunyai alamat sumber / source dan tujuan / destination. Contoh protocolnya adalah ARP, ATM, CDP, dll. Ditandai dengan rentetan angka heksadesimal (mac addressnya) sebesar 6 byte/48 bit.<br>
 Contoh : 84-07-fb-2d-09-e8
@@ -184,6 +188,9 @@ Misalnya untuk TCP, hardware akan mengirimkan handshake / perkenalan kepada pera
 <p>
 Sedangkan untuk UDP digunakan untuk broadcasting, biasanya dalam penampilan video online UDP digunakan tanpa kita harus mendownload semua data dan menyimpannya ke dalam device kita. UDP bekerja tanpa adanya handshake dan semua device bisa mengakses data tersebut asalkan sudah mendapat izin dari layer sebelumnya.
 <br><br>
+
+---
+
 Layer 5 : Session layer <br>
 &emsp;Adalah layer yang menjaga data agar aman dan sampai pada tujuan tanpa adanya data yang bocor atau masuk ke dalam perangkat lain di jaringan yang sama. Session sangat terikat dengan presentation layer dan application layer (ibarat kemasan dari paket olshop orang lain tidak boleh membukanya karena bukan miliknya dan alamat maupun data user yang berbeda). Ia bertugas untuk membuka, memelihara dan menutup sesi komunikasi antar dua aplikasi. Contoh protocolnya adalah NFS, RPC, SQL, SMB, CIFS dll.<br>
 Misalnya kita mengakses sebuah browser maka sesuai dengan OS yang digunakan maka akan dilakukan pembukaan sesi dengan router ataupun device lain (untuk Windows menggunakan SMB untuk browsing). Jadi jika ada file yang terbagikan oleh device / router lain. Device lain tidak akan bisa menginterupsi dan menggagalkan file sharing tersebut atau bahkan mengambil data dari pengunduhan file tersebut.
@@ -196,6 +203,7 @@ Layer 7 : Application layer<br>
 &emsp;Adalah layer untuk menangani interaksi antara aplikasi pengguna dan jaringan. Protokolnya seperti HTTP, HTTPs, FTP, SMTP, dll.<br>
 Adapun untuk application layer ibarat penggunaan dari barang olshop yang kita beli dan merek dari barang tersebut. Misal saja untuk HTTPS karena ia memiliki SSL atau encryption. Maka data pada website akan lebih aman karena meskipun dua buah device membuka alamat website yang sama namun terdapat enkripsi data yang berbeda. Sehingga ia tidak akan mudah diedit oleh orang lain.
 </p>
+
 ---
 
 ## C. PERCOBAAN
@@ -211,11 +219,52 @@ Adapun untuk application layer ibarat penggunaan dari barang olshop yang kita be
 ### 2. Jawaban
 1. Pertama kita download dulu file dari https://wiki.wireshark.org/SampleCaptures, lalu kita buka isi file png tersebut menggunakan wireshark. Berikut adalah gambarnya :<br>
 <p align="center">
-<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png"><br>
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png">
 </p>
+<br>
+Tampak pada gambar terdapat runtutan proses yang terjadi antara client (komputer/laptop user) dengan server. Adapun yang sedang terjadi pada gambar tersebut seccara ringkas adalah user sedang meminta server untuk mengirimkan data file yang diminta user (proses download), di tengah proses download itu juga muncul pop up iklan yang kemudian dihilangkan oleh server itu sendiri / automated ads. Kemudian sewaktu pendownloadan terjadi tetiba sinyal paket ada yang terduplikasi biasanya hal tersebut terjadi karena kebocoran sinyal data sehingga data kembali dikirimkan padahal sudah ada. Dan terakhir pada packet details/datagram paling bawah terjadi pemutusan koneksi dengan server.
+
+Di sisi lain mari menjawab pertanyaan yang diajukan berdasarkan materi wireshark yang sudah kita pelajari pada dasar teori :
+- Versi HTTP yang digunakan,
+  - Jika kita melihat pada waktu client mengirim perintah GET request maka akan dapat kita lihat pada datagramnya terdapat keterangan HTTP 1.1 sehingga itulah versi dari HTTP yang dimiliki
+<br>
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png">
+</p>
+
+- IP address dari client maupun server,
+  
+- Waktu dari client mengirimkan HTTP request,
+- Waktu dari server mengirinmkan server dan berapa durasinya
+
+| Runtutan Proses | Keterangan |
++-----------------+------------+
+| ![Permintaan client](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png) | Client mengakses  |
+||||
+||||
+||||
+||||
+||||
+||||
+
+
 2. Berikut adalah gambar dari slide 23.1
-   
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Tipe.png">
+</p>
+Penjelasan :
+
 3. Berikut adalah penjelasan mengenai tahapan komunikasi TCP / three-way handshake
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Establish.png">
+</p>
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Data-Transfer.png">
+</p>
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Termination.png">
+</p>
+Penjelasan :
 
 
 ---
