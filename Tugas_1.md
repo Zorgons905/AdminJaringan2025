@@ -48,8 +48,6 @@ C. [PERCOBAAN..............................i](#c-percobaan)<br>
 1. [Pertanyaan............................1](#1-pertanyaan)<br>
 2. [Jawaban..............................1](#2-jawaban)<br>
 
-D. [DAFTAR PUSTAKA..............................i](#d-daftar-pustaka)<br>
-
 
 <p align="center">i</p>
 
