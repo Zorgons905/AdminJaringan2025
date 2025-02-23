@@ -262,7 +262,7 @@ Penjelasan :
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Data-Transfer.png">
 </p>
 <p align="center">
-    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Termination.png">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Terminate.png">
 </p>
 Penjelasan :
 
