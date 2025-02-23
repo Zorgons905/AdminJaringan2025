@@ -1,4 +1,5 @@
-<p align=center size=100> 🥳 SELAMAT DATANG DI REPO ADMIN JARINGAN 💻 </p>
+<p align=center font-size=100> 🥳 SELAMAT DATANG DI REPO ADMIN JARINGAN 💻 </p>
+
 ---
 
 # PERKENALAN
