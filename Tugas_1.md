@@ -240,7 +240,7 @@ Di sisi lain mari menjawab pertanyaan yang diajukan berdasarkan materi wireshark
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram2.png">
 </p>
-Sedangkan pada waktu muncul popup iklan ia memiliki ip yang berbeda 145.254.160.137 dan 145.253.160.237
+Sedangkan pada waktu muncul popup iklan ia memiliki ip yang berbeda 145.254.160.137 (milik client) dan 145.253.160.237(milik server ads)
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram6.png">
 </p>
@@ -271,7 +271,10 @@ Pada pengiriman data akan ada perantara / komunikasi yang terjadi antara dua bua
 > yakni interaksi antara router dengan router yang menghantarkan paket data yang terkirim, adapun mereka (para router) akan berkenalan dengan router tetangga yang terdekat hingga paket sampai pada device tujuan. Dan interaksi ini diatur oleh protocol pada data link layer atau MAC address.
 
 - Host to Host : Network Layer
+> yakni interaksi antara host / pc / server / end device yang saling berkomunikasi. Host to host terjadi jika kedua device berada pada jaringan yang berbeda, sehingga memerlukan data berupa mac address dari device yang ingin terhubung. Adapun protokol yang bekerja pada pengiriman ini adalah network layer atau TCP
+ 
 - Process to process : Transport layer
+> yakni interaksi antara proses yang ada pada end device. Process to process terjadi ketika end device mengakses internet (artinya sebelumnya sudah ada router yang saling terkoneksi di radius, dan juga sudah ada koneksi ip yang terjalin antara 2 buah device yang berbeda jaringan). Protocol yang berlaku adalah transport layer karena port dari receiver dan sender akan berbeda tergantung proses apa yang terjadi.
 
 3. Berikut adalah penjelasan mengenai tahapan komunikasi TCP / three-way handshake
 Pada TCP terdapat aturan three way handshake yakni aturan untuk memulai suatu koneksi, menghantarkan data dan juga memutuskan koneksi.
@@ -303,13 +306,18 @@ misal biasanya akan ada dialog seperti ini :
 Misal setelah tadi sender mengirimkan data maka receiver akan membalas :
     - **seq = 80, Ack = 1381, dan len = 0** ➡ artinya nilai ack dari sender dipindah ke seq, receiver mengharapkan data pada urutan ke 1381, karena data yang ia terima sebesar 1380 bytes.
 
- 
+- Begitu seterusnya hingga data habis. Adapun ketika data yang dikirimkan di komputer masih diproses misa thresholdnya 4140 bytes maka server akan mengirim balasan PSH, ACK. yang artinya data masih didorong dan sender akan mengirimkan data lagi.
 
-
+<br>
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Terminate.png">
-</p>
-
+</p><br><br>
+Penjelasan : 
+Pada waktu memutus koneksi atau connection termination akan dimulai dengan pengiriman dialog FIN / finish dari client menuju server, kemudian server akan mengirimkan dialog FIN ACK yang berarti Finish dan Acknowledge yang berarti server juga mengakhiri / memutuskan dengan client dan kemudian memberi dialog ACK atau acknowledge yakni mengetahui permintaan koneksi client. Kemudian client akan mengirimkan dialog ACK yang membalas permintaan pemutusan koneksi dari server.
+- Client minta memutus koneksi (FIN) ke Server --> disebut juga active close, karena yang memulai client
+- Server menerima memutus koneksi, membalas client (FIN-ACK) --> disebut juga passive close, karena yang memulai adalah server langsung
+- Client membalas server (ACK)
+- Koneksi client dan server terputus
 
 
 
