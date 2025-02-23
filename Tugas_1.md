@@ -209,7 +209,13 @@ Adapun untuk application layer ibarat penggunaan dari barang olshop yang kita be
 3. Rangkuman tahapan komunikasi menggunakan TCP / three-way handshake
 
 ### 2. Jawaban
-1. 
+1. Pertama kita download dulu file dari https://wiki.wireshark.org/SampleCaptures, lalu kita buka isi file png tersebut menggunakan wireshark. Berikut adalah gambarnya :<br>
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png" width="300" height="300"><br>
+</p>
+2. Berikut adalah gambar dari slide 23.1
+   
+3. Berikut adalah penjelasan mengenai tahapan komunikasi TCP / three-way handshake
 
 
 ---
