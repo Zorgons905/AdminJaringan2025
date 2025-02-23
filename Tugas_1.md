@@ -226,52 +226,89 @@ Tampak pada gambar terdapat runtutan proses yang terjadi antara client (komputer
 
 Di sisi lain mari menjawab pertanyaan yang diajukan berdasarkan materi wireshark yang sudah kita pelajari pada dasar teori :
 - Versi HTTP yang digunakan,
-  - Jika kita melihat pada waktu client mengirim perintah GET request maka akan dapat kita lihat pada datagramnya terdapat keterangan HTTP 1.1 sehingga itulah versi dari HTTP yang dimiliki
+  - Jika kita melihat pada waktu client mengirim perintah GET request maka akan dapat kita lihat pada datagramnya terdapat keterangan HTTP 1.1 sehingga itulah versi dari HTTP yang dimiliki.
 <br>
 <p align="center">
-    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram4.png">
 </p>
 
 - IP address dari client maupun server,
+  - Pertama dapat kita lihat sewaktu kita melakukan SYNCHRONIZATION dapat kita lihat ip source dan destination Nampak pada src dan dst pada datagram tertera bahwa ip source / ip client adalah 145.254.160.137 sedangkan pada ip destination / ip server adalah 65.208.228.223
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png">
+</p>
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram2.png">
+</p>
+Sedangkan pada waktu muncul popup iklan ia memiliki ip yang berbeda 145.254.160.137 dan 145.253.160.237
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram6.png">
+</p>
   
 - Waktu dari client mengirimkan HTTP request,
-- Waktu dari server mengirinmkan server dan berapa durasinya
+<p align="center">
+    <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram12.png">
+</p>
 
-| Runtutan Proses | Keterangan |
-|-----------------|------------|
-| ![Permintaan client](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png) | Client mengakses|
-||||
-||||
-||||
-||||
-||||
-||||
+Penjelasan :
+Dapat dilihat pada tab time, nampak 0.911310 yang berarti client mengirimkan perintah itu pada waktu **0.911310 sekon** setelah membuat sinkronisasi dengan server
 
+- Waktu server menerima HTTP request dari client
+Penjelasan :
+Dapat dilihat dalam tabel di atas nampak respon HTTP 200 OK terjadi pada waktu **4.846969 sekon** setelah dialog SYN dikirim. 
+
+- Waktu yang dibutuhkan untuk transfer dan response dari client ke server
+Penjelasan : 
+Sehingga jika kita hitung perbedaan atau selisih dari waktu pengiriman adalah 4.846969 - 0.911310 = **3.935659 sekon.**
 
 2. Berikut adalah gambar dari slide 23.1
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Tipe.png">
 </p>
 Penjelasan :
+Pada pengiriman data akan ada perantara / komunikasi yang terjadi antara dua buah entitas entah itu antar device maupun antar proses. Nampak pada gambar tersebut terdapat 
+- Node to Node : Data Link layer 
+> yakni interaksi antara router dengan router yang menghantarkan paket data yang terkirim, adapun mereka (para router) akan berkenalan dengan router tetangga yang terdekat hingga paket sampai pada device tujuan. Dan interaksi ini diatur oleh protocol pada data link layer atau MAC address.
+
+- Host to Host : Network Layer
+- Process to process : Transport layer
 
 3. Berikut adalah penjelasan mengenai tahapan komunikasi TCP / three-way handshake
+Pada TCP terdapat aturan three way handshake yakni aturan untuk memulai suatu koneksi, menghantarkan data dan juga memutuskan koneksi.
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Establish.png">
 </p>
+Penjelasan :
+Pada waktu memulai koneksi atau connection establisment akan dimulai dengan pengiriman dialog SYN dari client menuju server, kemudian server akan mengirimkan dialog SYN ACK yang berarti Synchronize dan Acknowledge yang berarti server juga meng-sinkronisasi / menghubungkan dengan client dan kemudian memberi dialog ACK atau acknowledge yakni mengetahui permintaan koneksi client. Kemudian client akan mengirimkan dialog ACK yang membalas permintaan koneksi dari server.
+- Client minta koneksi (SYN) ke Server --> disebut juga active open, karena yang memulai client
+- Server meminta koneksi, membalas client (SYN-ACK) --> disebut juga passive open, karena yang memulai adalah server langsung
+- Client membalas server (ACK)
+- Koneksi client dan server terhubung
+
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Data-Transfer.png">
 </p>
+Penjelasan :
+Pada waktu mengirim data atau data transfer terjadi juga perintah / dialog antar client dan server. Dialog dimulai dengan siapa yang memulai. Misal untuk http get request maka yang memberikan data adalah server sedangkan jika http post request maka yang memberikan data adalah client. Jadi jika "get" maka receivernya adalah client dan sendernya adalah server. Sedangkan untuk "post" sendernya adalah client dan receivernya adalah server. 
+
+Data transfer dimulai dengan peristiwa berikut :
+
+- Sender mengirimkan dialog ACK yang artinya ia siap mengirimkan data adapun ia berisi angka random, sedangkan untuk seq atau sequence adalah angka yang menunjukan mula mula/ permulaan jumlah data yang terkirim selalu dimulai dengan angka 1, 
+misal biasanya akan ada dialog seperti ini :
+
+    - **seq = 1, Ack = 80, dan len = 0** ➡ artinya data dimulai terkirim dari urutan ke 1, dengan nilai Ack random = 80 dan besaran file yang terkirim dimulai dari 0 (gunanya untuk mengecek apakah server merespon atau tidak / tes ombak, maka sender akan mengirimkan lanjutan perintah pengiriman paket data)
+    - **seq = 1, Ack = 80, dan len = 1380** ➡ artinya data dimulai dari urutan ke 1, dengan nilai ack random, dan besaran data yang terkirim bernilai 1380 bytes.
+
+- Receiver akan memberikan balasan kepada sender dengan format seq yang berisi nilai ack dari pengiriman paket yang diberikan oler server
+Misal setelah tadi sender mengirimkan data maka receiver akan membalas :
+    - **seq = 80, Ack = 1381, dan len = 0** ➡ artinya nilai ack dari sender dipindah ke seq, receiver mengharapkan data pada urutan ke 1381, karena data yang ia terima sebesar 1380 bytes.
+
+ 
+
+
 <p align="center">
     <img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Terminate.png">
 </p>
-Penjelasan :
-
-
----
-
-## D. DAFTAR PUSTAKA
-
----
 
 
 
