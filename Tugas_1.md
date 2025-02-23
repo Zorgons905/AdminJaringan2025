@@ -238,8 +238,8 @@ Di sisi lain mari menjawab pertanyaan yang diajukan berdasarkan materi wireshark
 - Waktu dari server mengirinmkan server dan berapa durasinya
 
 | Runtutan Proses | Keterangan |
-+-----------------+------------+
-| ![Permintaan client](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png) | Client mengakses  |
+|-----------------|------------|
+| ![Permintaan client](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/Datagram.png) | Client mengakses|
 ||||
 ||||
 ||||
