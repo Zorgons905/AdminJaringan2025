@@ -1,4 +1,5 @@
-<p align=center> 🥳 SELAMAT DATANG DI REPO ADMIN JARINGAN 💻 </p>
+<p align=center size=100> 🥳 SELAMAT DATANG DI REPO ADMIN JARINGAN 💻 </p>
+---
 
 # PERKENALAN
 > Assalamu'alaikum perkenalkan saya Nanda Ahmad Zidan dari kelas 2 D4 IT A dengan nrp 3123600013
