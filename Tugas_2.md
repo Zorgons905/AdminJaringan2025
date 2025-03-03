@@ -112,13 +112,16 @@ Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps
 | a | Menampilkan all / semua proses dalam komputer bukan hanya user dari terminal tersebut |
 | u | Menampilkan detail dalam format user-oriented (menampilkan informasi seperti pemilik proses, CPU usage, dan memory usage) |
 | x | Menampilkan proses yang tidak terhubung dengan terminal (misalnya, daemon atau background processes) |
-- e | Menampilkan semua proses yang sedang berjalan di sistem |
-- f | Format "full listing", memberikan detail tambahan seperti PID, PPID, UID, waktu eksekusi, dan perintah lengkap.
+| e | Menampilkan semua proses yang sedang berjalan di sistem |
+| f | Format "full listing", memberikan detail tambahan seperti PID, PPID, UID, waktu eksekusi, dan perintah lengkap |
 | j | Menampilkan informasi tentang job control, termasuk PGID (Process Group ID) dan SID (Session ID)|
 | s | Menampilkan informasi tentang status prosesor (termasuk flag sistem)|
 | m | Menampilkan informasi terkait penggunaan memori oleh proses|
 | -o [namaKolom1, Kolom2, dst tanpa kurung siku] | Menentukan kolom tertentu yang ingin ditampilkan, seperti PID, PPID, command, CPU usage, dan memory usage|
 | --sort=-[namaKolomTanpaKurungSiku] | Mengurutkan proses berdasarkan kolom tertentu, misalnya berdasarkan penggunaan CPU dari yang tertinggi|
+
+<br>
+Berikut contoh penggunaan ps
 
 ```bash
 zidan@f039c979e5f2:~$ ps aux
