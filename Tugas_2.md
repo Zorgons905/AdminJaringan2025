@@ -121,7 +121,7 @@ Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps
 | --sort=-[namaKolomTanpaKurungSiku] | Mengurutkan proses berdasarkan kolom tertentu, misalnya berdasarkan penggunaan CPU dari yang tertinggi|
 
 <br>
-Berikut contoh penggunaan ps
+Berikut contoh penggunaan ps :
 
 ```bash
 zidan@f039c979e5f2:~$ ps aux
@@ -131,8 +131,18 @@ root           7  0.0  0.0   4704  2724 pts/1    Ss   Mar02   0:00 bash
 root        5459  0.0  0.0   4140  2520 pts/1    S    01:19   0:00 su - zidan
 zidan       5460  0.0  0.0   4188  3428 pts/1    S    01:19   0:00 -bash
 zidan       5463  0.0  0.0   8088  4188 pts/1    R+   01:19   0:00 ps aux
-```
 
+zidan@f039c979e5f2:~$ ps lax
+F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
+4     0       1       0  20   0   4188   184 -      Ss+  pts/0      0:00 /bin/bash
+4     0       7       0  20   0   4704  2084 -      Ss   pts/1      0:00 bash
+4     0    5459       7  20   0   4140  2520 -      S    pts/1      0:00 su - zidan
+4  1000    5460    5459  20   0   4188  3428 do_wai S    pts/1      0:00 -bash
+0  1000    5465    5460  20   0   8088  4076 -      R+   pts/1      0:00 ps lax
+```
+*ps lax itu lebih cepat dari ps aux karena ia tak perlu menampilkan nama-nama user & group.<br><br>
+
+Adapun keterangan dari tiap kolom adalah :
 | Kolom | Deskripsi |
 |-------|-----------|
 | USER | Nama user dari pemilik proses |
@@ -142,7 +152,7 @@ zidan       5463  0.0  0.0   8088  4188 pts/1    R+   01:19   0:00 ps aux
 | VSZ | Bobot virtual dari proses (byte) |
 | RSS | Resident set size (nomor halaman dalam memory) |
 | TTY | Control terminal ID |
-| STAT | Current process status: <br> R = Runnable / Berjalan D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) T = Traced / Berhenti <br> I = Idle / diam Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Proses sedag menggunakan memory paging <br> s = Proses ialah leader session <br> l = Proses memiliki banyak thread <br> + = Proses berjalan di foreground dalam terminal |
+| STAT | Current process status: <br> R = Runnable / Berjalan <br> D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) <br> T = Traced / Berhenti <br> I = Idle / diam <br> Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = Proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Proses sedag menggunakan memory paging <br> s = Proses ialah leader session <br> l = Proses memiliki banyak thread <br> + = Proses berjalan di foreground dalam terminal |
 
 ### Siklus Hidup dari Proses
 
