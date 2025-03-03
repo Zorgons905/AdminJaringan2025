@@ -94,16 +94,31 @@ Konsep proses "namespaces" memungkinkan proses yang berbeda untuk memiliki PID y
 
 #### PPID: nomor parent process ID
 Setiap proses juga terkait dengan proses orang tua, yaitu proses yang menciptakannya. Proses ibu ID nomor, atau PPID, adalah PID dari induk proses. PPID digunakan untuk merujuk pada proses induk dalam berbagai panggilan sistem, misalnya, untuk mengirim sinyal ke proses induk.
+<br><br>
 
 #### UID dan EUID: user ID dan effective user ID
 User ID, atau UID, adalah ID pengguna pengguna yang memulai proses. ID pengguna yang efektif, atau EUID, adalah ID pengguna yang digunakan proses untuk menentukan sumber daya apa yang dapat diakses oleh proses. EUID digunakan untuk mengontrol akses ke file, port jaringan, dan sumber daya lainnya.
+<br><br>
 
 ### PS: Pemantauan Proses
 Perintah ps adalah alat utama administrator sistem untuk proses pemantauan. Meskipun versi ps berbeda dalam argumen dan tampilan mereka, mereka semua memberikan informasi yang sama pada dasarnya.
-
+<br><br>
 'ps' dapat menunjukkan PID, UID, prioritas, dan kontrol terminal proses. Ini juga memberi tahu Anda berapa banyak memori yang digunakan suatu proses, berapa banyak waktu CPU yang telah dikonsumsi, dan apa statusnya saat ini (berjalan, berhenti, tidur, dan sebagainya).
-
-Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps aux. Opsi ini memberi tahu orang-orang untuk menunjukkan proses semua pengguna, dan opsi u memberitahunya untuk memberikan informasi terperinci tentang setiap proses. Opsi x memberi tahu ps untuk menunjukkan proses yang tidak terkait dengan terminal.
+<br><br>
+Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps [tambahan kata kunci], yang kurang lebihnya kata kunci tambahan dari perintah ps yang dapat digunakan seperti ini (kata kunci bisa digabung misal aux, dll) : <br>
+| Kata Kunci | Deskripsi |
+|------------|-----------|
+| l | Menampilkan ps dalam format panjang,memberikan informasi tambahan seperti prioritas proses (PRI) dan nice value (NI) |
+| a | Menampilkan all / semua proses dalam komputer bukan hanya user dari terminal tersebut |
+| u | Menampilkan detail dalam format user-oriented (menampilkan informasi seperti pemilik proses, CPU usage, dan memory usage) |
+| x | Menampilkan proses yang tidak terhubung dengan terminal (misalnya, daemon atau background processes) |
+- e | Menampilkan semua proses yang sedang berjalan di sistem |
+- f | Format "full listing", memberikan detail tambahan seperti PID, PPID, UID, waktu eksekusi, dan perintah lengkap.
+| j | Menampilkan informasi tentang job control, termasuk PGID (Process Group ID) dan SID (Session ID)|
+| s | Menampilkan informasi tentang status prosesor (termasuk flag sistem)|
+| m | Menampilkan informasi terkait penggunaan memori oleh proses|
+| -o [namaKolom1, Kolom2, dst tanpa kurung siku] | Menentukan kolom tertentu yang ingin ditampilkan, seperti PID, PPID, command, CPU usage, dan memory usage|
+| --sort=-[namaKolomTanpaKurungSiku] | Mengurutkan proses berdasarkan kolom tertentu, misalnya berdasarkan penggunaan CPU dari yang tertinggi|
 
 ```bash
 zidan@f039c979e5f2:~$ ps aux
@@ -114,7 +129,6 @@ root        5459  0.0  0.0   4140  2520 pts/1    S    01:19   0:00 su - zidan
 zidan       5460  0.0  0.0   4188  3428 pts/1    S    01:19   0:00 -bash
 zidan       5463  0.0  0.0   8088  4188 pts/1    R+   01:19   0:00 ps aux
 ```
-kita bisa menggunakan 
 
 | Kolom | Deskripsi |
 |-------|-----------|
@@ -125,7 +139,7 @@ kita bisa menggunakan
 | VSZ | Bobot virtual dari proses (byte) |
 | RSS | Resident set size (nomor halaman dalam memory) |
 | TTY | Control terminal ID |
-| STAT | Current process status: <br> R = Runnable / Berjalan D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) T = Traced / Berhenti <br> I = Idle / diam Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Beberapa halaman itu terkunci dalam core <br> s = Proses ialah leader session |
+| STAT | Current process status: <br> R = Runnable / Berjalan D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) T = Traced / Berhenti <br> I = Idle / diam Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Proses sedag menggunakan memory paging <br> s = Proses ialah leader session <br> l = Proses memiliki banyak thread <br> + = Proses berjalan di foreground dalam terminal |
 
 ### Siklus Hidup dari Proses
 
