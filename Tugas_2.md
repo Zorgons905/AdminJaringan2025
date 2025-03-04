@@ -120,7 +120,6 @@ Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps
 | -o [namaKolom1, Kolom2, dst tanpa kurung siku] | Menentukan kolom tertentu yang ingin ditampilkan, seperti PID, PPID, command, CPU usage, dan memory usage|
 | --sort=-[namaKolomTanpaKurungSiku] | Mengurutkan proses berdasarkan kolom tertentu, misalnya berdasarkan penggunaan CPU dari yang tertinggi|
 
-<br><br>
 Adapun keterangan dari tiap kolom ps adalah :
 | Kolom | Deskripsi |
 |-------|-----------|
