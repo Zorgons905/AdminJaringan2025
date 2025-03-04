@@ -80,32 +80,28 @@ Struktur data internal kernel mencatat berbagai bagian informasi tentang setiap 
 - Informasi tentang file dan port jaringan proses telah dibuka
 - Masker sinyal proses (set sinyal yang saat ini diblokir)
 - Pemilik proses (ID pengguna pengguna yang memulai proses)
-<br>
+
 "Thread" adalah konteks eksekusi dalam suatu proses. Sebuah proses dapat memiliki beberapa threads, yang semuanya berbagi ruang alamat yang sama dan sumber daya lainnya. Thread digunakan untuk mencapai paralelisme dalam suatu proses. Thread juga dikenal sebagai proses ringan karena jauh lebih murah untuk dibuat dan dihancurkan daripada proses.
-<br><br>
+
 Sebagai contoh untuk memahami konsep proses dan thread, pertimbangkan web server. Server web mendengarkan koneksi masuk dan kemudian membuat thread baru untuk menangani setiap permintaan yang masuk. Setiap thread menangani satu permintaan pada satu waktu, tetapi server web secara keseluruhan dapat menangani banyak permintaan secara bersamaan karena memiliki banyak thread. Di sini, server web adalah sebuah proses, dan setiap thread adalah konteks eksekusi yang terpisah dalam proses.
-<br><br>
 
 #### PID: nomor process ID
 Setiap proses diidentifikasi dengan nomor ID proses yang unik, atau PID. PID adalah bilangan termakai yang ditugaskan kernel untuk setiap proses ketika proses dibuat. PID digunakan untuk merujuk pada proses dalam berbagai panggilan sistem, misalnya, untuk mengirim sinyal ke proses.
-<br><br>
+
 Konsep proses "namespaces" memungkinkan proses yang berbeda untuk memiliki PID yang sama. Namespace digunakan untuk membuat wadah, yang merupakan lingkungan terisolasi yang memiliki pandangan sendiri tentang sistem. Kontainer digunakan untuk menjalankan beberapa contoh aplikasi pada sistem yang sama, masing-masing di lingkungan yang terisolasi sendiri.
-<br><br>
 
 #### PPID: nomor parent process ID
 Setiap proses juga terkait dengan proses orang tua, yaitu proses yang menciptakannya. Proses ibu ID nomor, atau PPID, adalah PID dari induk proses. PPID digunakan untuk merujuk pada proses induk dalam berbagai panggilan sistem, misalnya, untuk mengirim sinyal ke proses induk.
-<br><br>
 
 #### UID dan EUID: user ID dan effective user ID
 User ID, atau UID, adalah ID pengguna pengguna yang memulai proses. ID pengguna yang efektif, atau EUID, adalah ID pengguna yang digunakan proses untuk menentukan sumber daya apa yang dapat diakses oleh proses. EUID digunakan untuk mengontrol akses ke file, port jaringan, dan sumber daya lainnya.
-<br><br>
 
 ### PS: Pemantauan Proses
 Perintah ps adalah alat utama administrator sistem untuk proses pemantauan. Meskipun versi ps berbeda dalam argumen dan tampilan mereka, mereka semua memberikan informasi yang sama pada dasarnya.
-<br><br>
+
 'ps' dapat menunjukkan PID, UID, prioritas, dan kontrol terminal proses. Ini juga memberi tahu Anda berapa banyak memori yang digunakan suatu proses, berapa banyak waktu CPU yang telah dikonsumsi, dan apa statusnya saat ini (berjalan, berhenti, tidur, dan sebagainya).
-<br><br>
-Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps [tambahan kata kunci], yang kurang lebihnya kata kunci tambahan dari perintah ps yang dapat digunakan seperti ini (kata kunci bisa digabung misal aux, dll) : <br>
+
+Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps [tambahan kata kunci], yang kurang lebihnya kata kunci tambahan dari perintah ps yang dapat digunakan seperti ini (kata kunci bisa digabung misal aux, dll) : 
 | Kata Kunci | Deskripsi |
 |------------|-----------|
 | l | Menampilkan ps dalam format panjang,memberikan informasi tambahan seperti prioritas proses (PRI) dan nice value (NI) |
@@ -189,11 +185,11 @@ Sekitar tiga puluh jenis yang berbeda didefinisikan, dan mereka digunakan dalam 
 ![Signal on Linux]()
 
 Sinyal KILL, INT, TERM, HUP, and QUIT semuanya nampak memiliki makna yang sama, tetapi penggunaannya sebenarnya agak berbeda.
-- KILL itu tak bisa dibatalkan dan memutus proses pada level kernel. Proses tertentu bisa saja tidak benar-benar mendapatkan atau menangani sinyal ini.
-- INT itu dikirimkan oleh driver terminal ketika user menekan <Control-C>. Itu adalah permintaan untuk memutus operasi terkini. Program simpel pasti keluar (jika mereka mendapatkan sinyal) atau mudahnya membiarkan dirinya untuk dimusnahkan, yang merupakan default jika sinyal tidak tertangkap. Program yang memiliki garis perintah interaktif (seperti shells) harus menghentikan apa yang mereka lakukan, membersihkan, dan menunggu masukan pengguna lagi.
-- TERM adalah permintaan untuk mengakhiri eksekusi sepenuhnya. Diharapkan bahwa proses penerimaan akan membersihkan keadaannya dan keluar.
-- HUP dikirim ke proses ketika terminal pengendali ditutup. Awalnya digunakan untuk menunjukkan "hang up" dari koneksi telepon, sekarang sering digunakan untuk menginstruksikan proses daemon untuk mengakhiri dan memulai kembali, sering untuk mempertimbangkan konfigurasi baru. Perilaku yang tepat tergantung pada proses spesifik yang menerima sinyal HUP.
-- QUIT mirip dengan TERM, kecuali bahwa itu default untuk memproduksi dump inti jika tidak tertangkap. Beberapa program mengkanibalisasi sinyal ini dan menafsirkannya berarti sesuatu yang lain.
+- **KILL** itu tak bisa dibatalkan dan memutus proses pada level kernel. Proses tertentu bisa saja tidak benar-benar mendapatkan atau menangani sinyal ini.
+- **INT** itu dikirimkan oleh driver terminal ketika user menekan <Control-C>. Itu adalah permintaan untuk memutus operasi terkini. Program simpel pasti keluar (jika mereka mendapatkan sinyal) atau mudahnya membiarkan dirinya untuk dimusnahkan, yang merupakan default jika sinyal tidak tertangkap. Program yang memiliki garis perintah interaktif (seperti shells) harus menghentikan apa yang mereka lakukan, membersihkan, dan menunggu masukan pengguna lagi.
+- **TERM** adalah permintaan untuk mengakhiri eksekusi sepenuhnya. Diharapkan bahwa proses penerimaan akan membersihkan keadaannya dan keluar.
+- **HUP** dikirim ke proses ketika terminal pengendali ditutup. Awalnya digunakan untuk menunjukkan "hang up" dari koneksi telepon, sekarang sering digunakan untuk menginstruksikan proses daemon untuk mengakhiri dan memulai kembali, sering untuk mempertimbangkan konfigurasi baru. Perilaku yang tepat tergantung pada proses spesifik yang menerima sinyal HUP.
+- **QUIT** mirip dengan TERM, kecuali bahwa itu default untuk memproduksi dump inti jika tidak tertangkap. Beberapa program mengkanibalisasi sinyal ini dan menafsirkannya berarti sesuatu yang lain.
 
 
 #### kill: mengirim sinyal apa?
@@ -241,24 +237,106 @@ Proses prioritas rendah adalah proses yang tidak terlalu penting. Ini akan menda
 
 Misalnya, jika Anda menjalankan pekerjaan intensif CPU yang ingin Anda jalankan di latar belakang, Anda dapat memulainya dengan nilai bagus yang tinggi. Ini akan memungkinkan proses lain berjalan tanpa diperlambat oleh pekerjaan Anda.
 
-Perintah yang bagus digunakan untuk memulai proses dengan nilai kebaikan yang diberikan. Sintaksnya adalah:
+Perintah 'nice' digunakan untuk memulai proses dengan nilai 'niceness' yang diberikan. Sintaksnya adalah:
+```bash
+# Syntax
+nice -n nice_val [command]
+
+nice -n 10 sh infinite.sh &
+```
+Sedangkan 'renice' digunakan untuk mengubah nilai niceness dari proses yang berjalan. Sintaksnya adalah :
 
 ### filesystem /proc
+Versi Linux dari ps dan top membaca informasi status proses mereka dari direktori /proc, pseudo-filesystem di mana kernel mengekspos berbagai informasi menarik tentang keadaan sistem.
+
+Terlepas dari namanya,/proc berisi informasi lain selain hanya proses (statistik yang dihasilkan oleh sistem, dll).
+
+Proses diwakili oleh direktori di /proc, dan setiap proses memiliki direktori yang dinamai PID-nya. Direktori /proc berisi berbagai file yang memberikan informasi tentang proses, seperti baris perintah, variabel lingkungan, deskriptor file, dan sebagainya.
 
 ### Strace dan truss
+Untuk mengetahui apa yang dilakukan proses, Anda dapat menggunakan strace pada Linux atau truss pada FreeBSD. Perintah ini melacak panggilan sistem dan sinyal. Mereka dapat digunakan untuk men-debug program atau untuk memahami apa yang dilakukan program.
+
+Misalnya, log berikut dihasilkan oleh strace run yang bebas terhadap salinan aktif top (yang berjalan sebagai PID 5810):
+
+
+top akan memulai dengan memeriksa waktu saat ini. Kemudian membuka dan menyatakan direktori /proc, dan membaca file /proc/1/stat untuk mendapatkan informasi tentang proses ini.
+
 ### Proses Tak Terkontrol
+Kadang-kadang sebuah proses akan berhenti menanggapi sistem dan berjalan liar. Proses-proses ini mengabaikan prioritas penjadwalan mereka dan bersikeras mengambil 100% dari CPU. Karena proses lain hanya bisa mendapatkan akses terbatas ke CPU, mesin mulai berjalan sangat lambat. Ini disebut proses pelarian.
+
+Perintah kill dapat digunakan untuk mengakhiri proses tak terkontrol. Jika proses tidak menanggapi sinyal TERM, Anda dapat menggunakan sinyal KILL untuk mengakhirinya.
+
+```bash
+kill -9 pid
+
+or
+
+kill -KILL pid
+```
+Kita dapat menyelidiki penyebab proses pelarian dengan menggunakan strace atau truss. Proses pelarian yang menghasilkan output dapat mengisi seluruh sistem file.
+
+Anda dapat menjalankan df -h untuk memeriksa penggunaan sistem file. Jika filesystem penuh, Anda dapat menggunakan perintah du untuk menemukan file dan direktori terbesar.
+
+Anda juga dapat menggunakan perintah lsof untuk mengetahui file mana yang terbuka oleh proses tak terkontrol.
+
+```bash
+lsof -p pid
+# Contoh
+```
+
 ### Proses Periodik
+#### cron: perintah penjadwal
+Perintah cron (crond di distro redhad) adalah alat tradisional untuk menjalankan perintah pada jadwal yang telah ditentukan. Ini dimulai ketika sistem boot dan berjalan selama sistem naik.
+
+Cron membaca file konfigurasi yang berisi daftar baris perintah dan waktu di mana mereka harus dipanggil. Garis perintah dieksekusi oleh sh, jadi hampir semua yang dapat Anda lakukan dengan tangan dari shell juga dapat dilakukan dengan cron.
+
+Sebuah file konfigurasi cron disebut "crobtab," singkatan untuk "tabel cron." Cronta untuk pengguna individu disimpan di bawah /var/spool/cron (Linux) atau /var/cron/tabs (FreeBSD).
 
 #### format crontab
+File crontab memiliki lima bagian tersendiri, jika dirunut dari kiri ke kanan maka angka yang diinputkan adalah menit, jam, tanggal hari, bulan, hari dalam mingguan,  dan diikuti oleh perintah yang akan dijalankan pada rentang waktu tersebut.
+Contoh :
+```bash
+*     *     *     *     *  command to be executed
+-     -     -     -     -
+|     |     |     |     |
+|     |     |     |     +----- day of week (0 - 6) (Sunday=0)
+|     |     |     +------- month (1 - 12)
+|     |     +--------- day of month (1 - 31)
+|     +----------- hour (0 - 23)
++------------- min (0 - 59)
+```
+Beberapa contoh:
+
 
 #### Systemd timer
+Timer systemd adalah file konfigurasi unit yang namanya berakhir di direktori .timer . timer sistemd dapat digunakan sebagai alternatif untuk pekerjaan cron. Mereka lebih fleksibel dan lebih kuat dari pekerjaan cron.
+
+Sebuah unit timer diaktifkan oleh unit layanan yang sesuai. Unit layanan dipicu oleh unit timer pada waktu yang ditentukan dalam unit timer. Unit timer juga dapat diaktifkan oleh boot sistem atau oleh suatu peristiwa.
+
+Perintah sistem digunakan untuk mengelola unit sistem. Opsi list-timer digunakan untuk daftar timer aktif.
+Dalam contoh di atas, unit logrotate.timer dijadwalkan untuk mengaktifkan unit logrotate.service pada tengah malam setiap hari.
+
+Inilah yang tampak seperti unit logrotate.timer:
 
 #### Penggunaan umum dari perintah terjadwal
-**Mengirim pesan**<br>
-**Membersihkan filesystem**<br>
-**Memutar file log**<br>
-**Menjalankan kumpulan jobs**<br>
-**Backing up dan mirroring**<br>
+- **Mengirim pesan**
+```bash
+zidan@f039c979e5f2:~$ echo "Selamat pagi! Jangan lupa sarapan." | sudo wall
+zidan@f039c979e5f2:~$ crontab -e
+crontab: installing new crontab
+
+```
+- **Membersihkan filesystem**
+Menghapus file di /tmp yang lebih lama dari 7 hari setiap malam pukul 23:00:
+```bash
+0 23 * * * find /tmp -type f -mtime +7 -exec rm -f {} \;
+
+```
+
+**Memutar file log**
+
+**Menjalankan kumpulan jobs**
+**Backing up dan mirroring**
 
 
 2. The Filesystem
