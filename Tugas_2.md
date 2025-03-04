@@ -131,7 +131,7 @@ Adapun keterangan dari tiap kolom ps adalah :
 | RSS | Resident set size (nomor halaman dalam memory) |
 | TTY | Control terminal ID |
 | STAT | Current process status: <br> R = Runnable / Berjalan <br> D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) <br> T = Traced / Berhenti <br> I = Idle / diam <br> Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = Proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Proses sedag menggunakan memory paging <br> s = Proses ialah leader session <br> l = Proses memiliki banyak thread <br> + = Proses berjalan di foreground dalam terminal |
-<br><br>
+
 Berikut contoh penggunaan ps :
 ```bash
 zidan@f039c979e5f2:~$ ps aux
