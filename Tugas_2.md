@@ -120,9 +120,20 @@ Anda dapat memperoleh gambaran yang berguna tentang sistem dengan menjalankan ps
 | -o [namaKolom1, Kolom2, dst tanpa kurung siku] | Menentukan kolom tertentu yang ingin ditampilkan, seperti PID, PPID, command, CPU usage, dan memory usage|
 | --sort=-[namaKolomTanpaKurungSiku] | Mengurutkan proses berdasarkan kolom tertentu, misalnya berdasarkan penggunaan CPU dari yang tertinggi|
 
-<br>
+<br><br>
+Adapun keterangan dari tiap kolom ps adalah :
+| Kolom | Deskripsi |
+|-------|-----------|
+| USER | Nama user dari pemilik proses |
+| PID | ID dari proses |
+| %CPU | Persentase CPU yang digunakan proses |
+| %MEM | Persentase Memori yang digunakan proses |
+| VSZ | Bobot virtual dari proses (byte) |
+| RSS | Resident set size (nomor halaman dalam memory) |
+| TTY | Control terminal ID |
+| STAT | Current process status: <br> R = Runnable / Berjalan <br> D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) <br> T = Traced / Berhenti <br> I = Idle / diam <br> Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = Proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Proses sedag menggunakan memory paging <br> s = Proses ialah leader session <br> l = Proses memiliki banyak thread <br> + = Proses berjalan di foreground dalam terminal |
+<br><br>
 Berikut contoh penggunaan ps :
-
 ```bash
 zidan@f039c979e5f2:~$ ps aux
 USER         PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
@@ -140,19 +151,29 @@ F   UID     PID    PPID PRI  NI    VSZ   RSS WCHAN  STAT TTY        TIME COMMAND
 4  1000    5460    5459  20   0   4188  3428 do_wai S    pts/1      0:00 -bash
 0  1000    5465    5460  20   0   8088  4076 -      R+   pts/1      0:00 ps lax
 ```
-*ps lax itu lebih cepat dari ps aux karena ia tak perlu menampilkan nama-nama user & group.<br><br>
+*ps lax itu lebih cepat dari ps aux karena ia tak perlu menampilkan nama-nama user & group.
+<br><br>
 
-Adapun keterangan dari tiap kolom adalah :
-| Kolom | Deskripsi |
-|-------|-----------|
-| USER | Nama user dari pemilik proses |
-| PID | ID dari proses |
-| %CPU | Persentase CPU yang digunakan proses |
-| %MEM | Persentase Memori yang digunakan proses |
-| VSZ | Bobot virtual dari proses (byte) |
-| RSS | Resident set size (nomor halaman dalam memory) |
-| TTY | Control terminal ID |
-| STAT | Current process status: <br> R = Runnable / Berjalan <br> D = Sleep yang tak bisa dibatalkan <br> S = Sleeping / tertidur (< 20 detik) <br> T = Traced / Berhenti <br> I = Idle / diam <br> Z = Zombie <br> X = Dead / mati <br> tambahan flag : <br> W = Proses bertukar tempat <br> < = Proses lebih tinggi dari prioritas normal <br> N = Proses lebih rendah dari prioritas normal <br> L = Proses sedag menggunakan memory paging <br> s = Proses ialah leader session <br> l = Proses memiliki banyak thread <br> + = Proses berjalan di foreground dalam terminal |
+Adapun untuk mencari proses tertentu kita gunakan :
+
+```bash
+zidan@f039c979e5f2:~$ ps aux | grep -v grep | grep bash
+root           1  0.0  0.0   4188   184 pts/0    Ss+  Mar02   0:00 /bin/bash
+root           7  0.0  0.0   4704  2084 pts/1    Ss   Mar02   0:00 bash
+zidan       5460  0.0  0.0   4188  3428 pts/1    S    01:19   0:00 -bash
+zidan       5467  0.0  0.0   4188  1836 pts/1    D+   22:10   0:00 -bash
+zidan       5468  0.0  0.0   4188  1588 pts/1    D+   22:10   0:00 -bash
+```
+<br>
+Untuk mencari PID dari nama proses tertentu kita gunakan :
+
+```bash
+zidan@f039c979e5f2:~$ pgrep bash
+1
+7
+5460
+```
+
 
 ### Siklus Hidup dari Proses
 
@@ -166,6 +187,8 @@ Sekitar tiga puluh jenis yang berbeda didefinisikan, dan mereka digunakan dalam 
 - Mereka dapat dikirim oleh kernel ketika suatu proses melakukan pelanggaran seperti pembagian dengan nol.
 - Mereka dapat dikirim oleh kernel untuk memberi tahu proses kondisi “menarik” seperti kematian proses anak atau ketersediaan data di saluran I / O.
 
+![Signal on Linux]()
+
 Sinyal KILL, INT, TERM, HUP, and QUIT semuanya nampak memiliki makna yang sama, tetapi penggunaannya sebenarnya agak berbeda.
 - KILL itu tak bisa dibatalkan dan memutus proses pada level kernel. Proses tertentu bisa saja tidak benar-benar mendapatkan atau menangani sinyal ini.
 - INT itu dikirimkan oleh driver terminal ketika user menekan <Control-C>. Itu adalah permintaan untuk memutus operasi terkini. Program simpel pasti keluar (jika mereka mendapatkan sinyal) atau mudahnya membiarkan dirinya untuk dimusnahkan, yang merupakan default jika sinyal tidak tertangkap. Program yang memiliki garis perintah interaktif (seperti shells) harus menghentikan apa yang mereka lakukan, membersihkan, dan menunggu masukan pengguna lagi.
@@ -177,8 +200,6 @@ Sinyal KILL, INT, TERM, HUP, and QUIT semuanya nampak memiliki makna yang sama, 
 #### kill: mengirim sinyal apa?
 Seperti namanya, perintah kill paling sering digunakan untuk mengakhiri suatu proses. **kill** dapat mengirim sinyal apa pun, tetapi secara default mengirimkan TERM. membunuh dapat digunakan oleh pengguna normal pada proses mereka sendiri atau dengan akar pada proses apa pun. Sintaksnya adalah:
 
-
-
 di mana sinyal adalah nomor atau nama simbolis dari sinyal yang akan dikirim dan pid adalah nomor identifikasi proses dari proses target.
 
 **kill**' tanpa nomor sinyal tidak menjamin bahwa proses akan mati, karena sinyal JAR dapat ditangkap, diblokir, atau diabaikan. Perintah membunuh -9 pipa dijamin untuk membunuh proses karena sinyal KILL tidak dapat ditangkap, diblokir, atau diabaikan.
@@ -186,8 +207,42 @@ di mana sinyal adalah nomor atau nama simbolis dari sinyal yang akan dikirim dan
 killall membunuh proses dengan nama bukan dengan ID proses. Ini tidak tersedia di semua sistem. Contoh:
 
 ### Pemantauan Interaktif dengan Perintah "top" 
+Perintah 'top' memberikan tampilan real-time yang dinamis dari sistem yang sedang berjalan. Hal ini dapat menampilkan informasi ringkasan sistem serta daftar proses atau thread yang saat ini sedang dikelola oleh kernel Linux. Jenis informasi ringkasan sistem yang ditampilkan dan jenis, pesanan, dan ukuran informasi yang ditampilkan untuk proses adalah semua pengguna yang dapat dikonfigurasi dan konfigurasi itu dapat dibuat terus-menerus di seluruh restart.
+
+Secara default, tampilanya diperbarui setiap 1-2 detik, tergantung pada sistem.
+
+```
+zidan@f039c979e5f2:~$ top
+top - 00:02:47 up 1 day, 14:27,  0 user,  load average: 1.37, 1.28, 1.18
+Tasks:   5 total,   1 running,   4 sleeping,   0 stopped,   0 zombie
+%Cpu(s):  1.2 us,  1.0 sy,  0.0 ni, 96.6 id,  0.1 wa,  1.1 hi,  0.1 si,  0.0 st
+MiB Mem :   7120.9 total,   1334.4 free,   5305.7 used,    771.4 buff/cache
+MiB Swap:  14848.0 total,  13916.0 free,    932.0 used.   1815.2 avail Mem
+    PID USER      PR  NI    VIRT    RES    SHR S  %CPU  %MEM     TIME+ COMMAND
+      1 root      20   0    4188    184    184 S   0.0   0.0   0:00.01 bash
+      7 root      20   0    4704   1700   1700 S   0.0   0.0   0:00.11 bash
+   5459 root      20   0    4140   2392   2392 S   0.0   0.0   0:00.00 su
+   5460 zidan     20   0    4188   2916   2660 S   0.0   0.0   0:00.02 bash
+   5475 zidan     20   0    8572   4776   2728 R   0.0   0.1   0:00.00 top
+```
+
+Ada juga perintah 'htop', yang merupakan penampil proses interaktif untuk sistem Unix. Ini adalah aplikasi text-mode (untuk terminal konsol atau X) dan membutuhkan rasa sakit. Ini mirip dengan 'top', tetapi memungkinkan Anda untuk menggulir secara vertikal dan horizontal, sehingga Anda dapat melihat semua proses berjalan pada sistem, bersama dengan garis perintah penuh mereka. 'htop' juga memiliki antarmuka pengguna yang lebih baik dan lebih banyak pilihan untuk operasi.
+
+![htop.png]()
+
 
 ### Nice dan renice: mengubah prioritas proses
+**Niceness** adalah petunjuk numerik untuk kernel tentang bagaimana proses harus diperlakukan dalam kaitannya dengan proses lain yang bersaing untuk CPU.
+
+**Niceness** yang tinggi berarti prioritas rendah untuk proses Anda. Nilai rendah atau negatif berarti prioritas tinggi.
+
+Kisaran nilai **Niceness** yang diijinkan bervariasi di antara sistem. Di Linux rentangnya adalah -20 hingga +19, dan di FreeBSD itu -20 hingga +20.
+
+Proses prioritas rendah adalah proses yang tidak terlalu penting. Ini akan mendapatkan waktu CPU kurang dari proses prioritas tinggi. Proses prioritas tinggi adalah salah satu yang penting dan harus diberikan lebih banyak waktu CPU daripada proses prioritas rendah.
+
+Misalnya, jika Anda menjalankan pekerjaan intensif CPU yang ingin Anda jalankan di latar belakang, Anda dapat memulainya dengan nilai bagus yang tinggi. Ini akan memungkinkan proses lain berjalan tanpa diperlambat oleh pekerjaan Anda.
+
+Perintah yang bagus digunakan untuk memulai proses dengan nilai kebaikan yang diberikan. Sintaksnya adalah:
 
 ### filesystem /proc
 
@@ -203,7 +258,7 @@ killall membunuh proses dengan nama bukan dengan ID proses. Ini tidak tersedia d
 **Mengirim pesan**<br>
 **Membersihkan filesystem**<br>
 **Memutar file log**<br>
-**Menjalankan kumpulan "jobs"**<br>
+**Menjalankan kumpulan jobs**<br>
 **Backing up dan mirroring**<br>
 
 
