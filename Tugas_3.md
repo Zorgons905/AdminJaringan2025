@@ -1,3 +1,4 @@
+
 ---
 
 <p align="right">
@@ -14,8 +15,7 @@
 
 <p align="center">
 Nama Dosen Pengampu : <br> 
-Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
-<br>
+Bapak Dr Ferry Astika Saputra ST, M.Sc <br><br>
 Dikerjakan Oleh : <br>
 </p>
 
