@@ -70,7 +70,7 @@ B. Instalasi dan konfigurasi Samba
      - Package terkait : samba, smbclient, cifs-tools
 
 C. Buat rangkuman tentang package management. 
-    - Bahan ada di Materi ethol debian 12 sysadmin) Di tiap nomor buat langkah-langkah instalasi, konfigurasi dan hasil (ouput) dari perintah-perintah terkait yang memastikan layanan  dapat digunakan dengan baik 
+  - Bahan ada di Materi ethol debian 12 sysadmin) Di tiap nomor buat langkah-langkah instalasi, konfigurasi dan hasil (ouput) dari perintah-perintah terkait yang memastikan layanan  dapat digunakan dengan baik 
 
 <p align="center">1</p>
 
