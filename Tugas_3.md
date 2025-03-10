@@ -62,7 +62,7 @@ A. Instalasi NTP Client
     - https://www.server-world.info/en/note?os=Debian_12&p=ntp&f=1
     - https://www.ntppool.org/en/zone/id Package terkait : ntp ntpssec
 
-B. Instalasi dan konfigurasi Samba
+B. Instalasi dan konfigurasi Samba buiubuibuib wi wq wwqeno wjepwqjewepqpw ewqe qwp ejqejwqpejqwpe jqw pj eqwpje qwpje qwpjepqwjepqwjepqwje
   1. Membuat public shared folder . Folder tersebut haru bisa diakses melalui Windows Client dan Linux Client via file manager
   2. Membuat limited shared Folder.
   3. Akses ke folder Share dari CLI client Referensi :
