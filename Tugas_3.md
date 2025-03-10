@@ -63,11 +63,11 @@ A. Instalasi NTP Client
     - https://www.ntppool.org/en/zone/id Package terkait : ntp ntpssec
 
 B. Instalasi dan konfigurasi Samba
-    1. Membuat public shared folder . Folder tersebut haru bisa diakses melalui Windows Client dan Linux Client via file manager
-    2. Membuat limited shared Folder.
-    3. Akses ke folder Share dari CLI client Referensi :
-       - https://www.server-world.info/en/note?os=Debian_12&p=samba&f=1
-       - Package terkait : samba, smbclient, cifs-tools
+  1. Membuat public shared folder . Folder tersebut haru bisa diakses melalui Windows Client dan Linux Client via file manager
+  2. Membuat limited shared Folder.
+  3. Akses ke folder Share dari CLI client Referensi :
+     - https://www.server-world.info/en/note?os=Debian_12&p=samba&f=1
+     - Package terkait : samba, smbclient, cifs-tools
 
 C. Buat rangkuman tentanag package management. Bahan ada di Materi ethol debian 12 sysadmin) Di tiap nomor buat langkah-langkah instalasi, konfigurasi dan hasil (ouput) dari perintah-perintah terkait yang memastikan layanan  dapat digunakan dengan baik 
 
