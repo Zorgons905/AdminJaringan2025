@@ -76,3 +76,63 @@ C. Buat rangkuman tentang package management.
 
 ---
 
+### A. Instalasi NTP Client
+1. Kita instal terlebih dulu dengan menggunakan perintah ini di debian linux :
+   ```bash
+   zidan-3123600013:~$ sudo apt update                -->untuk mengupdate jikalau ada pembaruan di linux
+   zidan-3123600013:~$ sudo apt install ntp -y        -->untuk menginstall ntp
+
+   # bisa juga menggunakan ntpsec
+   zidan-3123600013:~$ sudo apt install ntpsec -y     -->untuk menginstall ntpsec
+   ```
+2. Konfigurasi ntp
+   ```bash
+   # pertama kita ubah dulu server yang dipantau oleh ntp
+   zidan-3123600013:~$ sudo nano /etc/ntp.conf
+
+   # atau /etc/ntpsec/ntp.conf jika menggunakan ntpsec
+   zidan-3123600013:~$ sudo nano /etc/ntpsec/ntp.conf
+   ```
+   kemudian kita tambahkan server yang kita mau, kali ini di indonesia maka kita tambahkan ini :
+   --Gambar--
+   Jika sudah disimpan dan jalankan perintah ini :
+   ```bash
+   zidan-3123600013:~$ sudo systemctl restart ntp
+   zidan-3123600013:~$ sudo systemctl enable ntp
+   zidan-3123600013:~$ sudo systemctl status ntp
+    ntpsec.service - Network Time Service
+ 	Loaded: loaded (/lib/systemd/system/ntpsec.service; enabled; preset: enabled)
+ 	Active: active (running) since Mon 2025-03-10 18:21:29 WIB; 10h ago
+   	Docs: man:ntpd(8)
+	Process: 4629 ExecStart=/usr/libexec/ntpsec/ntp-systemd-wrapper (code=exited, status=0/SUCCESS)
+   Main PID: 4632 (ntpd)
+  	Tasks: 1 (limit: 2293)
+ 	Memory: 10.6M
+    	CPU: 42ms
+ 	CGroup: /system.slice/ntpsec.service
+         	└─4632 /usr/sbin/ntpd -p /run/ntpd.pid -c /etc/ntpsec/ntp.conf -g -N -u ntpsec:ntpsec
+   Mar 10 18:21:34 vbox ntpd[4632]: DNS: dns_probe: 2.id.pool.ntp.org, cast_flags:1, flags:20901
+   Mar 10 18:21:34 vbox ntpd[4632]: DNS: dns_check: processing 2.id.pool.ntp.org, 1, 20901
+   Mar 10 18:21:34 vbox ntpd[4632]: DNS: Server taking: 116.12.47.30
+   Mar 10 18:21:34 vbox ntpd[4632]: DNS: dns_take_status: 2.id.pool.ntp.org=>good, 0
+   Mar 10 18:21:35 vbox ntpd[4632]: DNS: dns_probe: 1.id.pool.ntp.org, cast_flags:1, flags:20901
+   Mar 10 18:21:35 vbox ntpd[4632]: DNS: dns_check: processing 1.id.pool.ntp.org, 1, 20901
+   Mar 10 18:21:35 vbox ntpd[4632]: DNS: Server taking: 202.65.114.202
+   Mar 10 18:21:35 vbox ntpd[4632]: DNS: dns_take_status: 1.id.pool.ntp.org=>good, 0
+   Mar 11 04:32:50 vbox ntpd[4632]: CLOCK: time stepped by 36669.858416
+   Mar 11 04:32:50 vbox ntpd[4632]: INIT: MRU 10922 entries, 13 hash bits, 65536 bytes
+~
+
+   ```
+   
+
+---
+
+### B. Instalasi dan Konfigurasi Samba
+
+
+---
+
+### C. Rangkuman Debian 12 Sysadmin (Package Management)
+
+---
