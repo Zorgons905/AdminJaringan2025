@@ -292,9 +292,15 @@ C. Buat rangkuman tentang package management.
    - Untuk mengakses samba dari file manager kita hanya perlu memasukkan alamat ipnya beserta nama folder tadi yang sudah kita masukkan ke smb.conf.
    - Untuk linux sendiri harus didahului dengan menginstall gvfs-smb guna mengakses smb di dalam file manager. Untuk windows tidak perlu menginstall apa-apa.
    Berikut tampilannya di linux (Kita masukkan smb://192.168.1.64/<nama_direktori>).
+   "Public"
+   ![](Gambar_2/g2.png)
+   
+   "Limited"
+   ![](Gambar_2/g3.png)<br>
+   ![](Gambar_2/g4.png)<br>
    
    Berikut tampilannya di windows (Kita masukkan \\192.168.188.94\<nama_direktori>)
-   
+   ![Gambar windows public folder](Gambar_2/g5.jpeg)
 
    
 8. Gunakan CLI (khusus untuk client linux)
