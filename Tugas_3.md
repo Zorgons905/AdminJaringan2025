@@ -295,7 +295,7 @@ C. Buat rangkuman tentang package management.
    "Public"
    ![](Gambar_2/g2.png)
    
-   "Limited"
+   "Limited"<br>
    ![](Gambar_2/g3.png)<br>
    ![](Gambar_2/g4.png)<br>
    
