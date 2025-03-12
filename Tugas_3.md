@@ -35,26 +35,26 @@ Tahun Pelajaran 2024/2025 <br>
 
 # DAFTAR ISI
 
-[DAFTAR ISI........................................i](#daftar-isi)<br>
-[TUJUAN PEMBELAJARAN............................1](#tujuan-pembelajaran)<br>
-[SOAL...................................1](#soal)<br>
-[HASIL REVIEW..............................1](#c-hasil-review)<br>
-A. [Process Control............................1](#1-process-control)<br>
-B. [The Filesystem..............................1](#2-the-filesystem)<br>
-C. []()
+[DAFTAR ISI](#daftar-isi)<br>
+[TUJUAN PEMBELAJARAN](#tujuan-pembelajaran)<br>
+[SOAL](#soal)<br>
+[HASIL REVIEW](#c-hasil-review)<br>
+A. [Instalasi NTP Client](#1-instalasi-ntp-client)<br>
+B. [Instalasi dan Konfigurasi Samba](#b-instalasi-dan-konfigurasi-samba)<br>
+C. [Rangkuman Debian 12 Sysadmin (Package Management)](#c-rangkuman-debian-12-sysadmin-package-management)
 
 <p align="center">i</p>
 
 ---
 
-## A. TUJUAN PEMBELAJARAN
+## TUJUAN PEMBELAJARAN
 1. Memahami apa itu proses
 2. Memahami bagaimana cara melihat list proses yang berjalan di Linux
 3. Memahami cara mematikan proses yang tak diinginkan
 4. Memahami penamaan file dalam Linux
 5. Memahami struktur file dalam Linux
 
-## B. SOAL
+## SOAL
 Download / clone / kunjungi materi dari [Materi Linux](https://github.com/ferryastika/unix-and-linux-sysadmin-notes), tak lupa lakukan / setting dulu docker agar bisa mencoba de kemudian lakukan ini :<br>
 A. Instalasi NTP Client 
   1. Install dan konfigurasi NTP client agar host anda mempunyai Waktu yang sinkron dengan NTP server di Indonesia.
