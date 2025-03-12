@@ -362,5 +362,290 @@ C. Buat rangkuman tentang package management.
 
 ### C. Rangkuman Debian 12 Sysadmin (Package Management)
 
+### **8.1 Sumber Perangkat Lunak**
+Debian GNU/Linux menggunakan sistem repositori untuk mendistribusikan aplikasi. Repositori ini memungkinkan pengguna untuk mengelola dan memperbarui sistem dengan mudah tanpa harus mengunjungi situs web masing-masing perangkat lunak. Repositori Debian menyimpan semua paket perangkat lunak yang diperlukan, baik yang berupa biner (sudah dikompilasi) maupun sumber kode (source code).
+
+#### **8.1.1 File sources.list**
+File `/etc/apt/sources.list` adalah file konfigurasi yang berisi daftar repositori yang digunakan oleh sistem Debian. File ini menentukan dari mana paket-paket perangkat lunak akan diunduh. Setiap baris dalam file ini dimulai dengan `deb` untuk repositori biner atau `deb-src` untuk repositori sumber kode. Contoh isi file `sources.list` pada Debian 12 (Bookworm):
+
+```plaintext
+deb http://deb.debian.org/debian/ bookworm main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm main non-free-firmware
+deb http://security.debian.org/debian-security bookworm-security main non-free-firmware
+deb-src http://security.debian.org/debian-security bookworm-security main non-free-firmware
+deb http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+deb-src http://deb.debian.org/debian/ bookworm-updates main non-free-firmware
+```
+
+- **deb**: Menunjukkan repositori biner (paket yang sudah dikompilasi).
+- **deb-src**: Menunjukkan repositori sumber kode (kode program yang digunakan untuk mengompilasi perangkat lunak).
+- **bookworm**: Merupakan nama versi Debian yang digunakan (dalam hal ini Debian 12).
+- **main**, **non-free-firmware**: Merupakan bagian dari repositori yang menyediakan paket-paket tertentu.
+
+Mengapa menggunakan nama "bookworm" dan bukan "stable"? Karena "bookworm" adalah nama spesifik dari versi Debian 12, sedangkan "stable" adalah istilah generik untuk versi stabil saat ini. Ketika Debian 13 (Trixie) dirilis, Debian 12 akan menjadi "oldstable".
+
+#### **8.1.2 Tentang Repositori, Cabang, dan Bagian/Komponen**
+Repositori Debian dibagi menjadi beberapa cabang dan bagian. Cabang utama yang digunakan adalah **stable**, **testing**, dan **unstable**. Selain itu, ada juga bagian/komponen dalam repositori yang menentukan jenis perangkat lunak yang disediakan:
+
+- **main**: Berisi perangkat lunak yang sepenuhnya bebas dan mematuhi DFSG (Debian Free Software Guidelines).
+- **non-free-firmware**: Berisi firmware non-bebas yang diperlukan untuk beberapa perangkat keras.
+- **contrib**: Berisi perangkat lunak bebas yang memiliki dependensi non-bebas.
+- **non-free**: Berisi perangkat lunak yang tidak mematuhi DFSG.
+
+Hanya paket dalam bagian **main** yang sepenuhnya didukung oleh proyek Debian. Paket dalam **contrib**, **non-free**, dan **non-free-firmware** mungkin memerlukan driver atau komponen non-bebas untuk berfungsi dengan baik.
+
+#### **8.1.3 Paket Backport**
+Backport adalah mekanisme yang memungkinkan versi terbaru dari aplikasi yang ada di repositori pengembangan Debian untuk dipindahkan ke versi "stable". Misalnya, jika ada versi terbaru dari LibreOffice di repositori pengembangan, Debian dapat "membawa kembali" (backport) versi tersebut ke repositori stable. Repositori backport tidak diaktifkan secara default, tetapi tidak berisiko tinggi karena repositori reguler memiliki prioritas lebih tinggi saat memperbarui sistem.
+
+#### **8.1.4 Memodifikasi Repositori**
+Anda dapat memodifikasi repositori dengan mengedit file `sources.list`. Misalnya, jika Anda memerlukan driver non-bebas untuk perangkat keras tertentu, Anda dapat menambahkan bagian **non-free** atau **non-free-firmware** ke file tersebut. Setelah memodifikasi file, Anda perlu memperbarui daftar paket dengan perintah `apt update`.
 
 ---
+
+### **8.2 APT di Terminal**
+APT (Advanced Package Tool) adalah alat utama untuk mengelola paket di Debian. APT memungkinkan Anda menginstal, memperbarui, dan menghapus paket dengan mudah melalui terminal.
+
+#### **8.2.1 Perintah Pengguna untuk Mencari dan Menampilkan Informasi**
+Perintah-perintah berikut dapat dijalankan sebagai pengguna biasa karena tidak memengaruhi sistem secara langsung:
+- **`apt show foo`**: Menampilkan informasi detail tentang paket `foo`.
+- **`apt search foo`**: Mencari paket yang sesuai dengan kata kunci `foo`.
+- **`apt-cache policy foo`**: Menampilkan versi paket `foo` yang tersedia di repositori.
+
+#### **8.2.2 Perintah Mode Administrator untuk Pemeliharaan Sistem**
+Perintah-perintah berikut memerlukan hak akses administrator (root) karena dapat memengaruhi sistem:
+- **`apt update`**: Memperbarui metadata repositori (daftar paket yang tersedia).
+- **`apt install foo`**: Menginstal paket `foo` beserta dependensinya.
+- **`apt upgrade`**: Memperbarui semua paket yang terinstal ke versi terbaru.
+- **`apt full-upgrade`**: Memperbarui paket dengan menambah atau menghapus paket lain jika diperlukan.
+- **`apt remove foo`**: Menghapus paket `foo` tetapi menyimpan file konfigurasinya.
+- **`apt purge foo`**: Menghapus paket `foo` beserta file konfigurasinya.
+- **`apt autoremove`**: Menghapus paket yang tidak diperlukan lagi oleh sistem.
+
+Contoh perintah all-in-one untuk memperbarui sistem:
+```bash
+apt update && apt full-upgrade && apt autoclean
+```
+
+### **8.3 Software: Manajer Paket Sederhana**
+**Software** adalah manajer paket grafis yang disederhanakan untuk Debian. Ini memungkinkan pengguna yang kurang familiar dengan terminal untuk mengelola aplikasi dengan mudah.
+
+#### **8.3.1 Mencari Aplikasi**
+Anda dapat mencari aplikasi dengan mengetikkan nama aplikasi di kotak pencarian atau menjelajahi kategori yang tersedia, seperti **Explore**, **Installed**, dan **Updates**.
+
+#### **8.3.2 Menginstal Aplikasi**
+Untuk menginstal aplikasi, cukup klik pada aplikasi yang diinginkan dan tekan tombol "Install". Anda akan diminta memasukkan kata sandi administrator. Setelah instalasi selesai, aplikasi dapat langsung dijalankan.
+
+#### **8.3.3 Menghapus Aplikasi**
+Anda dapat menghapus aplikasi dari kategori **Installed** dengan mengklik tombol "Remove". Anda akan diminta konfirmasi sebelum aplikasi dihapus.
+
+#### **8.3.4 Memperbarui Aplikasi**
+Anda dapat memperbarui sistem dari bagian **Updates**. Jika ada pembaruan sistem operasi, Anda perlu me-restart sistem setelah pembaruan selesai.
+
+#### **8.3.5 Memodifikasi Repositori Paket**
+Anda dapat mengonfigurasi repositori secara grafis melalui menu **Repositories**. Di sini, Anda dapat menambahkan repositori **non-free** atau mengatur frekuensi pembaruan repositori.
+
+#### **8.3.6 Pembaruan Otomatis dengan Software**
+Anda dapat mengaktifkan pembaruan otomatis melalui menu **Update Preferences**. Ini memungkinkan sistem untuk secara otomatis mengunduh dan menginstal pembaruan di latar belakang.
+
+Tentu, berikut adalah penjelasan lebih detail untuk sub bab **8.4 sampai 8.6** berdasarkan konten file yang diberikan:
+
+---
+
+### **8.4 Discover: Manajer Paket KDE**
+**Discover** adalah manajer paket yang dirancang khusus untuk lingkungan desktop KDE. Ini adalah antarmuka grafis yang memungkinkan pengguna KDE untuk mencari, menginstal, menghapus, dan memperbarui aplikasi dengan mudah. Discover juga memungkinkan pengguna untuk mengelola sumber perangkat lunak (repositori) dan menginstal add-ons untuk lingkungan Plasma.
+
+#### **8.4.1 Mencari dan Menginstal dengan Discover**
+Untuk mencari aplikasi, Anda dapat mengetikkan nama aplikasi di kotak pencarian atau menjelajahi kategori yang tersedia, seperti **Games**, **Graphics**, **Internet**, dan lainnya. Setelah menemukan aplikasi yang diinginkan, cukup klik tombol "Install" untuk memulai proses instalasi. Anda akan diminta memasukkan kata sandi administrator untuk mengonfirmasi instalasi.
+
+#### **8.4.2 Memperbarui Sistem dengan Discover**
+Discover memiliki bagian khusus untuk pembaruan sistem. Di sini, Anda dapat melihat daftar pembaruan yang tersedia dan menginstalnya dengan satu klik. Jika ada pembaruan sistem operasi, Discover akan meminta Anda untuk me-restart sistem setelah pembaruan selesai.
+
+#### **8.4.3 Mengelola Repositori dengan Discover**
+Anda dapat mengelola repositori perangkat lunak melalui bagian **Settings** di Discover. Di sini, Anda dapat menambahkan atau menghapus repositori, serta mengatur prioritas repositori. Informasi repositori yang ditampilkan di Discover berasal dari file `/etc/apt/sources.list`.
+
+#### **8.4.4 Menginstal Widget dan Add-ons Plasma**
+Discover juga memungkinkan Anda untuk menginstal widget dan add-ons untuk lingkungan desktop Plasma. Anda dapat menemukan berbagai widget, tema, dan add-ons di bagian **Plasma Add-ons**. Ini memungkinkan Anda untuk menyesuaikan tampilan dan fungsi desktop KDE sesuai dengan preferensi Anda.
+
+---
+
+### **8.5 Synaptic: Manajer Paket Komprehensif**
+**Synaptic** adalah manajer paket grafis yang lebih komprehensif dibandingkan dengan **Software** atau **Discover**. Ini memberikan gambaran lengkap tentang semua paket yang tersedia di repositori Debian, baik yang sudah terinstal maupun yang belum. Synaptic sangat berguna untuk pengguna yang ingin memiliki kontrol penuh atas paket-paket yang terinstal di sistem mereka.
+
+#### **8.5.1 Memperbarui Sistem dengan Synaptic**
+Sebelum memperbarui sistem, Anda perlu memuat ulang daftar paket dengan mengklik tombol **Reload**. Setelah itu, Anda dapat menandai semua paket yang dapat diperbarui dengan mengklik **Mark All Upgrades**. Jika ada paket yang perlu diperbarui, Synaptic akan menampilkan daftar paket tersebut. Anda dapat mengonfirmasi dan menginstal pembaruan dengan mengklik **Apply**.
+
+#### **8.5.2 Mencari Paket dengan Synaptic**
+Synaptic memiliki fitur pencarian yang kuat. Anda dapat mencari paket berdasarkan nama atau deskripsi. Jika Anda tidak tahu nama paket yang Anda cari, Anda dapat menjelajahi paket berdasarkan kategori, seperti **Games**, **Development**, atau **System**.
+
+#### **8.5.3 Menginstal Paket dengan Synaptic**
+Untuk menginstal paket, cukup klik kanan pada paket yang diinginkan dan pilih **Mark for Installation**. Jika paket tersebut memiliki dependensi, Synaptic akan secara otomatis menambahkan dependensi yang diperlukan ke daftar instalasi. Setelah itu, klik **Apply** untuk memulai proses instalasi.
+
+#### **8.5.4 Menghapus Paket dengan Synaptic**
+Anda dapat menghapus paket dengan menandainya untuk dihapus (**Mark for Removal**) atau menghapus paket beserta file konfigurasinya (**Mark for Complete Removal**). Setelah menandai paket yang akan dihapus, klik **Apply** untuk memulai proses penghapusan.
+
+#### **8.5.5 Membersihkan Paket yang Tidak Diperlukan**
+Synaptic juga memungkinkan Anda untuk membersihkan paket yang tidak diperlukan lagi oleh sistem. Anda dapat menemukan paket-paket ini di kategori **Installed (Auto removable)**. Setelah menandai paket yang akan dihapus, klik **Apply** untuk membersihkannya dari sistem.
+
+#### **8.5.6 Melihat Informasi Detail tentang Paket**
+Synaptic menyediakan informasi detail tentang setiap paket, termasuk dependensi, file yang diinstal, dan ukuran paket. Anda dapat melihat informasi ini dengan mengklik kanan pada paket dan memilih **Properties**.
+
+---
+
+### **8.6 Membersihkan Sistem**
+Membersihkan sistem adalah langkah penting untuk menjaga kinerja sistem dan menghemat ruang disk. Debian menyediakan beberapa alat dan perintah untuk membantu Anda membersihkan sistem.
+
+#### **8.6.1 Informasi Ruang Disk**
+Anda dapat menggunakan beberapa alat untuk memeriksa penggunaan ruang disk:
+- **`df -h`**: Menampilkan penggunaan ruang disk untuk setiap partisi.
+- **`du -ms * | sort -nr`**: Menampilkan daftar direktori yang diurutkan berdasarkan ukuran.
+- **`ncdu`**: Alat analisis ruang disk dalam mode terminal.
+- **`baobab`**: Alat analisis ruang disk dalam mode grafis.
+
+#### **8.6.2 Membersihkan Paket**
+Debian menyimpan cache paket di `/var/cache/apt/archives/`. Anda dapat membersihkan cache ini dengan perintah:
+```bash
+apt clean
+```
+Anda juga dapat menghapus paket yang tidak diperlukan lagi oleh sistem dengan perintah:
+```bash
+apt autoremove --purge
+```
+Perintah ini akan menghapus paket beserta file konfigurasinya.
+
+#### **8.6.3 Mengosongkan Tempat Sampah**
+Tempat sampah pengguna dan administrator dapat dihapus dengan perintah:
+```bash
+rm -Rf ~/.local/share/Trash/*
+rm -Rf /root/.local/share/Trash/*
+```
+Tempat sampah pada disk eksternal biasanya terletak di `/media/your_id/your_disk/.Trash_1000/`.
+
+#### **8.6.4 Membersihkan Cache Aplikasi**
+Beberapa aplikasi menyimpan cache di folder `.cache`. Anda dapat membersihkan cache ini dengan perintah:
+```bash
+rm -Rf ~/.cache/*
+```
+Beberapa aplikasi, seperti Firefox, memiliki opsi untuk membersihkan cache secara otomatis.
+
+#### **8.6.5 Membersihkan Thumbnail**
+Thumbnail adalah gambar kecil yang dibuat untuk mewakili file gambar atau video. Thumbnail disimpan di folder `.thumbnails`. Anda dapat membersihkan thumbnail yang tidak diperlukan dengan perintah:
+```bash
+rm -Rf ~/.thumbnails
+```
+Folder ini akan dibuat kembali saat sistem membutuhkannya.
+
+Tentu, berikut adalah penjelasan lebih detail untuk sub bab **8.7 sampai 8.9** berdasarkan konten file yang diberikan:
+
+---
+
+### **8.7 Menginstal Paket Eksternal ".deb"**
+Debian menggunakan sistem repositori untuk mengelola perangkat lunak, tetapi terkadang Anda mungkin perlu menginstal paket eksternal dalam format `.deb`. Paket `.deb` adalah format paket yang digunakan oleh Debian dan turunannya (seperti Ubuntu). Paket ini dapat diinstal secara manual, baik melalui antarmuka grafis maupun terminal.
+
+#### **8.7.1 Instalasi dengan GDebi**
+**GDebi** adalah utilitas grafis yang memungkinkan Anda menginstal paket `.deb` sambil mengelola dependensi secara otomatis. Untuk menginstal GDebi, Anda dapat menggunakan perintah berikut:
+```bash
+apt update && apt install gdebi
+```
+Setelah GDebi terinstal, Anda dapat mengklik kanan pada file `.deb` dan memilih **Open with GDebi**. GDebi akan menampilkan informasi tentang paket dan dependensinya. Jika semua dependensi terpenuhi, Anda dapat mengklik **Install Package** untuk menginstal paket tersebut.
+
+#### **8.7.2 Instalasi dengan Dpkg**
+**Dpkg** adalah alat baris perintah untuk mengelola paket `.deb`. Berbeda dengan GDebi, dpkg tidak mengelola dependensi secara otomatis. Jika ada dependensi yang hilang, Anda perlu menginstalnya secara manual menggunakan `apt`. Berikut adalah beberapa perintah dpkg yang umum digunakan:
+- **Menginstal paket**:
+  ```bash
+  dpkg -i package_name.deb
+  ```
+  Jika ada dependensi yang hilang, Anda akan menerima pesan error. Anda dapat menginstal dependensi yang diperlukan dengan perintah:
+  ```bash
+  apt install -f
+  ```
+- **Menghapus paket**:
+  ```bash
+  dpkg --purge package_name
+  ```
+
+---
+
+### **8.8 Menginstal Aplikasi Flatpak**
+**Flatpak** adalah sistem virtualisasi aplikasi yang memungkinkan Anda menjalankan aplikasi dalam lingkungan yang terisolasi (sandbox). Flatpak berguna untuk menginstal aplikasi yang tidak tersedia di repositori Debian atau untuk menjalankan beberapa versi aplikasi yang berbeda.
+
+#### **8.8.1 Menginstal Flatpak**
+Untuk menggunakan Flatpak, Anda perlu menginstal paket Flatpak terlebih dahulu:
+```bash
+apt install flatpak
+```
+
+#### **8.8.2 Menambahkan Repositori Flatpak**
+Setelah Flatpak terinstal, Anda dapat menambahkan repositori Flatpak seperti **Flathub**:
+```bash
+flatpak remote-add flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+Flathub adalah repositori Flatpak terbesar yang menyediakan banyak aplikasi populer.
+
+#### **8.8.3 Mengelola Flatpak dengan Software (Gnome)**
+Jika Anda menggunakan lingkungan desktop Gnome, Anda dapat menginstal plugin Flatpak untuk **Software** (manajer paket grafis Gnome):
+```bash
+apt install gnome-software-plugin-flatpak
+```
+Setelah itu, Anda dapat mencari dan menginstal aplikasi Flatpak melalui antarmuka **Software**.
+
+#### **8.8.4 Mengelola Flatpak dengan Discover (KDE)**
+Untuk pengguna KDE, Anda dapat menginstal plugin Flatpak untuk **Discover**:
+```bash
+apt install plasma-discover-backend-flatpak
+```
+Setelah itu, Anda dapat mencari dan menginstal aplikasi Flatpak melalui **Discover**.
+
+#### **8.8.5 Perintah Dasar Flatpak di Terminal**
+Berikut adalah beberapa perintah dasar untuk mengelola Flatpak dari terminal:
+- **Mencari aplikasi**:
+  ```bash
+  flatpak search app_name
+  ```
+- **Menginstal aplikasi**:
+  ```bash
+  flatpak install flathub app_id
+  ```
+- **Menghapus aplikasi**:
+  ```bash
+  flatpak uninstall app_id
+  ```
+- **Memperbarui aplikasi**:
+  ```bash
+  flatpak update
+  ```
+
+#### **8.8.6 Menghapus Aplikasi Flatpak**
+Anda dapat menghapus aplikasi Flatpak melalui antarmuka grafis **Software** atau **Discover**, atau menggunakan perintah terminal:
+```bash
+flatpak uninstall app_id
+```
+Untuk menghapus semua dependensi yang tidak digunakan:
+```bash
+flatpak uninstall --unused
+```
+
+### **8.9 Siapa Sid Ini?**
+Debian memiliki beberapa cabang distribusi yang berjalan secara paralel. Setiap cabang memiliki tujuan dan tingkat stabilitas yang berbeda. Berikut adalah penjelasan singkat tentang cabang-cabang tersebut:
+
+#### **8.9.1 Stable**
+**Stable** adalah versi resmi Debian yang stabil dan direkomendasikan untuk penggunaan sehari-hari. Versi ini hanya menerima pembaruan keamanan dan perbaikan bug. Saat ini, versi stable Debian adalah **Bookworm** (Debian 12).
+
+#### **8.9.2 Oldstable**
+**Oldstable** adalah versi stabil sebelumnya. Setelah versi baru dirilis, versi lama akan menjadi **oldstable**. Versi ini biasanya didukung selama satu tahun setelah rilis versi baru, tetapi bisa lebih lama jika ada dukungan LTS (Long Term Support).
+
+#### **8.9.3 Testing**
+**Testing** adalah cabang yang digunakan untuk mempersiapkan versi stable berikutnya. Paket-paket di sini telah melalui pengujian awal dan dianggap cukup stabil, tetapi masih mungkin mengandung bug. Saat ini, versi testing Debian adalah **Trixie** (calon Debian 13).
+
+#### **8.9.4 Unstable (Sid)**
+**Unstable**, yang dijuluki **Sid**, adalah cabang di mana paket-paket terbaru diunggah. Sid adalah singkatan dari "Still In Development" (masih dalam pengembangan). Cabang ini tidak stabil dan hanya direkomendasikan untuk pengguna yang ingin mencoba fitur terbaru atau berkontribusi dalam pengembangan Debian.
+
+#### **8.9.5 Experimental**
+**Experimental** bukanlah cabang distribusi resmi, melainkan repositori tempat paket-paket alpha atau beta diuji. Paket-paket di sini belum siap untuk digunakan dalam produksi dan hanya ditujukan untuk pengujian lebih lanjut.
+
+#### **8.9.6 Nama-nama Cabang Debian**
+Setiap cabang Debian memiliki nama kode yang diambil dari karakter film **Toy Story**. Saat ini:
+- **Stable**: Bookworm (Debian 12)
+- **Testing**: Trixie (calon Debian 13)
+- **Oldstable**: Bullseye (Debian 11)
+- **Unstable**: Sid
+- **Experimental**: Tidak memiliki nama kode.
