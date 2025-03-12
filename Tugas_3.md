@@ -36,12 +36,12 @@ Tahun Pelajaran 2024/2025 <br>
 # DAFTAR ISI
 
 [DAFTAR ISI........................................i](#daftar-isi)<br>
-A. [TUJUAN PEMBELAJARAN............................1](#a-tujuan-pembelajaran)<br>
-B. [SOAL...................................1](#b-soal)<br>
-C. [HASIL REVIEW..............................1](#c-hasil-review)<br>
-1. [Process Control............................1](#1-process-control)<br>
-2. [The Filesystem..............................1](#2-the-filesystem)<br>
-
+[TUJUAN PEMBELAJARAN............................1](#tujuan-pembelajaran)<br>
+[SOAL...................................1](#soal)<br>
+[HASIL REVIEW..............................1](#c-hasil-review)<br>
+A. [Process Control............................1](#1-process-control)<br>
+B. [The Filesystem..............................1](#2-the-filesystem)<br>
+C. []()
 
 <p align="center">i</p>
 
@@ -75,6 +75,7 @@ C. Buat rangkuman tentang package management.
 <p align="center">1</p>
 
 ---
+## HASIL REVIEW
 
 ### A. Instalasi NTP Client
 1. Kita instal terlebih dulu dengan menggunakan perintah ini di debian linux :
@@ -146,7 +147,10 @@ C. Buat rangkuman tentang package management.
    2.ntp.maxindo.net.id               	.STEP.      	16 u	-   64	0   0.0000   0.0000   0.0001
    ```
 
+<p align="center">1</p>
+
 ---
+
 
 ### B. Instalasi dan Konfigurasi Samba
 1. Install Paket Samba
@@ -209,6 +213,11 @@ C. Buat rangkuman tentang package management.
    Mar 11 20:11:52 vbox smbd[10949]: pam_unix(samba:session): session closed for user nobody
    Mar 11 20:24:00 vbox smbd[11218]: pam_unix(samba:session): session opened for user smbuser(uid=1001) by (uid=0)
    ```
+
+<p align="center">2</p>
+
+---
+
    
 4. Buat limited shared folder / directory
    Pertama-tama kita buat folder juga sama seperti public shared folder tadi, bedanya ada pada bagaimana folder tersebut diakses / permission-nya,
@@ -302,7 +311,11 @@ C. Buat rangkuman tentang package management.
    Berikut tampilannya di windows (Kita masukkan \\192.168.188.94\<nama_direktori>)
    ![Gambar windows public folder](Gambar_2/g5.jpeg)
 
-   
+<p align="center">3</p>
+
+---
+
+
 8. Gunakan CLI (khusus untuk client linux)
    Pertama kita tampilkan dulu apa saja direktori yang ada:
    ```bash
@@ -358,7 +371,10 @@ C. Buat rangkuman tentang package management.
    smb: \> exit
    ```
    
+<p align="center">4</p>
+
 ---
+
 
 ### C. Rangkuman Debian 12 Sysadmin (Package Management)
 
@@ -405,7 +421,11 @@ Backport adalah mekanisme yang memungkinkan versi terbaru dari aplikasi yang ada
 #### **8.1.4 Memodifikasi Repositori**
 Anda dapat memodifikasi repositori dengan mengedit file `sources.list`. Misalnya, jika Anda memerlukan driver non-bebas untuk perangkat keras tertentu, Anda dapat menambahkan bagian **non-free** atau **non-free-firmware** ke file tersebut. Setelah memodifikasi file, Anda perlu memperbarui daftar paket dengan perintah `apt update`.
 
+
+<p align="center">5</p>
+
 ---
+
 
 ### **8.2 APT di Terminal**
 APT (Advanced Package Tool) adalah alat utama untuk mengelola paket di Debian. APT memungkinkan Anda menginstal, memperbarui, dan menghapus paket dengan mudah melalui terminal.
@@ -451,6 +471,12 @@ Reading state information... Done
 ### **8.3 Software: Manajer Paket Sederhana**
 **Software** adalah manajer paket grafis yang disederhanakan untuk Debian. Ini memungkinkan pengguna yang kurang familiar dengan terminal untuk mengelola aplikasi dengan mudah.
 
+
+<p align="center">6</p>
+
+---
+
+
 #### **8.3.1 Mencari Aplikasi**
 Anda dapat mencari aplikasi dengan mengetikkan nama aplikasi di kotak pencarian atau menjelajahi kategori yang tersedia, seperti **Explore**, **Installed**, dan **Updates**.
 
@@ -490,7 +516,11 @@ Anda dapat mengaktifkan pembaruan otomatis melalui menu **Update Preferences**. 
 
 Tentu, berikut adalah penjelasan lebih detail untuk sub bab **8.4 sampai 8.6** berdasarkan konten file yang diberikan:
 
+
+<p align="center">7</p>
+
 ---
+
 
 ### **8.4 Discover: Manajer Paket KDE**
 **Discover** adalah manajer paket yang dirancang khusus untuk lingkungan desktop KDE. Ini adalah antarmuka grafis yang memungkinkan pengguna KDE untuk mencari, menginstal, menghapus, dan memperbarui aplikasi dengan mudah. Discover juga memungkinkan pengguna untuk mengelola sumber perangkat lunak (repositori) dan menginstal add-ons untuk lingkungan Plasma.
@@ -527,7 +557,11 @@ Anda dapat mengelola repositori perangkat lunak melalui bagian **Settings** di D
 #### **8.4.4 Menginstal Widget dan Add-ons Plasma**
 Discover juga memungkinkan Anda untuk menginstal widget dan add-ons untuk lingkungan desktop Plasma. Anda dapat menemukan berbagai widget, tema, dan add-ons di bagian **Plasma Add-ons**. Ini memungkinkan Anda untuk menyesuaikan tampilan dan fungsi desktop KDE sesuai dengan preferensi Anda.
 
+
+<p align="center">8</p>
+
 ---
+
 
 ### **8.5 Synaptic: Manajer Paket Komprehensif**
 **Synaptic** adalah manajer paket grafis yang lebih komprehensif dibandingkan dengan **Software** atau **Discover**. Ini memberikan gambaran lengkap tentang semua paket yang tersedia di repositori Debian, baik yang sudah terinstal maupun yang belum. Synaptic sangat berguna untuk pengguna yang ingin memiliki kontrol penuh atas paket-paket yang terinstal di sistem mereka.
@@ -570,7 +604,11 @@ Synaptic juga memungkinkan Anda untuk membersihkan paket yang tidak diperlukan l
 #### **8.5.6 Melihat Informasi Detail tentang Paket**
 Synaptic menyediakan informasi detail tentang setiap paket, termasuk dependensi, file yang diinstal, dan ukuran paket. Anda dapat melihat informasi ini dengan mengklik kanan pada paket dan memilih **Properties**.
 
+
+<p align="center">9</p>
+
 ---
+
 
 ### **8.6 Membersihkan Sistem**
 Membersihkan sistem adalah langkah penting untuk menjaga kinerja sistem dan menghemat ruang disk. Debian menyediakan beberapa alat dan perintah untuk membantu Anda membersihkan sistem.
@@ -618,6 +656,12 @@ zidan-3123600013@vbox:~$ sudo rm -Rf /root/.local/share/Trash/*
 ```
 Tempat sampah pada disk eksternal biasanya terletak di `/media/your_id/your_disk/.Trash_1000/`.
 
+
+<p align="center">10</p>
+
+---
+
+
 #### **8.6.4 Membersihkan Cache Aplikasi**
 Beberapa aplikasi menyimpan cache di folder `.cache`. Anda dapat membersihkan cache ini dengan perintah:
 ```bash
@@ -634,7 +678,6 @@ Folder ini akan dibuat kembali saat sistem membutuhkannya.
 
 Tentu, berikut adalah penjelasan lebih detail untuk sub bab **8.7 sampai 8.9** berdasarkan konten file yang diberikan:
 
----
 
 ### **8.7 Menginstal Paket Eksternal ".deb"**
 Debian menggunakan sistem repositori untuk mengelola perangkat lunak, tetapi terkadang Anda mungkin perlu menginstal paket eksternal dalam format `.deb`. Paket `.deb` adalah format paket yang digunakan oleh Debian dan turunannya (seperti Ubuntu). Paket ini dapat diinstal secara manual, baik melalui antarmuka grafis maupun terminal.
@@ -655,6 +698,11 @@ gdebi is already the newest version (0.9.5.7+nmu3).
 0 upgraded, 0 newly installed, 0 to remove and 0 not upgraded.
 ```
 Setelah GDebi terinstal, Anda dapat mengklik kanan pada file `.deb` dan memilih **Open with GDebi**. GDebi akan menampilkan informasi tentang paket dan dependensinya. Jika semua dependensi terpenuhi, Anda dapat mengklik **Install Package** untuk menginstal paket tersebut.
+
+<p align="center">11</p>
+
+---
+
 
 #### **8.7.2 Instalasi dengan Dpkg**
 **Dpkg** adalah alat baris perintah untuk mengelola paket `.deb`. Berbeda dengan GDebi, dpkg tidak mengelola dependensi secara otomatis. Jika ada dependensi yang hilang, Anda perlu menginstalnya secara manual menggunakan `apt`. Berikut adalah beberapa perintah dpkg yang umum digunakan:
@@ -723,6 +771,12 @@ apt install plasma-discover-backend-flatpak
 ```
 Setelah itu, Anda dapat mencari dan menginstal aplikasi Flatpak melalui **Discover**.
 
+
+<p align="center">12</p>
+
+---
+
+
 #### **8.8.5 Perintah Dasar Flatpak di Terminal**
 Berikut adalah beberapa perintah dasar untuk mengelola Flatpak dari terminal:
 - **Mencari aplikasi**:
@@ -783,6 +837,11 @@ Anda dapat menggunakan opsi `--if-no-exists` untuk menghindari kesalahan jika re
 flatpak remote-add --if-no-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 ```
 
+<p align="center">13</p>
+
+---
+
+
 ### **8.9 Siapa Sid Ini?**
 Debian memiliki beberapa cabang distribusi yang berjalan secara paralel. Setiap cabang memiliki tujuan dan tingkat stabilitas yang berbeda. Berikut adalah penjelasan lengkap tentang cabang-cabang Debian:
 
@@ -800,6 +859,11 @@ Debian memiliki beberapa cabang distribusi yang berjalan secara paralel. Setiap 
 
 #### **8.9.5 Experimental**
 **Experimental** bukanlah cabang distribusi resmi, melainkan repositori tempat paket-paket alpha atau beta diuji. Paket-paket di sini belum siap untuk digunakan dalam produksi dan hanya ditujukan untuk pengujian lebih lanjut. Experimental adalah tempat di mana pengembang dapat menguji fitur-fitur eksperimental atau versi pra-rilis dari perangkat lunak.
+
+<p align="center">14</p>
+
+---
+
 
 #### **8.9.6 Nama-nama Cabang Debian**
 Setiap cabang Debian memiliki nama kode yang diambil dari karakter film **Toy Story**. Saat ini:
@@ -828,3 +892,7 @@ Building dependency tree... Done
 Reading state information... Done
 123 packages can be upgraded. Run 'apt list --upgradable' to see them.
 ```
+
+<p align="center">15</p>
+
+---
