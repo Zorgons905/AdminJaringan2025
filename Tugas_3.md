@@ -95,6 +95,7 @@ C. Buat rangkuman tentang package management.
    zidan-3123600013:~$ sudo nano /etc/ntpsec/ntp.conf
    ```
    kemudian kita tambahkan server yang kita mau, kali ini di indonesia maka scroll hingga menemukan ini dan kita tambahkan ini :
+```bash
    # pool 2.debian.pool.ntp.org iburst
    # pool 3.debian.pool.ntp.org iburst
    ...
@@ -105,7 +106,7 @@ C. Buat rangkuman tentang package management.
    ... 
    # Access control configuration; see /usr/share/doc/ntpsec-doc/html/accopt.html
    # for details.
-
+```
    Jika sudah disimpan dan jalankan perintah ini :
    ```bash
    zidan-3123600013:~$ sudo systemctl restart ntp
