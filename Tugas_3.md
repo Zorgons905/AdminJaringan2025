@@ -816,6 +816,7 @@ Setiap cabang Debian memiliki nama kode yang diambil dari karakter film **Toy St
 - **Experimental**: Hanya untuk pengujian dan pengembangan, tidak direkomendasikan untuk penggunaan sehari-hari.
 
 Contoh penggantian source.list yang kita pakai dengan distro lain:
+```bash
 zidan-3123600013@vbox:~$ sudo sed -i 's/bookworm/trixie/g' /etc/apt/sources.list
 zidan-3123600013@vbox:~$ sudo apt update && sudo apt full-upgrade
 Get:1 http://deb.debian.org/debian trixie InRelease [147 kB]
@@ -826,3 +827,4 @@ Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
 123 packages can be upgraded. Run 'apt list --upgradable' to see them.
+```
