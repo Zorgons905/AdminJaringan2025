@@ -53,31 +53,184 @@ C. [PERCOBAAN..............................i](#c-percobaan)<br>
 
 ---
 
-## A. TUJUAN PEMBELAJARAN
-1. Memahami bagaimana cara menjalankan wireshark
-2. Memahami bagian-bagian dari datagram yang ada pada wireshark
-3. Memahami layer OSI dalam internet secara mendalam
-4. Memahami apa itu HTTP
-5. Memahami apa itu tipe pengiriman data
-6. Memahami apa itu three-way handshake
-
-## B. DASAR TEORI
-1. Mengenal Wireshark
-<p>
-&emsp;Wireshark adalah aplikasi untuk menampilkan hasil jejak rute / tracing route packet data dari router terdekat yang lalu ditangkap oleh komputer kita. Hasilnya lalu ditampilkan dalam rupa tabel berisi keterangan tertentu seperti no.packet, time / waktu respon packet, alamat source / sumber dan destination / destinasi packet, protocol yang digunakan, length / panjang data yang diterima maupun dikirim, dan info notifikasi dari program jaringan yang sedang kita jalankan maupun balasan dari destinasinya.<br>
-<br>
-Pada Wireshark terdapat beberapa tampilan dan istilah yang perlu diketahui :
-</p>
-<p align="center">
-    <img src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/KenalWireshark.png"><br>
-</p>
-
-2. Mengenal Layer OSI
-<p>
-&emsp;OSI (Open Systems Interconnection) Model adalah kerangka jaringan yang dibuat oleh International Organization for Standardization (ISO, <sub>*bukan singkatan melainkan bahasa yunani artinya “sama”)</sub> pada tahun 1984. Model ini digunakan untuk memahami dan mengimplementasikan komunikasi dalam jaringan komputer. Adapun ISO bekerja sama dengan institusi lain guna menyatukan pemahaman terkait protokol atau aturan dalam pembuatan jaringan komputer ini. Di antara institusi tersebut adalah DARPA, IEEE, IETF, dll.
-<br><br>
-Layer 1 : Physical layer<br>
-&emsp;Adalah layer yang mengatur bagaimana data akan tersampaikan. Data elektronik dapat pertama-tama diubah menjadi bit data di dalam memori lalu disalurkan melalui bisa saja ethernet card maupun wifi, bila melalui ethernet maka data akan diubah menjadi sinyal listrik (gelombang sin) dan bila melalui wifi akan diubah menjadi gelombang elektromagnetik (gelombang radio) sedangkan bila kita mengirim data ke internet dengan kabel optik maka ia akan diubah menjadi sinyal cahaya.
-<br><br>
+# A. TUJUAN PEMBELAJARAN
+1. Memahami bagaimana cara DNS bekerja
+2. Memahami bagian-bagian dari DNS
+3. Memahami cara menghubungkan 2 VM yang saling terkoneksi
+4. Memahami cara menyetel BIND9
 
 ---
+
+# B. DASAR TEORI
+## 1. Pengertian DNS
+
+Domain Name System (DNS) adalah sistem yang berfungsi untuk menerjemahkan nama domain yang mudah dibaca manusia (seperti `www.google.com`) menjadi alamat IP numerik (seperti `142.250.190.4`) yang dapat dikenali oleh perangkat jaringan. DNS adalah fondasi penting dalam struktur internet karena memungkinkan komunikasi antarperangkat menggunakan nama yang mudah diingat.
+
+## 2. Sejarah Singkat DNS
+
+Sebelum DNS, jaringan komputer menggunakan file yang disebut `HOSTS.TXT` yang berisi daftar nama host dan alamat IP-nya. File ini dikelola secara terpusat oleh Stanford Research Institute. Namun, seiring pertumbuhan internet, pendekatan ini menjadi tidak efisien, sehingga pada tahun 1983, Paul Mockapetris mengembangkan sistem DNS seperti yang kita kenal sekarang.
+
+## 3. Fungsi DNS
+
+DNS memiliki beberapa fungsi penting, antara lain:
+
+- **Resolusi Nama:** Menerjemahkan nama domain ke alamat IP.
+- **Abstraksi:** Menyederhanakan identifikasi alamat-alamat IP yang kompleks.
+- **Redundansi dan Ketersediaan Tinggi:** Menyediakan banyak server yang tersebar untuk menjamin ketersediaan.
+- **Distribusi Beban:** Mengarahkan trafik ke server yang berbeda berdasarkan lokasi atau ketersediaan.
+- **Manajemen Sistem Nama Domain Secara Terdistribusi:** Mengizinkan pengelolaan domain secara desentralisasi.
+
+## 4. Cara Kerja DNS
+
+1. **Permintaan DNS:** Saat pengguna mengetik `www.example.com` di browser, permintaan dikirim ke resolver lokal.
+2. **Pencarian Cache:** Resolver memeriksa cache lokal.
+3. **Root DNS Server:** Jika cache kosong, resolver meminta informasi ke root server.
+4. **TLD Server:** Root server mengarahkan ke Top-Level Domain server (misal, `.com`).
+5. **Authoritative DNS Server:** TLD server mengarahkan ke server yang memiliki informasi domain.
+6. **Pengembalian IP:** Resolver mendapatkan alamat IP dan mengirimkannya ke browser.
+7. **Koneksi ke Server Web:** Browser menggunakan IP tersebut untuk menghubungi server situs web.
+
+## 5. Struktur Hirarki DNS
+
+- **Root Level:** Representasi tertinggi (".") dalam hierarki.
+- **Top-Level Domain (TLD):** Seperti `.com`, `.org`, `.id`.
+- **Second-Level Domain:** Nama yang didaftarkan (misalnya `google` dalam `google.com`).
+- **Subdomain:** Bagian opsional seperti `mail.google.com` atau `blog.example.com`.
+
+Contoh:
+mail.example.com 
+├── Subdomain: mail 
+├── Second-Level Domain: example 
+└── Top-Level Domain: com
+
+## 6. Jenis-Jenis DNS Record
+
+| Tipe Record | Fungsi |
+|-------------|--------|
+| A           | Memetakan domain ke alamat IPv4 |
+| AAAA        | Memetakan domain ke alamat IPv6 |
+| CNAME       | Menunjukkan alias ke domain lain |
+| MX          | Menentukan mail server untuk domain |
+| NS          | Menunjukkan authoritative name server |
+| PTR         | Reverse lookup dari IP ke domain |
+| SOA         | Informasi otoritatif tentang domain |
+| TXT         | Menyimpan teks, seperti verifikasi SPF, DKIM |
+
+## 7. Komponen DNS
+
+- **DNS Resolver (Recursive Resolver):** Bertanggung jawab menangani permintaan pengguna.
+- **Root Server:** Titik awal pencarian domain di hirarki DNS.
+- **TLD Server:** Menangani domain TLD seperti `.org`, `.net`, `.id`.
+- **Authoritative DNS Server:** Menyediakan jawaban final untuk query DNS tertentu.
+
+## 8. Keamanan DNS
+
+- **DNS Spoofing/Cache Poisoning:** Serangan yang memanipulasi data DNS untuk mengarahkan pengguna ke situs palsu.
+- **DNSSEC (DNS Security Extensions):** Fitur keamanan yang memastikan integritas dan keaslian data DNS.
+- **DoH (DNS over HTTPS) / DoT (DNS over TLS):** Protokol untuk mengenkripsi permintaan DNS agar tidak dapat dilihat oleh pihak ketiga.
+
+## 9. Proses Resolusi DNS (Diagram)
+Browser --> DNS Resolver --> Root Server --> TLD Server --> Authoritative Server --> IP Address
+
+
+## 10. Tools DNS
+
+Beberapa tools untuk memeriksa dan menganalisis DNS:
+
+- `nslookup`
+- `dig`
+- `host`
+- DNS Checker (web-based tools)
+
+---
+
+# C. PERCOBAAN
+## 1. Pertanyaan
+>> Buatlah konfigurasi DNS yang membuat 2 VM saling terhubung (ditandai dengan proses ping yang berhasil) pada salah satu dari kedua VM tersebut. Kemudian jalankan salah satu VM sebagai router agar nantinya bisa terhubung dengan internet. Satu sebagai client dan satunya sebagai server.
+
+## 2. Jawaban
+1. Instalasi
+Pertama-tama kita download terlebih dahulu bind9 dan iptables baik pada VM1 dan VM2.
+
+```bash
+sudo apt install bind9 bind9utils
+...
+sudo apt install iptables iptables-persistent
+...
+```
+
+contoh :
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/lanjutan_bind.png" width="300" height="300"><br>
+</p>
+
+bind9 utils berfungsi sebagai pengecek zona konfigurasi tempat dns akan dijalankan, ibaratnya kita membuat koneksi khusus dengan ip yang tertera dalam settingan bind9 dengan menggunakan alias / DNSnya.
+iptables-persistent gunanya untuk menyimpan rules instalasi agar tetap ada meskipun VM dimatikan sehingga tak perlu konfigurasi ulang.
+
+2. Setting IP address
+Kemudian kita lanjut untuk mengedit file `/etc/network/interfaces`. Kita jalankan perintah ini :
+```bash
+sudo nano /etc/network/interfaces
+```
+lalu tambahkan beberapa settingan berikut :
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/setting_network" width="300" height="300"><br>
+</p>
+
+Di sini, enp0s3 adalah antarmuka jaringan utama yang terhubung ke bridge adapter/internet, sedangkan enp0s8 merupakan antarmuka sekunder yang terhubung ke jaringan internal, yang nantinya akan dikoneksikan ke VM 2.
+
+Oleh karena itu, konfigurasi untuk enp0s3 akan dibiarkan dalam kondisi default agar menerima alamat IP secara otomatis sebagai klien DHCP, sedangkan enp0s8 akan dikonfigurasi secara statis dengan alamat IP 192.168.200.1 dan netmask 255.255.255.0 (atau /24).
+
+setelah itu kita restart agar `/etc/network/interfaces` dapat berubah.
+```bash
+sudo systemctl restart networking
+```
+Lalu kita dapat mengecek apakah ip address sudah berubah melalui perintah ip a
+
+4. DNS Config
+Pertama kita masuk ke direktori `/etc/bind` kemudian kita lanjutkan dengan mengonfigurasi file `named.conf`
+
+```bash
+sudo nano named.conf
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+</p>
+
+kita tambahkan line `include "/etc/bind/named.conf.external-zones"` untuk menambahkan zones yang nantinya akan kita buat. Selanjutnya kita setel `named.conf.options`
+
+```bash
+sudo nano named.conf.options
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+</p>
+
+Tambahkan beberapa baris kode berikut
+
+```
+allow-query { any; };
+allow-transfer { any; };
+recursion yes;
+```
+
+Selanjutnya kita setel file `named.conf.external-zones`
+```bash
+sudo nano kelompok2.com
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+</p>
+
+disini kita buat zones untuk DNS kita, kita membuat 2 zones dimana satu untuk nameserver yaitu kelompok2.com dan satu lagi untuk IP nya 1.200.168.192.in-addr.arpa pada line file berikan lokasi file untuk konfigurasi zone nantinya
+
+Untuk konfigurasi zones, pertama saya akan mengonfigurasi file kelompok2.com
+
+6. Setting IP forwarding
+7. Setting VM2
+
+
