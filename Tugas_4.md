@@ -2,7 +2,7 @@
 ---
 
 <p align="right">
-    SURABAYA <br> 04 DESEMBER 2024
+    SURABAYA <br> 22 APRIL 2025
 </p> <br>
 
 <h1 align="center"><ins>LAPORAN RESMI</ins></h1>
