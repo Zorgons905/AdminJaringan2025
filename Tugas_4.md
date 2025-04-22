@@ -41,9 +41,6 @@ Tahun Pelajaran 2024/2025 <br>
 [DAFTAR ISI........................................i](#daftar-isi)<br>
 A. [TUJUAN PEMBELAJARAN............................1](#a-tujuan-pembelajaran)<br>
 B. [DASAR TEORI.............................1](#b-dasar-teori)<br>
-1. [Mengenal Wireshark......................1](#1-mengenal-wireshark)<br>
-2. [Mengenal Layer OSI....................2](#2-mengenal-layer-osi)<br>
-
 C. [PERCOBAAN..............................i](#c-percobaan)<br>
 1. [Pertanyaan............................1](#1-pertanyaan)<br>
 2. [Jawaban..............................1](#2-jawaban)<br>
