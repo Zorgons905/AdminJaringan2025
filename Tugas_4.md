@@ -146,7 +146,7 @@ Beberapa tools untuk memeriksa dan menganalisis DNS:
 
 # C. PERCOBAAN
 ## 1. Pertanyaan
->> Buatlah konfigurasi DNS yang membuat 2 VM saling terhubung (ditandai dengan proses ping yang berhasil) pada salah satu dari kedua VM tersebut. Kemudian jalankan salah satu VM sebagai router agar nantinya bisa terhubung dengan internet. Satu sebagai client dan satunya sebagai server.
+> Buatlah konfigurasi DNS yang membuat 2 VM saling terhubung (ditandai dengan proses ping yang berhasil) pada salah satu dari kedua VM tersebut. Kemudian jalankan salah satu VM sebagai router agar nantinya bisa terhubung dengan internet. Satu sebagai client dan satunya sebagai server.
 
 ## 2. Jawaban
 1. Instalasi
@@ -196,7 +196,7 @@ sudo nano named.conf
 ```
 
 <p align="center">
-<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/set_named.png" width="300" height="300"><br>
 </p>
 
 kita tambahkan line `include "/etc/bind/named.conf.external-zones"` untuk menambahkan zones yang nantinya akan kita buat. Selanjutnya kita setel `named.conf.options`
@@ -206,7 +206,7 @@ sudo nano named.conf.options
 ```
 
 <p align="center">
-<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/set_named_options.png" width="300" height="300"><br>
 </p>
 
 Tambahkan beberapa baris kode berikut
@@ -219,18 +219,121 @@ recursion yes;
 
 Selanjutnya kita setel file `named.conf.external-zones`
 ```bash
-sudo nano kelompok2.com
+sudo nano named.conf.external-zones
 ```
 
 <p align="center">
-<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/bind9.png" width="300" height="300"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/set_external.png" width="300" height="300"><br>
 </p>
 
 disini kita buat zones untuk DNS kita, kita membuat 2 zones dimana satu untuk nameserver yaitu kelompok2.com dan satu lagi untuk IP nya 1.200.168.192.in-addr.arpa pada line file berikan lokasi file untuk konfigurasi zone nantinya
 
 Untuk konfigurasi zones, pertama saya akan mengonfigurasi file kelompok2.com
+```bash
+sudo nano kelompok2.com
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/kel_2.png" width="300" height="300"><br>
+</p>
+
+selanjutnya kita setting file 1.200.168.192.db
+```bash
+sudo nano 1.200.168.192.db
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/ipdb.png" width="300" height="300"><br>
+</p>
+
+setelah membuat konfigurasi untuk kedua zones tersebut, kita dapat mengecek apakah ada kesalahan dalam konfigurasi menggunakan perintah named-checkzone dari bind9utils
+```bash
+named-checkzone [nama_zone] [file_konfigurasi_zone]
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/checkzone.png" width="300" height="300"><br>
+</p>
+
+dan diatas sudah memampilkan OK untuk kedua zone yang berarti tidak ada masalah yang ditemukan
+
+setelah semua konfigurasi di atas, restart named.service untuk menerapkan semua konfigurasi tersebut
+
+```bash
+sudo systemctl restart named
+```
+
 
 6. Setting IP forwarding
-7. Setting VM2
+Pertama, ubah nilai ip_forward menjadi 1 agar VM 1 dapat meneruskan IP dengan perintah berikut:
+```bash
+echo 1 > /proc/sys/net/ipv4/ip_forward
+```
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/ip_forward.png" width="300" height="300"><br>
+</p>
+
+jika file tersebut ditampilkan dengan perintah cat dan menampilkan nilai 1, maka ip_forward sudah diaktifkan
+
+Selanjutnya adalah konfigurasi iptables, jalankan perintah berikut:
+```bash
+sudo iptables -t nat -A POSTROUTING -o enp0s3 -j MASQUERADE
+```
+
+Perintah tersebut digunakan untuk menambahkan tabel NAT pada iptables dan melakukan MASQUERADE ke ip yang diteruskan ke interface enp0s3 yang terhubung ke Internet Perintah ini berfungsi untuk mentranslasikan ip private ke ip public ke internet
+
+Selanjutnya jalankan perintah berikut:
+```
+sudo iptables -A FORWARD -i enp0s8 -o enp0s3 -j ACCEPT
+sudo iptables -A FORWARD -i enp0s3 -o enp0s8 -j ACCEPT
+```
+Perintah ini akan menambahkan rules untuk meneruskan ip dari interface enp0s8 ke enp0s3 dan sebaliknya agar nantinya VM 2 bisa terhubung ke Internet
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/iptables.png" width="300" height="300"><br>
+</p>
+
+setelah menambahkan tabel NAT dan rules di atas, untuk menyimpan konfigurasi tersebut, jalankan perintah berikut:
+```
+sudo iptables-save
+```
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/iptables-save.png" width="300" height="300"><br>
+</p>
 
 
+8. Setting VM2
+Selanjutnya kita konfigurasi untuk VM 2 sebagai Client
+
+KIta hanya perlu mengonfigurasi IP Static dari VM 2, dengan masuk Ke Wired Settings dan masuk Ke Tab IPv4 dan isikan address yang berada pada satu network dengan IP Address pada interface enp0s8 pada VM 1 sebelumnya, yaitu 192.168.200.x sebagai berikut:
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/set_vm2.png" width="300" height="300"><br>
+</p>
+
+Masukkan juga IP Address 192.168.200.1 pada DNS agar kita dapat terhubung dengan DNS pada VM 1
+
+Untuk mengonfigurasi IP pada VM 2 juga bisa dilakukan melalui CLI seperti pada VM 1 jika menggunakan OS tanpa GUI
+
+9. Ping VM1
+Disini akan dicoba untuk melakukan ping ke IP addresss dari VM 1 untuk mengecek koneksi antara VM 2 dan VM 1
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/check_ping.png" width="300" height="300"><br>
+</p>
+dan disini sudah ditampilkan bahwa VM 1 dan VM 2 sudah bisa saling berkomunikasi
+
+10. check internet
+Disini saya mencoba untuk membuka halaman web untuk mengecek apakah VM 2 sudah bisa terhubung dengan internet dan saya sudah bisa mengakses internet pada VM 2
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/yutub.png" width="300" height="300"><br>
+</p>
+
+
+12. check VM1 DNS
+Disini saya mencoba DNS yang sudah dikonfigurasi pada VM 1 sebelumnya pada VM 2 dengan menggunakan dig / nslookup dan dapat kita lihat bahwa pada output dig sudah menampilkan ANSWER SECTION dan pada output nslookup juga sudah menampilkan nameserver dan ip addressnya
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/dig.png" width="300" height="300"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/dig2.png" width="300" height="300"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/nslookup.png" width="300" height="300"><br>
+</p>
