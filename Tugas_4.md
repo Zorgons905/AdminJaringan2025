@@ -175,7 +175,7 @@ sudo nano /etc/network/interfaces
 ```
 lalu tambahkan beberapa settingan berikut :
 <p align="center">
-<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/setting_network"><br>
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar3/setting_network.png"><br>
 </p>
 
 Di sini, enp0s3 adalah antarmuka jaringan utama yang terhubung ke bridge adapter/internet, sedangkan enp0s8 merupakan antarmuka sekunder yang terhubung ke jaringan internal, yang nantinya akan dikoneksikan ke VM 2.
