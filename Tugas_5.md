@@ -175,12 +175,12 @@ tak lupa juga kita pastikan bahwa status named checkzone sudah benar atau memili
 ![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/8.png]
 
 lakukan juga perintah ini dan lihat statusnya apakah sudah benar
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png]
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/14.png]
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/13.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png)
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/14.png)
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/13.png)
 
 Kemudian kita cek pada bagian wlan setting dan kita ubah DNS agar berisi ip root yang kita tuju agar nantinya domain kita bisa terhubung dengan domain lain.
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/16.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/16.png)
 Terakhir kita jalankan restart ulang pada network dengan perintah :
 ```bash
 $ systemctl restart NetworkManager
@@ -189,7 +189,7 @@ $ systemctl restart NetworkManager
 
 [2] Komputer 2
 Setelah komputer 1 selesai kita cek untuk website yang sudah kita buat dan kita taruh ke dalam var/www/html tadi :
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/7.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/7.png)
 ternyata berhasil dijalankan.
 
 Kemudian kita ping, nslookup dan dig untuk dns dan ip domain lain :
