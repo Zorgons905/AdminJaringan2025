@@ -196,7 +196,7 @@ ternyata berhasil dijalankan.
 Kemudian kita ping, nslookup dan dig untuk dns dan ip domain lain :
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/9.png)
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/11.png)
-![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png)
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/10.png)
 Nampak bahwa kelompok 2 terhubung dengan kita karena ia memiliki root yang sama dengan kita yakni 10.252.108.10
 Tak lupa juga kita cek apakah mereka berhasil menyiarkan website mereka
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/15.png)
