@@ -119,9 +119,9 @@ SSH memiliki fungsi untuk memberi akses kontrol antar perangkat, mengedit dan me
 # PERCOBAAN
 ## 1. Perintah
 Dalam satu kelompok gunakan 3 komputer yang tersedia, untuk melakukan tugas berikut :
-- Komputer 1 menjadi host dari web
-- Komputer 2 digunakan untuk menggambar topologi jaringan yang terjadi
-- Komputer 3 sebagai pengecek apakah komputer 1 sudah bisa menghubungkan diri dengan domain kelompok lain.
+- Komputer 1 menjadi host dari web;
+- Komputer 2 sebagai pengecek apakah komputer 1 sudah bisa menghubungkan diri dengan domain kelompok lain;
+- Komputer 3 digunakan untuk menggambar topologi jaringan yang terjadi.
 
 Lakukan penerapan penyetelan BIND9 dan Apache2 serta pemahaman Anda soal bagaimana DNS bekerja lalu tuliskan dan sertakan screenshotnya. 
 
@@ -131,6 +131,16 @@ Ketika kita akan membuat suatu hosting dan koneksi dengan root adalah dengan men
 
 Oleh karena itu langkah pertama kita ialah untuk menyetel BIND9 & BINDUTILS (BIND9 untuk aturannya, BINDUTILS untuk pengecek & alat kontrolnya). Jikalau belum diunduh maka lakukan perintah linux debian berikut :
 
+```bash
+
+```
+
+
+[2] Komputer 2
+
+
+[3] Komputer 3
+Hasil gambar topologi yang terjadi sewaktu praktikum tadi..
 
 
 ---
@@ -158,6 +168,4 @@ Tersedia di: https://www.digitalocean.com/community/tutorials
 
 - Red Hat and Ubuntu Server Guides
 Red Hat, Inc. dan Canonical Ltd. (n.d.). Server Administration Documentation.
-Tersedia di:
-> https://access.redhat.com/documentation
-> https://ubuntu.com/server/docs
+Tersedia di: https://access.redhat.com/documentation atau https://ubuntu.com/server/docs
