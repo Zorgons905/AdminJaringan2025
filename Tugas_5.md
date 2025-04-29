@@ -39,7 +39,7 @@ Tahun Pelajaran 2024/2025 <br>
 A. [TUJUAN PEMBELAJARAN](#a-tujuan-pembelajaran)<br>
 B. [DASAR TEORI](#b-dasar-teori)<br>
 C. [PERCOBAAN](#c-percobaan)<br>
-1. [Perintah](#1-pertanyaan)<br>
+1. [Perintah](#1-perintah)<br>
 2. [Jawaban](#2-jawaban)<br>
 
 
