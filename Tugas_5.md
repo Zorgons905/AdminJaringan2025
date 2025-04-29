@@ -129,19 +129,81 @@ Lakukan penerapan penyetelan BIND9 dan Apache2 serta pemahaman Anda soal bagaima
 [1] Komputer 1
 Ketika kita akan membuat suatu hosting dan koneksi dengan root adalah dengan menggunakan perantara router, sehingga kita memerlukan suatu aplikasi yang mampu menghubungkan kita dengan router dan mengenali domain lain yang juga terkoneksi melalui router tersebut. 
 
-Oleh karena itu langkah pertama kita ialah untuk menyetel BIND9 & BINDUTILS (BIND9 untuk aturannya, BINDUTILS untuk pengecek & alat kontrolnya). Jikalau belum diunduh maka lakukan perintah linux debian berikut :
+Oleh karena itu langkah pertama kita ialah masuk ke root agar kita tidak perlu meambahkan sudo setiap kali kita hendak melakukan perubahan.
+
+lalu yang kedua, kita lakukan penyetelan BIND9 & BINDUTILS (BIND9 untuk aturannya, BINDUTILS untuk pengecek & alat kontrolnya). Jikalau belum diunduh maka lakukan perintah linux debian berikut :
 
 ```bash
+$ apt install bind9 bind9-utils
+```
 
+Kemudian jika sudah lanjut kita lakukan modidikasi pada file named conf. sehingga mari kita lakukan perintah linux ini
+```bash
+nano /etc/bind/named.conf
+```
+dan tambahkan perintah berikut
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/3.png]
+
+Tak lupa juga kita ubah untuk file named.conf.options nya
+```bash
+nano /etc/bind/named.conf.options
+```
+tambahkan baris kode ini untuk menyetelnya sesuai keinginan. 
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/4.png]
+Nampak kami setel di 192.168.8.0/24 karena ini adalah domain dari ketiga komputer kami yang merepresentasikan kelompok kami.
+
+Kemudian kita buat file ini 
+```bash
+$ nano kelompok8.home 
+```
+dan beri isian kode seperti berikut 
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/5.png]
+nantinya ini akan menjadi file pedoman BIND sebagai penghubung antara kelompok lain / domain yang berbeda dan terhubung pada root yang sama.
+
+kemudian kita tambahkan/ubah file index.html pada bagian var/www/html untuk mengecek apakah DNS benar benar bekerja dan dapat menyiarkan isi file di dalam domain dari komputer yang ia jadikan host.
+```bash
+$ nano var/www/html/index.html
+```
+
+kemudian jika sudah kita lakukan restart ulang untuk semua settingan yang sudah kita buat, lakukan restart ulang pada hal ini
+```bash
+$ systemctl restart bind9
+$ systemctl restart named
+$ systemctl restart apache2
+```
+tak lupa juga kita pastikan bahwa status named checkzone sudah benar atau memiliki status OK
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/8.png]
+
+lakukan juga perintah ini dan lihat statusnya apakah sudah benar
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png]
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/14.png]
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/13.png]
+
+Kemudian kita cek pada bagian wlan setting dan kita ubah DNS agar berisi ip root yang kita tuju agar nantinya domain kita bisa terhubung dengan domain lain.
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/16.png]
+Terakhir kita jalankan restart ulang pada network dengan perintah :
+```bash
+$ systemctl restart NetworkManager
 ```
 
 
 [2] Komputer 2
+Setelah komputer 1 selesai kita cek untuk website yang sudah kita buat dan kita taruh ke dalam var/www/html tadi :
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/7.png]
+ternyata berhasil dijalankan.
+
+Kemudian kita ping, nslookup dan dig untuk dns dan ip domain lain :
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/9.png]
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/11.png]
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png]
+Nampak bahwa kelompok 2 terhubung dengan kita karena ia memiliki root yang sama dengan kita yakni 10.252.108.10
+Tak lupa juga kita cek apakah mereka berhasil menyiarkan website mereka
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/15.png]
 
 
 [3] Komputer 3
 Hasil gambar topologi yang terjadi sewaktu praktikum tadi..
-
+![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/Gambar-Topologi.png]
 
 ---
 
