@@ -18,14 +18,10 @@ Nama Dosen Pengampu : <br>
 Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
 <br>
 Dikerjakan Oleh : <br>
-\< Kelompok 8 >
-</p>
-
-<p>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Nama&emsp;&nbsp; : Nanda Ahmad Zidan <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;NRP&emsp;&emsp;&nbsp;: 3123600013 <br>
-&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;Kelas&emsp;&emsp;: 2 D4 IT A <br>
-<br>
+< Kelompok 8 ><br>
+Rifki Alaudin&emsp;&emsp;&emsp;[3123600007]<br>
+Nanda Ahmad Zidan&emsp;&emsp;[3123600013]<br>
+Vemas Satria Edi Pratama&emsp;[3123600020]<br>
 </p>
 
 <p align="center">
