@@ -126,7 +126,7 @@ Dalam satu kelompok gunakan 3 komputer yang tersedia, untuk melakukan tugas beri
 Lakukan penerapan penyetelan BIND9 dan Apache2 serta pemahaman Anda soal bagaimana DNS bekerja lalu tuliskan dan sertakan screenshotnya. 
 
 ## 2. Jawaban
-[1] Komputer 1
+[1] Komputer 1<br>
 Ketika kita akan membuat suatu hosting dan koneksi dengan root adalah dengan menggunakan perantara router, sehingga kita memerlukan suatu aplikasi yang mampu menghubungkan kita dengan router dan mengenali domain lain yang juga terkoneksi melalui router tersebut. 
 
 Oleh karena itu langkah pertama kita ialah masuk ke root agar kita tidak perlu meambahkan sudo setiap kali kita hendak melakukan perubahan.
@@ -187,7 +187,7 @@ $ systemctl restart NetworkManager
 ```
 
 
-[2] Komputer 2
+[2] Komputer 2<br>
 Setelah komputer 1 selesai kita cek untuk website yang sudah kita buat dan kita taruh ke dalam var/www/html tadi :
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/7.png)
 ternyata berhasil dijalankan.
@@ -201,7 +201,7 @@ Tak lupa juga kita cek apakah mereka berhasil menyiarkan website mereka
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/15.png)
 
 
-[3] Komputer 3
+[3] Komputer 3<br>
 Hasil gambar topologi yang terjadi sewaktu praktikum tadi..
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/Gambar%20Topologi.png)
 
