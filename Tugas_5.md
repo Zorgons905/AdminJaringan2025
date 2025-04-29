@@ -51,14 +51,13 @@ C. [PERCOBAAN..............................i](#c-percobaan)<br>
 ---
 
 # A. TUJUAN PEMBELAJARAN
-1. Memahami bagaimana cara DNS bekerja
-2. Memahami bagian-bagian dari DNS
-3. Memahami cara menghubungkan 2 VM yang saling terkoneksi
+1. Memahami bagaimana sistem root dalam DNS
+2. Memahami cara mengatur dan menghubungkan koneksi antar domain
+3. Memahami cara 
 4. Memahami cara menyetel BIND9
 
 ---
 
 # B. DASAR TEORI
-
 
 ---
