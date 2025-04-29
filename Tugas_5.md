@@ -203,7 +203,7 @@ Tak lupa juga kita cek apakah mereka berhasil menyiarkan website mereka
 
 [3] Komputer 3
 Hasil gambar topologi yang terjadi sewaktu praktikum tadi..
-![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/Gambar-Topologi.png)
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/Gambar%20Topologi.png)
 
 ---
 
