@@ -19,7 +19,7 @@ Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
 <br>
 Dikerjakan Oleh : <br>
 < KELOMPOK 8 ><br>
-Rifki Alaudin&emsp;&emsp;&emsp;&emsp;&emsp;[3123600007]<br>
+Rifki Alaudin&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;[3123600007]<br>
 Nanda Ahmad Zidan&emsp;&emsp;&emsp;[3123600013]<br>
 Vemas Satria Edi Pratama&emsp;[3123600020]<br>
 </p>
