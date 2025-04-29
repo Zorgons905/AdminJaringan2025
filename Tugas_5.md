@@ -142,14 +142,14 @@ Kemudian jika sudah lanjut kita lakukan modidikasi pada file named conf. sehingg
 nano /etc/bind/named.conf
 ```
 dan tambahkan perintah berikut
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/3.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/3.png)
 
 Tak lupa juga kita ubah untuk file named.conf.options nya
 ```bash
 nano /etc/bind/named.conf.options
 ```
 tambahkan baris kode ini untuk menyetelnya sesuai keinginan. 
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/4.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/4.png)
 Nampak kami setel di 192.168.8.0/24 karena ini adalah domain dari ketiga komputer kami yang merepresentasikan kelompok kami.
 
 Kemudian kita buat file ini 
@@ -157,7 +157,7 @@ Kemudian kita buat file ini
 $ nano kelompok8.home 
 ```
 dan beri isian kode seperti berikut 
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/5.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/5.png)
 nantinya ini akan menjadi file pedoman BIND sebagai penghubung antara kelompok lain / domain yang berbeda dan terhubung pada root yang sama.
 
 kemudian kita tambahkan/ubah file index.html pada bagian var/www/html untuk mengecek apakah DNS benar benar bekerja dan dapat menyiarkan isi file di dalam domain dari komputer yang ia jadikan host.
@@ -172,7 +172,7 @@ $ systemctl restart named
 $ systemctl restart apache2
 ```
 tak lupa juga kita pastikan bahwa status named checkzone sudah benar atau memiliki status OK
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/8.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/8.png)
 
 lakukan juga perintah ini dan lihat statusnya apakah sudah benar
 ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png)
@@ -193,17 +193,17 @@ Setelah komputer 1 selesai kita cek untuk website yang sudah kita buat dan kita 
 ternyata berhasil dijalankan.
 
 Kemudian kita ping, nslookup dan dig untuk dns dan ip domain lain :
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/9.png]
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/11.png]
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/9.png)
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/11.png)
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/12.png)
 Nampak bahwa kelompok 2 terhubung dengan kita karena ia memiliki root yang sama dengan kita yakni 10.252.108.10
 Tak lupa juga kita cek apakah mereka berhasil menyiarkan website mereka
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/15.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/15.png)
 
 
 [3] Komputer 3
 Hasil gambar topologi yang terjadi sewaktu praktikum tadi..
-![https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/Gambar-Topologi.png]
+![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar5/Gambar-Topologi.png)
 
 ---
 
