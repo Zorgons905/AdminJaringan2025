@@ -6,7 +6,7 @@
 </p> <br>
 
 <h1 align="center"><ins>LAPORAN PRAKTIKUM</ins></h1>
-<h3 align="center"><em>""</em></h3>
+<h3 align="center"><em>"Serba Serbi Email"</em></h3>
 <h3 align="center">Mata Kuliah Workshop Administrasi Jaringan</h3>
 
 <p align="center">
@@ -34,8 +34,9 @@ Tahun Pelajaran 2024/2025 <br>
 
 [DAFTAR ISI](#daftar-isi)<br>
 A. [TUJUAN PEMBELAJARAN](#a-tujuan-pembelajaran)<br>
-B. [PERTANYAAN](#b-pertanyaan)<br>
-C. [RANGKUMAN](#c-rangkuman)<br>
+B. [SEJARAH](#b-sejarah)<br>
+C. [PERTANYAAN](#c-pertanyaan)<br>
+D. [RANGKUMAN](#d-rangkuman)<br>
 [DAFTAR PUSTAKA](#daftar-pustaka)<br>
 
 <p align="center">i</p>
@@ -60,8 +61,16 @@ C. [RANGKUMAN](#c-rangkuman)<br>
 5. Menjelaskan alur pengiriman dan penerimaan email secara menyeluruh, dari sisi teknis dan logis, berdasarkan komponen dan protokol yang terlibat.
 
 ---
+# B. SEJARAH
+<h2 align="center">Sejarah Email dan Asal Usul Istilah Spam</h2>
 
-# B. PERTANYAAN
+Email (electronic mail) merupakan salah satu bentuk komunikasi digital paling awal yang masih digunakan secara luas hingga saat ini. Konsep awal email muncul pada tahun 1960-an di lingkungan komputer besar (mainframe), namun bentuk email modern baru lahir pada tahun 1971 ketika seorang insinyur bernama Ray Tomlinson mengembangkan sistem yang memungkinkan pengiriman pesan antar komputer melalui jaringan ARPANET, cikal bakal internet. Ray Tomlinson juga memperkenalkan penggunaan simbol "@" untuk memisahkan nama pengguna dan alamat komputer, konvensi yang hingga kini menjadi standar dalam penulisan alamat email. Seiring perkembangan teknologi, pada tahun 1980-an email mulai digunakan secara luas di kalangan akademisi dan militer, terutama dengan diperkenalkannya protokol SMTP (Simple Mail Transfer Protocol) sebagai standar pengiriman email. Memasuki tahun 1990-an, layanan email mulai diakses publik secara luas seiring dengan pertumbuhan internet dan munculnya layanan seperti Yahoo Mail dan Hotmail. Hingga kini, email telah menjadi sarana komunikasi penting dalam bidang profesional maupun pribadi.
+
+Sementara itu, istilah "spam" dalam konteks email memiliki asal-usul yang unik. Kata ini awalnya adalah nama produk daging kalengan asal Amerika, yaitu SPAM (Spiced Ham), yang diproduksi oleh perusahaan Hormel. Namun, penggunaannya dalam dunia teknologi terinspirasi dari sebuah sketsa komedi Monty Python pada tahun 1970, di mana tokoh-tokohnya terus-menerus menyebut kata "SPAM" dengan suara keras dan mengganggu dalam sebuah restoran. Adegan tersebut menggambarkan gangguan berulang yang tidak dapat dihindari, sehingga komunitas pengguna internet awal mulai menggunakan istilah "spam" untuk menyebut pesan digital yang bersifat mengganggu, berulang, dan tidak diinginkan. Dalam konteks email, spam merujuk pada email massal yang umumnya berisi iklan, penipuan, atau konten merugikan lainnya, dan hingga kini menjadi tantangan tersendiri dalam pengelolaan sistem email modern.
+
+---
+
+# C. PERTANYAAN
 1. Buatlah Rangkuman mengenai materi berikut :
    - Penjelasan mengenai protokol mail (SMTP, POP3, IMAP dan POP3S)
    - Cara mengetahui informasi mail server dalam sebuah domain
@@ -71,7 +80,7 @@ C. [RANGKUMAN](#c-rangkuman)<br>
 
 ---
 
-# C. RANGKUMAN
+# D. RANGKUMAN
 ## 1. Protokol Pengiriman Email
 Protokol pengiriman email adalah cara untuk menjaga agar pengiriman email sampai kepada penerima dengan selamat dan tidak kurang suatu apapun. Adapun protokol email itu adalah sebagai berikut :
 
