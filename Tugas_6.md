@@ -110,6 +110,7 @@ user@hostname:~$
 
 ## 3. Penjelasan Alur Pengiriman E-mail
 ![Simple Mail Transfer](https://media.geeksforgeeks.org/wp-content/uploads/20200731122504/Email1.png)
+Definisi :
 1. User Agent (UA)<br>
 Bertugas sebagai antarmuka bagi pengguna untuk menulis, membaca, dan mengelola email.
 Contoh: aplikasi email seperti Outlook, Gmail, dll.
@@ -123,13 +124,14 @@ Tempat penyimpanan email masuk untuk masing-masing pengguna. Email tetap di temp
 Lokasi penyimpanan sementara untuk email yang menunggu untuk dikirim.
 Spoolfile digunakan oleh MTA ketika email tidak bisa langsung dikirim ke tujuan (misalnya karena server tujuan sedang tidak aktif).
 
+Alur pengiriman email & cara kerjanya :
 Dalam sistem email, proses pengiriman dan penerimaan pesan melibatkan beberapa komponen utama yang bekerja secara terstruktur. Pertama, pengguna membuat dan mengirim email melalui aplikasi yang disebut User Agent (UA). Aplikasi ini bertanggung jawab atas antarmuka pengguna dan membentuk struktur awal email seperti alamat pengirim, penerima, subjek, isi, dan lampiran. Setelah email dikirim, pesan tersebut diteruskan ke Message Transfer Agent (MTA), yaitu komponen yang bertugas memindahkan email dari satu server ke server lain menggunakan protokol SMTP (Simple Mail Transfer Protocol). MTA berfungsi dalam dua peran, yakni sebagai server saat menerima email dari MTA lain, dan sebagai klien saat mengirim email ke MTA penerima. Itulah mengapa MTA dianggap memiliki peran ganda, tergantung konteks komunikasinya. Ketika email belum bisa langsung dikirim karena gangguan atau antrean pengiriman, ia akan disimpan sementara di spool file, yang bekerja seperti buffer dalam bentuk penyimpanan disk.
 
 Sebelum email benar-benar dikirim ke alamat tujuan, sistem akan melakukan proses pengecekan terhadap alias (disebut juga exp, singkatan dari expansion). Alias adalah nama pendek atau alamat email alternatif yang mewakili satu atau lebih alamat email yang sebenarnya. Sistem perlu mengecek alias ini terhadap sebuah database, biasanya berbasis file konfigurasi atau direktori email (seperti /etc/aliases, database LDAP, atau tabel di mail server), untuk mengetahui alamat tujuan sebenarnya dari pesan tersebut. Jika ditemukan bahwa alamat yang dituju adalah alias dari beberapa pengguna, MTA akan memperluas alias menjadi daftar alamat lengkap dan mengirim email ke seluruh alamat tersebut. Proses ini penting untuk memastikan bahwa email dikirim ke penerima yang benar meskipun alamat awalnya merupakan nama alias.
 
 Setelah MTA berhasil mengirimkan pesan ke server penerima, pesan disimpan di Mail Box penerima. Penerima kemudian mengambil email ini menggunakan aplikasi User Agent melalui protokol POP3 (Post Office Protocol v3) atau IMAP (Internet Message Access Protocol). POP3 umumnya digunakan untuk mengunduh dan menghapus email dari server, sedangkan IMAP memungkinkan pengguna mengakses email secara sinkron dari berbagai perangkat karena pesan tetap disimpan di server.
 
-Selama seluruh proses ini, beberapa protokol tambahan juga dapat terlibat. Misalnya, DNS (Domain Name System) digunakan untuk menemukan alamat IP dari mail server tujuan melalui pencarian catatan MX (Mail Exchange). Selain itu, SMTP-AUTH dapat digunakan agar MTA klien memverifikasi identitas sebelum mengirim email, serta protokol enkripsi seperti STARTTLS atau SMTPS (SMTP over SSL/TLS) untuk menjamin keamanan data selama transmisi. Intinya SMTP bekerja di layer internet dan MTA sedangkan POP3 bekerja di layer MTA dan UA.
+Selama seluruh proses ini, beberapa protokol tambahan juga dapat terlibat. Misalnya, DNS (Domain Name System) digunakan untuk menemukan alamat IP dari mail server tujuan melalui pencarian catatan MX (Mail Exchange). Selain itu, SMTP-AUTH dapat digunakan agar MTA klien memverifikasi identitas sebelum mengirim email, serta protokol enkripsi seperti STARTTLS atau SMTPS (SMTP over SSL/TLS) untuk menjamin keamanan data selama transmisi. Pada intinya SMTP bekerja di layer internet dan MTA sedangkan POP3 bekerja di layer MTA dan UA.
 
 ---
 
