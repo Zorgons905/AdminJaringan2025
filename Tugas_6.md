@@ -72,18 +72,47 @@ C. [RANGKUMAN](#c-rangkuman)<br>
 ---
 
 # C. RANGKUMAN
-## 1. Protokol Pengiriman E-mail
+## 1. Protokol Pengiriman Email
+Protokol pengiriman email adalah cara untuk menjaga agar pengiriman email sampai kepada penerima dengan selamat dan tidak kurang suatu apapun. Adapun protokol email itu adalah sebagai berikut :
+
 | Protokol | Fungsi Utama | Port Default | Karakteristik |
 |----------|--------------|--------------|---------------|
 | SMTP (Simple Mail Transfer Protocol) | Mengirim email dari client ke server atau antar server | 25 (umum), 587 (secure), 465 (SSL) | Hanya untuk mengirim, bukan mengambil email. |
 | POP3 | (Post Office Protocol v3) | Mengambil email dari server dan menghapusnya dari server (default) | 110 | Setelah email diunduh, biasanya dihapus dari server (kecuali diatur tetap di server). Cocok untuk penggunaan offline. |
-| IMAP (Internet Message Access Protocol) | Mengambil dan menyinkronkan email tanpa menghapusnya dari server | 143 (non-secure), 993 (secure/IMAPS)	Bisa sinkron antar perangkat. Email tetap tersimpan di server. |
+| IMAP (Internet Message Access Protocol) | Mengambil dan menyinkronkan email tanpa menghapusnya dari server | 143 (non-secure), 993 (secure/IMAPS) | Bisa sinkron antar perangkat. Email tetap tersimpan di server. |
 | POP3S | POP3 dengan SSL/TLS (versi aman dari POP3) | 995 | Sama seperti POP3, tetapi lebih aman karena terenkripsi. |
 
 ## 2. Cara Mencari Tahu Informasi Mail Server di Linux
+Pada Linux terdapat perintah nslookup yang dapat digunakan untuk mengetahui mail server dari suatu domain website. Adapun kode yang diperlukan adalah :
+```bash
+user@hostname:~$ nslookup q=mx example.com
+```
+bisa juga dengan dig
+```bash
+user@hostname:~$ dig mx example.com
+```
+
+yang nantinya akan mengeluarkan output berupa domain/ip dari mail server yang menerima mail untuk domain tadi.
+```bash
+example.com.  3600  IN  MX  10 mail.example.com.
+..
+user@hostname:~$ 
+```
 
 ## 3. Penjelasan Alur Pengiriman E-mail
 ![Simple Mail Transfer](https://media.geeksforgeeks.org/wp-content/uploads/20200731122504/Email1.png)
+1. User Agent (UA)
+Bertugas sebagai antarmuka bagi pengguna untuk menulis, membaca, dan mengelola email.
+Contoh: aplikasi email seperti Outlook, Gmail, dll.
+2. Message Transfer Agent (MTA)
+Komponen yang bertugas mengirim email dari satu komputer ke komputer lain.
+Menggunakan protokol seperti SMTP untuk mentransfer pesan.
+Dapat mengirimkan email antar MTA dalam proses pengiriman ke tujuan akhir.
+3. Mail Box
+Tempat penyimpanan email masuk untuk masing-masing pengguna. Email tetap di tempat ini sampai diambil oleh User Agent. Adapun Mail Box bisa diakses dengan protokol seperti POP3 atau IMAP (meskipun ini tidak dijelaskan detail di bagian ini).
+5. Spool File
+Lokasi penyimpanan sementara untuk email yang menunggu untuk dikirim.
+Spoolfile digunakan oleh MTA ketika email tidak bisa langsung dikirim ke tujuan (misalnya karena server tujuan sedang tidak aktif).
 
 ---
 
