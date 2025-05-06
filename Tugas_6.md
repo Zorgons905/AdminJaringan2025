@@ -3,8 +3,7 @@
 
 <p align="right">
     SURABAYA <br> 06 MEI 2025
-</p> <br>
-
+</p><br>
 <h1 align="center"><ins>LAPORAN PRAKTIKUM</ins></h1>
 <h3 align="center"><em>"Serba Serbi Email"</em></h3>
 <h3 align="center">Mata Kuliah Workshop Administrasi Jaringan</h3>
@@ -24,7 +23,7 @@ Nanda Ahmad Zidan&emsp;&emsp;&emsp;[3123600013]<br>
 <p align="center">
 Tahun Pelajaran 2024/2025 <br>
 <strong>POLITEKNIK ELEKTRONIKA NEGERI SURABAYA</strong>
-</p>
+</p><br>
 
 ---
 <br>
