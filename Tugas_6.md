@@ -1,0 +1,113 @@
+
+---
+
+<p align="right">
+    SURABAYA <br> 06 MEI 2025
+</p> <br>
+
+<h1 align="center"><ins>LAPORAN PRAKTIKUM</ins></h1>
+<h3 align="center"><em>""</em></h3>
+<h3 align="center">Mata Kuliah Workshop Administrasi Jaringan</h3>
+
+<p align="center">
+<img  src="https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar/PENS.png" width="300" height="300"><br>
+</p>
+
+<p align="center">
+Nama Dosen Pengampu : <br> 
+Bapak Dr Ferry Astika Saputra ST, M.Sc <br>
+<br>
+Dikerjakan Oleh : <br>
+Nanda Ahmad Zidan&emsp;&emsp;&emsp;[3123600013]<br>
+</p>
+
+<p align="center">
+Tahun Pelajaran 2024/2025 <br>
+<strong>POLITEKNIK ELEKTRONIKA NEGERI SURABAYA</strong>
+</p>
+
+---
+<br>
+
+<h2 align="center">DAFTAR ISI</h2>
+<br>
+
+[DAFTAR ISI](#daftar-isi)<br>
+A. [TUJUAN PEMBELAJARAN](#a-tujuan-pembelajaran)<br>
+B. [PERTANYAAN](#b-pertanyaan)<br>
+C. [RANGKUMAN](#c-rangkuman)<br>
+[DAFTAR PUSTAKA](#daftar-pustaka)<br>
+
+<p align="center">i</p>
+
+---
+
+# A. TUJUAN PEMBELAJARAN
+1. Menjelaskan jenis-jenis protokol email yang umum digunakan, yaitu:
+   - SMTP (Simple Mail Transfer Protocol),
+   - POP3 (Post Office Protocol v3),
+   - IMAP (Internet Message Access Protocol),
+   - POP3S (POP3 Secure).
+2. Membandingkan fungsi, cara kerja, dan karakteristik tiap protokol dalam pengiriman dan pengambilan email.
+3. Mengidentifikasi cara kerja mail server dalam sebuah domain, termasuk:
+   - Fungsi dan cara kerja MX record dalam DNS,
+   - Proses pencarian server email menggunakan perintah nslookup atau dig.
+4. Menganalisis arsitektur sistem email berdasarkan diagram dari sumber GeeksforGeeks, khususnya peran:
+   - User Agent (UA),
+   - Mail Transfer Agent (MTA),
+   - Mail Box,
+   - Spool File.
+5. Menjelaskan alur pengiriman dan penerimaan email secara menyeluruh, dari sisi teknis dan logis, berdasarkan komponen dan protokol yang terlibat.
+
+---
+
+# B. PERTANYAAN
+1. Buatlah Rangkuman mengenai materi berikut :
+   - Penjelasan mengenai protokol mail (SMTP, POP3, IMAP dan POP3S)
+   - Cara mengetahui informasi mail server dalam sebuah domain
+   - Penjelasan mengenai gambar dari laman [materi alur pengiriman e-mail](https://www.geeksforgeeks.org/introduction-to-electronic-mail/)
+2. Kerjakan dalam bentuk md
+3. Kirim ke ethol dalam bentuk word berisi link githubnya
+
+---
+
+# C. RANGKUMAN
+## 1. Protokol Pengiriman E-mail
+| Protokol | Fungsi Utama | Port Default | Karakteristik |
+|----------|--------------|--------------|---------------|
+| SMTP (Simple Mail Transfer Protocol) | Mengirim email dari client ke server atau antar server | 25 (umum), 587 (secure), 465 (SSL) | Hanya untuk mengirim, bukan mengambil email. |
+| POP3 | (Post Office Protocol v3) | Mengambil email dari server dan menghapusnya dari server (default) | 110 | Setelah email diunduh, biasanya dihapus dari server (kecuali diatur tetap di server). Cocok untuk penggunaan offline. |
+| IMAP (Internet Message Access Protocol) | Mengambil dan menyinkronkan email tanpa menghapusnya dari server | 143 (non-secure), 993 (secure/IMAPS)	Bisa sinkron antar perangkat. Email tetap tersimpan di server. |
+| POP3S | POP3 dengan SSL/TLS (versi aman dari POP3) | 995 | Sama seperti POP3, tetapi lebih aman karena terenkripsi. |
+
+## 2. Cara Mencari Tahu Informasi Mail Server di Linux
+
+## 3. Penjelasan Alur Pengiriman E-mail
+![Simple Mail Transfer](https://media.geeksforgeeks.org/wp-content/uploads/20200731122504/Email1.png)
+
+---
+
+# DAFTAR PUSTAKA
+- ISC BIND9 Documentation
+Internet Systems Consortium. (n.d.). BIND 9 Administrator Reference Manual.
+Tersedia di: https://bind9.readthedocs.io/
+
+- Apache HTTP Server Documentation
+The Apache Software Foundation. (n.d.). Apache HTTP Server Version 2.4 Documentation.
+Tersedia di: https://httpd.apache.org/docs/2.4/
+
+- Let’s Encrypt and SSL/TLS Basics
+Electronic Frontier Foundation. (n.d.). Certbot and HTTPS encryption.
+Tersedia di: https://letsencrypt.org/
+
+- SSH Protocol Description
+OpenSSH Project. (n.d.). OpenSSH Manual Pages.
+Tersedia di: https://www.openssh.com/manual.html
+
+- DigitalOcean Tutorials
+DigitalOcean. (n.d.). How To Set Up and Configure DNS with BIND9 on Ubuntu, How To Use SSH, dan How To Install the Apache Web Server on Ubuntu.
+Tersedia di: https://www.digitalocean.com/community/tutorials
+
+- Red Hat and Ubuntu Server Guides
+Red Hat, Inc. dan Canonical Ltd. (n.d.). Server Administration Documentation.
+Tersedia di: https://access.redhat.com/documentation atau https://ubuntu.com/server/docs
