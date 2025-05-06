@@ -110,42 +110,34 @@ user@hostname:~$
 
 ## 3. Penjelasan Alur Pengiriman E-mail
 ![Simple Mail Transfer](https://media.geeksforgeeks.org/wp-content/uploads/20200731122504/Email1.png)
-1. User Agent (UA)
+1. User Agent (UA)<br>
 Bertugas sebagai antarmuka bagi pengguna untuk menulis, membaca, dan mengelola email.
 Contoh: aplikasi email seperti Outlook, Gmail, dll.
-2. Message Transfer Agent (MTA)
+2. Message Transfer Agent (MTA)<br>
 Komponen yang bertugas mengirim email dari satu komputer ke komputer lain.
 Menggunakan protokol seperti SMTP untuk mentransfer pesan.
 Dapat mengirimkan email antar MTA dalam proses pengiriman ke tujuan akhir.
-3. Mail Box
+3. Mail Box<br>
 Tempat penyimpanan email masuk untuk masing-masing pengguna. Email tetap di tempat ini sampai diambil oleh User Agent. Adapun Mail Box bisa diakses dengan protokol seperti POP3 atau IMAP (meskipun ini tidak dijelaskan detail di bagian ini).
-5. Spool File
+5. Spool File<br>
 Lokasi penyimpanan sementara untuk email yang menunggu untuk dikirim.
 Spoolfile digunakan oleh MTA ketika email tidak bisa langsung dikirim ke tujuan (misalnya karena server tujuan sedang tidak aktif).
 
 ---
 
 # DAFTAR PUSTAKA
-- ISC BIND9 Documentation
-Internet Systems Consortium. (n.d.). BIND 9 Administrator Reference Manual.
-Tersedia di: https://bind9.readthedocs.io/
+1. GeeksforGeeks. (2021). *Introduction to Electronic Mail*. Diakses dari [https://www.geeksforgeeks.org/introduction-to-electronic-mail/](https://www.geeksforgeeks.org/introduction-to-electronic-mail/) pada 6 Mei 2025.
 
-- Apache HTTP Server Documentation
-The Apache Software Foundation. (n.d.). Apache HTTP Server Version 2.4 Documentation.
-Tersedia di: https://httpd.apache.org/docs/2.4/
+2. Kurose, J. F., & Ross, K. W. (2021). *Computer Networking: A Top-Down Approach* (7th ed.). Pearson Education.
+   *(Referensi utama untuk penjelasan protokol email seperti SMTP, POP3, IMAP.)*
 
-- Let’s Encrypt and SSL/TLS Basics
-Electronic Frontier Foundation. (n.d.). Certbot and HTTPS encryption.
-Tersedia di: https://letsencrypt.org/
+3. Tanenbaum, A. S., & Wetherall, D. J. (2011). *Computer Networks* (5th ed.). Prentice Hall.
+   *(Digunakan untuk memahami arsitektur jaringan dan sistem pengiriman email.)*
 
-- SSH Protocol Description
-OpenSSH Project. (n.d.). OpenSSH Manual Pages.
-Tersedia di: https://www.openssh.com/manual.html
+4. Internet Engineering Task Force (IETF). (2008). *RFC 5321 - Simple Mail Transfer Protocol (SMTP)*. Diakses dari [https://tools.ietf.org/html/rfc5321](https://tools.ietf.org/html/rfc5321)
 
-- DigitalOcean Tutorials
-DigitalOcean. (n.d.). How To Set Up and Configure DNS with BIND9 on Ubuntu, How To Use SSH, dan How To Install the Apache Web Server on Ubuntu.
-Tersedia di: https://www.digitalocean.com/community/tutorials
+5. Hormel Foods Corporation. (n.d.). *Spam® Brand – A History*. Diakses dari [https://www.spam.com/about](https://www.spam.com/about)
 
-- Red Hat and Ubuntu Server Guides
-Red Hat, Inc. dan Canonical Ltd. (n.d.). Server Administration Documentation.
-Tersedia di: https://access.redhat.com/documentation atau https://ubuntu.com/server/docs
+6. BBC. (2007). *Monty Python sketch gave us spam*. Diakses dari [http://news.bbc.co.uk/2/hi/uk\_news/magazine/7090728.stm](http://news.bbc.co.uk/2/hi/uk_news/magazine/7090728.stm)
+
+---
