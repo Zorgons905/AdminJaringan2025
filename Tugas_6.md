@@ -62,7 +62,7 @@ D. [RANGKUMAN](#d-rangkuman)<br>
 
 ---
 # B. SEJARAH
-<p align="center"><ins>Sejarah Email dan Asal Usul Istilah Spam<ins></p>
+<p align="center"><strong>SEJARAH EMAIL & ASAL USUL ISTILAH SPAM<strong></p>
 
 Email (electronic mail) merupakan salah satu bentuk komunikasi digital paling awal yang masih digunakan secara luas hingga saat ini. Konsep awal email muncul pada tahun 1960-an di lingkungan komputer besar (mainframe), namun bentuk email modern baru lahir pada tahun 1971 ketika seorang insinyur bernama Ray Tomlinson mengembangkan sistem yang memungkinkan pengiriman pesan antar komputer melalui jaringan ARPANET, cikal bakal internet. Ray Tomlinson juga memperkenalkan penggunaan simbol "@" untuk memisahkan nama pengguna dan alamat komputer, konvensi yang hingga kini menjadi standar dalam penulisan alamat email. Seiring perkembangan teknologi, pada tahun 1980-an email mulai digunakan secara luas di kalangan akademisi dan militer, terutama dengan diperkenalkannya protokol SMTP (Simple Mail Transfer Protocol) sebagai standar pengiriman email. Memasuki tahun 1990-an, layanan email mulai diakses publik secara luas seiring dengan pertumbuhan internet dan munculnya layanan seperti Yahoo Mail dan Hotmail. Hingga kini, email telah menjadi sarana komunikasi penting dalam bidang profesional maupun pribadi.
 
