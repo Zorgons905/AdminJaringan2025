@@ -86,7 +86,7 @@ Protokol pengiriman email adalah cara untuk menjaga agar pengiriman email sampai
 | Protokol | Fungsi Utama | Port Default | Karakteristik |
 |----------|--------------|--------------|---------------|
 | SMTP (Simple Mail Transfer Protocol) | Mengirim email dari client ke server atau antar server | 25 (umum), 587 (secure), 465 (SSL) | Hanya untuk mengirim, bukan mengambil email. |
-| POP3 | (Post Office Protocol v3) | Mengambil email dari server dan menghapusnya dari server (default) | 110 | Setelah email diunduh, biasanya dihapus dari server (kecuali diatur tetap di server). Cocok untuk penggunaan offline. |
+| POP3 | (Post Office Protocol v3) | 110 | Mengambil email dari server dan menghapusnya dari server (default) | Setelah email diunduh, biasanya dihapus dari server (kecuali diatur tetap di server). Cocok untuk penggunaan offline. |
 | IMAP (Internet Message Access Protocol) | Mengambil dan menyinkronkan email tanpa menghapusnya dari server | 143 (non-secure), 993 (secure/IMAPS) | Bisa sinkron antar perangkat. Email tetap tersimpan di server. |
 | POP3S | POP3 dengan SSL/TLS (versi aman dari POP3) | 995 | Sama seperti POP3, tetapi lebih aman karena terenkripsi. |
 
