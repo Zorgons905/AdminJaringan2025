@@ -47,13 +47,35 @@ D. [RANGKUMAN](#d-rangkuman)<br>
 2. Mengubah data axon dari file drive menjadi file image dan meng-container-isasikannya
 3. Menghubungkan Power BI dengan Container docker yang dinyalakan
 
+
+
 ---
-# B. SEJARAH
-<p align="center"><strong>SEJARAH EMAIL & ASAL USUL ISTILAH SPAM<strong></p>
+# B. DASAR TEORI
+<p align="center"><strong>PENGENALAN SINGKAT DOCKER<strong></p>
 
-Email (electronic mail) merupakan salah satu bentuk komunikasi digital paling awal yang masih digunakan secara luas hingga saat ini. Konsep awal email muncul pada tahun 1960-an di lingkungan komputer besar (mainframe), namun bentuk email modern baru lahir pada tahun 1971 ketika seorang insinyur bernama Ray Tomlinson mengembangkan sistem yang memungkinkan pengiriman pesan antar komputer melalui jaringan ARPANET, cikal bakal internet. Ray Tomlinson juga memperkenalkan penggunaan simbol "@" untuk memisahkan nama pengguna dan alamat komputer, konvensi yang hingga kini menjadi standar dalam penulisan alamat email. Seiring perkembangan teknologi, pada tahun 1980-an email mulai digunakan secara luas di kalangan akademisi dan militer, terutama dengan diperkenalkannya protokol SMTP (Simple Mail Transfer Protocol) sebagai standar pengiriman email. Memasuki tahun 1990-an, layanan email mulai diakses publik secara luas seiring dengan pertumbuhan internet dan munculnya layanan seperti Yahoo Mail dan Hotmail. Hingga kini, email telah menjadi sarana komunikasi penting dalam bidang profesional maupun pribadi.
+Docker pertama kali dikembangkan oleh Solomon Hykes sebagai bagian dari proyek internal di perusahaan dotCloud (platform-as-a-service). Proyek ini diumumkan secara resmi pada Maret 2013 dalam konferensi Python di Amerika Serikat (PyCon).
 
-Sementara itu, istilah "spam" dalam konteks email memiliki asal-usul yang unik. Kata ini awalnya adalah nama produk daging kalengan asal Amerika, yaitu SPAM (Spiced Ham), yang diproduksi oleh perusahaan Hormel. Namun, penggunaannya dalam dunia teknologi terinspirasi dari sebuah sketsa komedi Monty Python pada tahun 1970, di mana tokoh-tokohnya terus-menerus menyebut kata "SPAM" dengan suara keras dan mengganggu dalam sebuah restoran. Adegan tersebut menggambarkan gangguan berulang yang tidak dapat dihindari, sehingga komunitas pengguna internet awal mulai menggunakan istilah "spam" untuk menyebut pesan digital yang bersifat mengganggu, berulang, dan tidak diinginkan. Dalam konteks email, spam merujuk pada email massal yang umumnya berisi iklan, penipuan, atau konten merugikan lainnya, dan hingga kini menjadi tantangan tersendiri dalam pengelolaan sistem email modern.
+Beberapa tonggak penting:
+2013: Docker dirilis sebagai open source. Awalnya menggunakan teknologi LXC (Linux Containers).
+2014: Docker menjadi perusahaan independen dan mulai menarik perhatian besar dari komunitas open source dan perusahaan besar.
+2015–2017: Docker menggantikan LXC dengan pustaka container-nya sendiri bernama libcontainer.
+2020: Docker Inc. memfokuskan diri pada alat pengembang (developer tools) dan menyerahkan Docker Enterprise ke Mirantis.
+
+<p align="center">Hubungan antara Image dan Container</p>
+Apa itu Docker Image?
+Image adalah template read-only (hanya-baca) yang berisi semua hal yang dibutuhkan untuk menjalankan sebuah aplikasi: kode program, runtime, library, variabel lingkungan, dan konfigurasi lainnya.
+Sederhananya: seperti file ISO dari sistem operasi.
+
+Apa itu Docker Container?
+Container adalah instance (salinan aktif) dari image yang sedang berjalan. Saat kamu menjalankan sebuah image, maka akan dibuat container.
+Container bersifat dapat ditulis (writable layer) di atas image yang read-only.
+
+Hubungan:
+1 image bisa digunakan untuk membuat banyak container.
+Container bisa berjalan, dimodifikasi, dihentikan, lalu dihapus — tapi image-nya tetap tidak berubah. Image itu masih tersimpan pada library. jadi bisa dipakai oleh container lain tak perlu mengunduh ulang
+
+Analogi sederhananya, bayangkan jika
+Image = File master installer aplikasi/game (misalnya installer Microsoft Word atau file ISO Ubuntu). Sedangkan Container = Aplikasi/game yang sedang kamu jalankan di komputermu.
 
 ---
 
@@ -61,82 +83,102 @@ Sementara itu, istilah "spam" dalam konteks email memiliki asal-usul yang unik. 
 Buat dan susun sistem BI untuk penjualan mobil dengan database server ( container) dan Power BI (desktop). 
 Data dan ppt dapat anad unduh di https://drive.google.com/drive/folders/10THmB2YZAILg9gXHg42UkIYqd6AKsiRc?usp=sharing
 
+
+
+
+
 ---
 
 # D. PERCOBAAN
 ## 1. Instalasi Sumber Daya yang Dibutuhkan
 Sebelum kita mulai alangkah lebih baiknya kita dengan mengunduh data dari [Link Admin Jaringan Tugas Axon](https://drive.google.com/drive/folders/10THmB2YZAILg9gXHg42UkIYqd6AKsiRc?usp=sharing). Kemudian tak lupa yang kita perlukan adalah mengunduh :
 - PowerBI (hanya untuk windows)
-  
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/0a.png)
 - MySQL Connector
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/0b.png)
 - Docker
-- File Axon ... sql yang ada dalam drive tercantum
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/2.png)
+- File Axon ... sql yang ada dalam drive tercantum (yang berisi kode membuat isian table bukan yang ta)
 
 
-| Protokol | Fungsi Utama | Port Default | Karakteristik |
-|----------|--------------|--------------|---------------|
-| SMTP (Simple Mail Transfer Protocol) | Mengirim email dari client ke server atau antar server | 25 (umum), 587 (secure), 465 (SSL) | Hanya untuk mengirim, bukan mengambil email. |
-| POP3 | (Post Office Protocol v3) | 110 | Mengambil email dari server dan menghapusnya dari server (default) | Setelah email diunduh, biasanya dihapus dari server (kecuali diatur tetap di server). Cocok untuk penggunaan offline. |
-| IMAP (Internet Message Access Protocol) | Mengambil dan menyinkronkan email tanpa menghapusnya dari server | 143 (non-secure), 993 (secure/IMAPS) | Bisa sinkron antar perangkat. Email tetap tersimpan di server. |
-| POP3S | POP3 dengan SSL/TLS (versi aman dari POP3) | 995 | Sama seperti POP3, tetapi lebih aman karena terenkripsi. |
+## 2. Mebuat Container dari File Image MySQL
+- Pertama kita harus membuat terlebih dahulu suatu folder yang nantinya akan kita beri isian file **dockerfile.yaml**
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/1.png)
+- Kedua kita buat file kosongan **dockerfile.yaml** dengan nano pada command line atau bisa juga dengan vs code atau notepad biasa dan nantinya diberi nama yang sama.
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/4.png)
+- Kita beri isian filenya seperti ini, safe dan keluar.
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/3.png)
+  Isi dari file tadi adalah perintah/format untuk membuat container pada port tertentu. yang mana bisa kita pecah dan jelaskan menjadi seperti ini :
+  - version : versi dari docker yang kita pakai
+  - services : jenis image yang kita simpan
+      - image : tipe / nama sistem yang ingin kita bungkus
+      - container_name : nama container yang kita mau
+      - restart : kondisi ketika container berjalan apakah selalu restart, bisa always no, dll.
+      - environment : berisi kumpulan data penting yang nantinya digunakan untuk mengakses image.
+      - volumes : berisi path dimana ia akan disimpan di dalam containernya
+      - ports : angka port yang dituju guna pengiriman dan penerimaan container
 
-## 2. Cara Mencari Tahu Informasi Mail Server di Linux
-Pada Linux terdapat perintah nslookup yang dapat digunakan untuk mengetahui mail server dari suatu domain website. Adapun kode yang diperlukan adalah :
-```bash
-user@hostname:~$ nslookup q=mx example.com
-```
-bisa juga dengan dig
-```bash
-user@hostname:~$ dig mx example.com
-```
+- Kemudian kita jalankan perintah ini untuk mengeksekusinya
+  ```bash
+  docker compose -f "docker-compose.yaml" up -d --build
+  ```
+  Gunanya untuk menjalankan dan membuat container yang siap untuk dijalankan tadi,
+  -f artinya filename
+  up artinya menyalakan
+  -d artinya service di background
+  --build gunanya untuk membuat container
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/5.png)
 
-yang nantinya akan mengeluarkan output berupa domain/ip dari mail server yang menerima mail untuk domain tadi.
-```bash
-example.com.  3600  IN  MX  10 mail.example.com.
-..
-user@hostname:~$ 
-```
+- Tak lupa kita cek isian dari list container yang ada, apakah sudah muncul
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/7.png)
 
-## 3. Penjelasan Alur Pengiriman E-mail
-![Simple Mail Transfer](https://media.geeksforgeeks.org/wp-content/uploads/20200731122504/Email1.png)
-Definisi :
-1. User Agent (UA)<br>
-Bertugas sebagai antarmuka bagi pengguna untuk menulis, membaca, dan mengelola email.
-Contoh: aplikasi email seperti Outlook, Gmail, dll.
-2. Message Transfer Agent (MTA)<br>
-Komponen yang bertugas mengirim email dari satu komputer ke komputer lain.
-Menggunakan protokol seperti SMTP untuk mentransfer pesan.
-Dapat mengirimkan email antar MTA dalam proses pengiriman ke tujuan akhir.
-3. Mail Box<br>
-Tempat penyimpanan email masuk untuk masing-masing pengguna. Email tetap di tempat ini sampai diambil oleh User Agent. Adapun Mail Box bisa diakses dengan protokol seperti POP3 atau IMAP (meskipun ini tidak dijelaskan detail di bagian ini).
-5. Spool File<br>
-Lokasi penyimpanan sementara untuk email yang menunggu untuk dikirim.
-Spoolfile digunakan oleh MTA ketika email tidak bisa langsung dikirim ke tujuan (misalnya karena server tujuan sedang tidak aktif).
+- Tak lupa kita ambil data dari hasil unduhan tadi dan kita salin (di sini saya mengambilnya dari folder download dan memindahkannya ke folder tempat saya melakukan command), baru kemudian kita gunakan docker copy untuk mencopy data itu ke container yang sudah kita buat.
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/6.png)
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/9.png)
 
-Alur pengiriman email & cara kerjanya :
-Dalam sistem email, proses pengiriman dan penerimaan pesan melibatkan beberapa komponen utama yang bekerja secara terstruktur. Pertama, pengguna membuat dan mengirim email melalui aplikasi yang disebut User Agent (UA). Aplikasi ini bertanggung jawab atas antarmuka pengguna dan membentuk struktur awal email seperti alamat pengirim, penerima, subjek, isi, dan lampiran. Setelah email dikirim, pesan tersebut diteruskan ke Message Transfer Agent (MTA), yaitu komponen yang bertugas memindahkan email dari satu server ke server lain menggunakan protokol SMTP (Simple Mail Transfer Protocol). MTA berfungsi dalam dua peran, yakni sebagai server saat menerima email dari MTA lain, dan sebagai klien saat mengirim email ke MTA penerima. Itulah mengapa MTA dianggap memiliki peran ganda, tergantung konteks komunikasinya. Ketika email belum bisa langsung dikirim karena gangguan atau antrean pengiriman, ia akan disimpan sementara di spool file, yang bekerja seperti buffer dalam bentuk penyimpanan disk.
+- Baru kita jalankan containernya
+    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/8.png)
+  -it artinya interactive terminal
+  -u artinya username
+  -p... (password yang dimasukkan kedalam file yaml) artinya password akan otomatis terinput
+    ketiganya akan dicek dan diberikan ke dalam terminal agar user sekali input saja tidak perlu mengetik lama tiap ada inputan
 
-Sebelum email benar-benar dikirim ke alamat tujuan, sistem akan melakukan proses pengecekan terhadap alias (disebut juga exp, singkatan dari expansion). Alias adalah nama pendek atau alamat email alternatif yang mewakili satu atau lebih alamat email yang sebenarnya. Sistem perlu mengecek alias ini terhadap sebuah database, biasanya berbasis file konfigurasi atau direktori email (seperti /etc/aliases, database LDAP, atau tabel di mail server), untuk mengetahui alamat tujuan sebenarnya dari pesan tersebut. Jika ditemukan bahwa alamat yang dituju adalah alias dari beberapa pengguna, MTA akan memperluas alias menjadi daftar alamat lengkap dan mengirim email ke seluruh alamat tersebut. Proses ini penting untuk memastikan bahwa email dikirim ke penerima yang benar meskipun alamat awalnya merupakan nama alias.
+- Lanjut kita amati isi dari mysql ini, perintahnya sama saja sewaktu mengakses query di cli atau gui nya. Yang berbeda mungkin kita wajib menambahkan ";" agar kode berjalan.
+  untuk melihat list database
+    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/10.png)
+- Tak lupa kita beri isian databasenya dengan menggunakan file yang tadi kita masukkan/salin ke container
+    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/11.png)
+- untuk melihat list tables gunakan perintah ini, use untuk masuk ke database dan show untuk menampilkan list.
+    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/12.png)
+- Inilah hasil akhirnya :
+    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/13.png)
+  
 
-Setelah MTA berhasil mengirimkan pesan ke server penerima, pesan disimpan di Mail Box penerima. Penerima kemudian mengambil email ini menggunakan aplikasi User Agent melalui protokol POP3 (Post Office Protocol v3) atau IMAP (Internet Message Access Protocol). POP3 umumnya digunakan untuk mengunduh dan menghapus email dari server, sedangkan IMAP memungkinkan pengguna mengakses email secara sinkron dari berbagai perangkat karena pesan tetap disimpan di server.
-
-Selama seluruh proses ini, beberapa protokol tambahan juga dapat terlibat. Misalnya, DNS (Domain Name System) digunakan untuk menemukan alamat IP dari mail server tujuan melalui pencarian catatan MX (Mail Exchange). Selain itu, SMTP-AUTH dapat digunakan agar MTA klien memverifikasi identitas sebelum mengirim email, serta protokol enkripsi seperti STARTTLS atau SMTPS (SMTP over SSL/TLS) untuk menjamin keamanan data selama transmisi. Pada intinya SMTP bekerja di layer internet dan MTA sedangkan POP3 bekerja di layer MTA dan UA.
+## 3. Menghubungkan Container MySQL ke PowerBI
+- Pertama kita buka powerBI dan buat design baru, pilih akses data dari sql
+- Masukkan server dan port number yang sudah dibuat di container tadi
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/15.png)
+- lanjut kita masukkan username & password
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/14.png)
+- Sejujurnya saya tidak bisa terhubung dengan MySQLnya entah karena device atau apa, setiap kali ingin terhubung selalu koneksinya terputus ataupun entah tidak berjalan. adapun setelah saya lihat connectornya juga 32 bit sedangkan power bi 64 bit.
+- Namun yang pasti hasilnya jikalau berhasil anda bisa membuat desain dengan data yang berasal dari database yang kita koneksikan. Semacam file pbix (format file power bi) ini, -> didapat dari google drive
+  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/16.png)
 
 ---
 
 # DAFTAR PUSTAKA
-1. GeeksforGeeks. (2021). *Introduction to Electronic Mail*. Diakses dari [https://www.geeksforgeeks.org/introduction-to-electronic-mail/](https://www.geeksforgeeks.org/introduction-to-electronic-mail/) pada 6 Mei 2025.
+1. Hykes, S. (2013). The Future of Linux Containers. PyCon US 2013.
+Video Presentasi
 
-2. Kurose, J. F., & Ross, K. W. (2021). *Computer Networking: A Top-Down Approach* (7th ed.). Pearson Education.
-   *(Referensi utama untuk penjelasan protokol email seperti SMTP, POP3, IMAP.)*
+2. Docker Inc. (2024). What is a Container?
+https://www.docker.com/resources/what-container/
 
-3. Tanenbaum, A. S., & Wetherall, D. J. (2011). *Computer Networks* (5th ed.). Prentice Hall.
-   *(Digunakan untuk memahami arsitektur jaringan dan sistem pengiriman email.)*
+3. Turnbull, J. (2014). The Docker Book: Containerization is the new virtualization. James Turnbull.
 
-4. Internet Engineering Task Force (IETF). (2008). *RFC 5321 - Simple Mail Transfer Protocol (SMTP)*. Diakses dari [https://tools.ietf.org/html/rfc5321](https://tools.ietf.org/html/rfc5321)
+4. IBM Cloud Docs (2023). Docker images and containers.
+https://cloud.ibm.com/docs/containers?topic=containers-docker
 
-5. Hormel Foods Corporation. (n.d.). *Spam® Brand – A History*. Diakses dari [https://www.spam.com/about](https://www.spam.com/about)
-
-6. BBC. (2007). *Monty Python sketch gave us spam*. Diakses dari [http://news.bbc.co.uk/2/hi/uk\_news/magazine/7090728.stm](http://news.bbc.co.uk/2/hi/uk_news/magazine/7090728.stm)
+5. Mirantis. (2020). Docker Enterprise acquisition by Mirantis.
+https://www.mirantis.com/company/press-center/mirantis-acquires-docker-enterprise-platform/
 
 ---
