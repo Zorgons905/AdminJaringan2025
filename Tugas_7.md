@@ -43,21 +43,9 @@ D. [RANGKUMAN](#d-rangkuman)<br>
 ---
 
 # A. TUJUAN PEMBELAJARAN
-1. Menjelaskan jenis-jenis protokol email yang umum digunakan, yaitu:
-   - SMTP (Simple Mail Transfer Protocol),
-   - POP3 (Post Office Protocol v3),
-   - IMAP (Internet Message Access Protocol),
-   - POP3S (POP3 Secure).
-2. Membandingkan fungsi, cara kerja, dan karakteristik tiap protokol dalam pengiriman dan pengambilan email.
-3. Mengidentifikasi cara kerja mail server dalam sebuah domain, termasuk:
-   - Fungsi dan cara kerja MX record dalam DNS,
-   - Proses pencarian server email menggunakan perintah nslookup atau dig.
-4. Menganalisis arsitektur sistem email berdasarkan diagram dari sumber GeeksforGeeks, khususnya peran:
-   - User Agent (UA),
-   - Mail Transfer Agent (MTA),
-   - Mail Box,
-   - Spool File.
-5. Menjelaskan alur pengiriman dan penerimaan email secara menyeluruh, dari sisi teknis dan logis, berdasarkan komponen dan protokol yang terlibat.
+1. Menjelaskan cara kerja docker
+2. Mengubah data axon dari file drive menjadi file image dan meng-container-isasikannya
+3. Menghubungkan Power BI dengan Container docker yang dinyalakan
 
 ---
 # B. SEJARAH
@@ -69,19 +57,21 @@ Sementara itu, istilah "spam" dalam konteks email memiliki asal-usul yang unik. 
 
 ---
 
-# C. PERTANYAAN
-1. Buatlah Rangkuman mengenai materi berikut :
-   - Penjelasan mengenai protokol mail (SMTP, POP3, IMAP dan POP3S)
-   - Cara mengetahui informasi mail server dalam sebuah domain
-   - Penjelasan mengenai gambar dari laman [materi alur pengiriman e-mail](https://www.geeksforgeeks.org/introduction-to-electronic-mail/)
-2. Kerjakan dalam bentuk md
-3. Kirim ke ethol dalam bentuk word berisi link githubnya
+# C. PERINTAH
+Buat dan susun sistem BI untuk penjualan mobil dengan database server ( container) dan Power BI (desktop). 
+Data dan ppt dapat anad unduh di https://drive.google.com/drive/folders/10THmB2YZAILg9gXHg42UkIYqd6AKsiRc?usp=sharing
 
 ---
 
-# D. RANGKUMAN
-## 1. Protokol Pengiriman Email
-Protokol pengiriman email adalah cara untuk menjaga agar pengiriman email sampai kepada penerima dengan selamat dan tidak kurang suatu apapun. Adapun protokol email itu adalah sebagai berikut :
+# D. PERCOBAAN
+## 1. Instalasi Sumber Daya yang Dibutuhkan
+Sebelum kita mulai alangkah lebih baiknya kita dengan mengunduh data dari [Link Admin Jaringan Tugas Axon](https://drive.google.com/drive/folders/10THmB2YZAILg9gXHg42UkIYqd6AKsiRc?usp=sharing). Kemudian tak lupa yang kita perlukan adalah mengunduh :
+- PowerBI (hanya untuk windows)
+  
+- MySQL Connector
+- Docker
+- File Axon ... sql yang ada dalam drive tercantum
+
 
 | Protokol | Fungsi Utama | Port Default | Karakteristik |
 |----------|--------------|--------------|---------------|
