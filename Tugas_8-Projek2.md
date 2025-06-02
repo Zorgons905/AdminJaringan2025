@@ -51,6 +51,7 @@ D. [RANGKUMAN](#d-rangkuman)<br>
 
 
 ---
+
 # B. DASAR TEORI
 <p align="center"><strong>PENGENALAN SINGKAT DOCKER<strong></p>
 
@@ -63,6 +64,7 @@ Beberapa tonggak penting:
 2020: Docker Inc. memfokuskan diri pada alat pengembang (developer tools) dan menyerahkan Docker Enterprise ke Mirantis.
 
 <p align="center">Hubungan antara Image dan Container</p>
+
 Apa itu Docker Image?
 Image adalah template read-only (hanya-baca) yang berisi semua hal yang dibutuhkan untuk menjalankan sebuah aplikasi: kode program, runtime, library, variabel lingkungan, dan konfigurasi lainnya.
 Sederhananya: seperti file ISO dari sistem operasi.
