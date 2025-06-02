@@ -59,6 +59,7 @@ PENGENALAN SINGKAT DOCKER
 Docker pertama kali dikembangkan oleh Solomon Hykes sebagai bagian dari proyek internal di perusahaan dotCloud (platform-as-a-service). Proyek ini diumumkan secara resmi pada Maret 2013 dalam konferensi Python di Amerika Serikat (PyCon).
 
 Beberapa tonggak penting:
+
 2013: Docker dirilis sebagai open source. Awalnya menggunakan teknologi LXC (Linux Containers).
 2014: Docker menjadi perusahaan independen dan mulai menarik perhatian besar dari komunitas open source dan perusahaan besar.
 2015–2017: Docker menggantikan LXC dengan pustaka container-nya sendiri bernama libcontainer.
@@ -67,18 +68,22 @@ Beberapa tonggak penting:
 Hubungan antara Image dan Container
 
 Apa itu Docker Image?
+
 Image adalah template read-only (hanya-baca) yang berisi semua hal yang dibutuhkan untuk menjalankan sebuah aplikasi: kode program, runtime, library, variabel lingkungan, dan konfigurasi lainnya.
 Sederhananya: seperti file ISO dari sistem operasi.
 
 Apa itu Docker Container?
+
 Container adalah instance (salinan aktif) dari image yang sedang berjalan. Saat kamu menjalankan sebuah image, maka akan dibuat container.
 Container bersifat dapat ditulis (writable layer) di atas image yang read-only.
 
 Hubungan:
+
 1 image bisa digunakan untuk membuat banyak container.
 Container bisa berjalan, dimodifikasi, dihentikan, lalu dihapus — tapi image-nya tetap tidak berubah. Image itu masih tersimpan pada library. jadi bisa dipakai oleh container lain tak perlu mengunduh ulang
 
 Analogi sederhananya, bayangkan jika
+
 Image = File master installer aplikasi/game (misalnya installer Microsoft Word atau file ISO Ubuntu). Sedangkan Container = Aplikasi/game yang sedang kamu jalankan di komputermu.
 
 ---
