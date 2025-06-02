@@ -3,10 +3,10 @@
 ---
 
 <p align="right">
-    SURABAYA <br> 06 MEI 2025
+    SURABAYA <br> 02 JUNI 2025
 </p><br>
 <h1 align="center"><ins>LAPORAN PRAKTIKUM</ins></h1>
-<h3 align="center"><em>"Projek 1"</em></h3>
+<h3 align="center"><em>"Projek 2"</em></h3>
 <h3 align="center">Mata Kuliah Workshop Administrasi Jaringan</h3>
 
 <p align="center">
