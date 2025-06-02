@@ -53,7 +53,7 @@ D. [RANGKUMAN](#d-rangkuman)<br>
 ---
 
 # B. DASAR TEORI
-<p align="center"><strong>PENGENALAN SINGKAT DOCKER<strong></p>
+<p align="center"><strong>PENGENALAN SINGKAT DOCKER<strong></p><br>
 
 Docker pertama kali dikembangkan oleh Solomon Hykes sebagai bagian dari proyek internal di perusahaan dotCloud (platform-as-a-service). Proyek ini diumumkan secara resmi pada Maret 2013 dalam konferensi Python di Amerika Serikat (PyCon).
 
@@ -63,7 +63,7 @@ Beberapa tonggak penting:
 2015–2017: Docker menggantikan LXC dengan pustaka container-nya sendiri bernama libcontainer.
 2020: Docker Inc. memfokuskan diri pada alat pengembang (developer tools) dan menyerahkan Docker Enterprise ke Mirantis.
 
-<p align="center">Hubungan antara Image dan Container</p>
+<p align="center">Hubungan antara Image dan Container</p><br>
 
 Apa itu Docker Image?
 Image adalah template read-only (hanya-baca) yang berisi semua hal yang dibutuhkan untuk menjalankan sebuah aplikasi: kode program, runtime, library, variabel lingkungan, dan konfigurasi lainnya.
