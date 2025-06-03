@@ -89,8 +89,7 @@ Image = File master installer aplikasi/game (misalnya installer Microsoft Word a
 ---
 
 # C. PERINTAH
-Buat dan susun sistem BI untuk penjualan mobil dengan database server ( container) dan Power BI (desktop). 
-Data dan ppt dapat anad unduh di https://drive.google.com/drive/folders/10THmB2YZAILg9gXHg42UkIYqd6AKsiRc?usp=sharing
+Dengan menggunakan proyek yang anada ambil dalam matkul RPL, buatlah uraian lengkap tentang progress anda mulai dari arsitektur bisnis, arsitektur ilayanan, arsitektur aplikasi dan arsitektur infrastruktur . Fokur ke arsitektur aplikasi dan infrastruktur pakailah teknologi docker dalam proses deploymentnya
 
 
 
@@ -99,79 +98,88 @@ Data dan ppt dapat anad unduh di https://drive.google.com/drive/folders/10THmB2Y
 ---
 
 # D. PERCOBAAN
-## 1. Instalasi Sumber Daya yang Dibutuhkan
-Sebelum kita mulai alangkah lebih baiknya kita dengan mengunduh data dari [Link Admin Jaringan Tugas Axon](https://drive.google.com/drive/folders/10THmB2YZAILg9gXHg42UkIYqd6AKsiRc?usp=sharing). Kemudian tak lupa yang kita perlukan adalah mengunduh :
-- PowerBI (hanya untuk windows)
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/0a.png)
-- MySQL Connector
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/0b.png)
-- Docker
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/2.png)
-- File Axon ... sql yang ada dalam drive tercantum (yang berisi kode membuat isian table bukan yang ta)
+# 📘 Laporan Proyek RPL: Readaily
 
+## 1. Identitas Proyek
 
-## 2. Mebuat Container dari File Image MySQL
-- Pertama kita harus membuat terlebih dahulu suatu folder yang nantinya akan kita beri isian file **dockerfile.yaml**
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/1.png)
-- Kedua kita buat file kosongan **dockerfile.yaml** dengan nano pada command line atau bisa juga dengan vs code atau notepad biasa dan nantinya diberi nama yang sama.
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/4.png)
-- Kita beri isian filenya seperti ini, safe dan keluar.
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/3.png)
-  Isi dari file tadi adalah perintah/format untuk membuat container pada port tertentu. yang mana bisa kita pecah dan jelaskan menjadi seperti ini :
-  - version : versi dari docker yang kita pakai
-  - services : jenis image yang kita simpan
-      - image : tipe / nama sistem yang ingin kita bungkus
-      - container_name : nama container yang kita mau
-      - restart : kondisi ketika container berjalan apakah selalu restart, bisa always no, dll.
-      - environment : berisi kumpulan data penting yang nantinya digunakan untuk mengakses image.
-      - volumes : berisi path dimana ia akan disimpan di dalam containernya
-      - ports : angka port yang dituju guna pengiriman dan penerimaan container
+- **Nama Aplikasi**: Readaily  
+- **Jenis Aplikasi**: Manajemen Bacaan & Pembelajaran Digital  
+- **Platform**: Mobile App (Android & iOS) menggunakan Flutter  
+- **Backend**: Supabase (PostgreSQL, Auth, Storage, API)  
+- **Deployment**: Docker (opsional untuk Flutter Web)
 
-- Kemudian kita jalankan perintah ini untuk mengeksekusinya
-  ```bash
-  docker compose -f "docker-compose.yaml" up -d --build
-  ```
-  Gunanya untuk menjalankan dan membuat container yang siap untuk dijalankan tadi,
-  -f artinya filename
-  up artinya menyalakan
-  -d artinya service di background
-  --build gunanya untuk membuat container
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/5.png)
+---
 
-- Tak lupa kita cek isian dari list container yang ada, apakah sudah muncul
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/7.png)
+## 2. Arsitektur Bisnis
 
-- Tak lupa kita ambil data dari hasil unduhan tadi dan kita salin (di sini saya mengambilnya dari folder download dan memindahkannya ke folder tempat saya melakukan command), baru kemudian kita gunakan docker copy untuk mencopy data itu ke container yang sudah kita buat.
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/6.png)
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/9.png)
+### 2.1 Tujuan
 
-- Baru kita jalankan containernya
-    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/8.png)
-  -it artinya interactive terminal
-  -u artinya username
-  -p... (password yang dimasukkan kedalam file yaml) artinya password akan otomatis terinput
-    ketiganya akan dicek dan diberikan ke dalam terminal agar user sekali input saja tidak perlu mengetik lama tiap ada inputan
+Readaily bertujuan membantu siswa dan dosen dalam mengelola aktivitas belajar secara digital. Aplikasi menyediakan fitur seperti:
 
-- Lanjut kita amati isi dari mysql ini, perintahnya sama saja sewaktu mengakses query di cli atau gui nya. Yang berbeda mungkin kita wajib menambahkan ";" agar kode berjalan.
-  untuk melihat list database
-    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/10.png)
-- Tak lupa kita beri isian databasenya dengan menggunakan file yang tadi kita masukkan/salin ke container
-    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/11.png)
-- untuk melihat list tables gunakan perintah ini, use untuk masuk ke database dan show untuk menampilkan list.
-    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/12.png)
-- Inilah hasil akhirnya :
-    ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/13.png)
-  
+- Manajemen kelas
+- Distribusi modul
+- Kuis interaktif
+- Pelacakan progres baca siswa
+- Penilaian hasil kuis
 
-## 3. Menghubungkan Container MySQL ke PowerBI
-- Pertama kita buka powerBI dan buat design baru, pilih akses data dari sql
-- Masukkan server dan port number yang sudah dibuat di container tadi
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/15.png)
-- lanjut kita masukkan username & password
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/14.png)
-- Sejujurnya saya tidak bisa terhubung dengan MySQLnya entah karena device atau apa, setiap kali ingin terhubung selalu koneksinya terputus ataupun entah tidak berjalan. adapun setelah saya lihat connectornya juga 32 bit sedangkan power bi 64 bit.
-- Namun yang pasti hasilnya jikalau berhasil anda bisa membuat desain dengan data yang berasal dari database yang kita koneksikan. Semacam file pbix (format file power bi) ini, -> didapat dari google drive
-  ![](https://github.com/Zorgons905/AdminJaringan2025/blob/main/Gambar6/16.png)
+### 2.2 Aktor
+
+| Aktor     | Peran                                                             |
+|-----------|-------------------------------------------------------------------|
+| Siswa     | Bergabung ke kelas, membaca modul, mengerjakan kuis              |
+| Dosen     | Membuat kelas, mengunggah modul, membuat kuis, memantau siswa     |
+| Admin     | Mengelola data pengguna dan memantau aktivitas keseluruhan       |
+
+### 2.3 Alur Bisnis
+
+1. Dosen membuat kelas dengan kode unik
+2. Siswa bergabung ke kelas menggunakan kode
+3. Dosen mengunggah modul dan kuis
+4. Siswa membaca modul, progres dicatat otomatis
+5. Siswa mengerjakan kuis, hasil direkam
+6. Dosen melihat progres dan nilai siswa
+
+---
+
+## 3. Arsitektur Layanan
+
+### 3.1 Backend: Supabase
+
+#### Layanan Supabase yang digunakan:
+- **Auth**: Pendaftaran & login user
+- **Database**: PostgreSQL untuk seluruh data
+- **Storage**: Menyimpan file modul
+- **Edge Functions (opsional)**: Untuk logika backend khusus
+
+### 3.2 Struktur Tabel Supabase
+
+| Tabel                     | Kolom Utama                                                                 |
+|---------------------------|------------------------------------------------------------------------------|
+| `auth.users`              | disediakan oleh Supabase (id, email, dsb.)                                  |
+| `profiles`                | id, role, name, bio, created_at                                             |
+| `classroom`               | id, name, code, lecturer_id, created_at                                     |
+| `student_class`           | id, classroom_id, student_id, created_at                                    |
+| `module`                  | id, classroom_id, title, file_url, file_type, uploaded_at                   |
+| `student_module_progress`| id, student_id, module_id, progress_percent, last_read_at (timestamp)        |
+| `quiz`                    | id, classroom_id, title, created_at, is_randomize_question, is_randomize_answer |
+| `question`                | id, quiz_id, content, order_number                                          |
+| `answer`                  | id, question_id, content, is_correct                                        |
+| `student_quiz_result`     | id, student_id, quiz_id, score, submitted_at                                |
+
+---
+
+### 3.3 Fungsi Generator Kode Kelas
+
+#### 🛠 Contoh Kode di Flutter (Dart)
+```dart
+import 'dart:math';
+
+String generateClassCode({int length = 8}) {
+  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+  final rand = Random.secure();
+  return List.generate(length, (_) => chars[rand.nextInt(chars.length)]).join();
+}
+```
 
 ---
 
